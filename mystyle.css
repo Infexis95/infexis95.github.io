@@ -1,4 +1,4 @@
-.center {
+.center{
     margin: auto;
     width: 60%;
     border: 3px solid red ;
@@ -8,7 +8,7 @@
 .test{
     text-align: center;
     color:black;
-    font-size: 30px;
+    font-size: 50px;
     font-style: italic;
     background-color: darkgoldenrod;
 }
@@ -24,5 +24,11 @@ h1{
 p{
     color:aquamarine;
     text-align: center;
-    font-size: 10px;
+    font-size: 25px;
+}
+
+.paragraph1{
+    color:blueviolet;
+    font-style: oblique;
+    font-size: 25px;
 }
