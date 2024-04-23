@@ -5,12 +5,18 @@
     padding: 10px;
   }
 
+.test{
+    margin: auto;
+}
+
 body{
     background-color: #2F4F4F
 }
+
 h1{
     color:red
 }
+
 p{
     color:aquamarine
 }
