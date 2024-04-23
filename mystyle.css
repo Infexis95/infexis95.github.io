@@ -1,4 +1,5 @@
 .title-box{
+    display: flex;
     margin: 0;
     background-color: darkgoldenrod; 
     width: 100%;
