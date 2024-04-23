@@ -24,7 +24,7 @@
 
 /* Class for <a> tags. Makes sure links clickable area stays within the button, and also removes the link underline which may extend beyond the button. */
 .button-link{
-    margin: 0;
+    margin: -1;
     padding: 0;
     display: inline-block;
     text-decoration: none;
