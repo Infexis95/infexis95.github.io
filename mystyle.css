@@ -1,3 +1,9 @@
+.title-box{
+    margin: auto;
+    background-color: darkgoldenrod; 
+    width: 100%;
+}
+
 .center{
     margin: auto;
     width: 60%;
@@ -5,36 +11,26 @@
     padding: 10px 25px 10px 25px;
   }
 
-.test{
+/* .test{
     text-align: center;
     color:black;
     font-size: 50px;
     font-style: italic;
-}
-
-.title-box{
-    margin: auto;
-    background-color: darkgoldenrod; 
-    width: 100%;
-}
-
+} */
 
 body{
-    background-color: #2F4F4F
+    background-color: white;
 }
 
-h1{
-    color:red;
-}
+
 
 p{
-    color:aquamarine;
+    color:white;
     text-align: center;
     font-size: 25px;
 }
 
 .paragraph1{
     color:blueviolet;
-    font-style: oblique;
     font-size: 25px;
 }
