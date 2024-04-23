@@ -10,8 +10,14 @@
     color:black;
     font-size: 50px;
     font-style: italic;
-    background-color: darkgoldenrod;
 }
+
+.title-box{
+    margin: auto;
+    background-color: darkgoldenrod; 
+    width: 100%;
+}
+
 
 body{
     background-color: #2F4F4F
