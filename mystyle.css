@@ -19,6 +19,11 @@
     font-style: italic;
 } */
 
+.homepage-button-image{
+    height: 50;
+    width: 50;
+}
+
 body{
     background-color: #3e3e42;
     margin: 0;
