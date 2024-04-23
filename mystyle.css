@@ -2,6 +2,7 @@
     margin: 0;
     background-color: darkgoldenrod; 
     width: 100%;
+    padding: 10px 25px 10px 25px;
 }
 
 .center{
@@ -19,7 +20,7 @@
 } */
 
 body{
-    background-color: white;
+    background-color: #3e3e42;
 }
 
 
