@@ -26,12 +26,12 @@
 .button-link{
     margin: -1;
     padding: 0;
-    display: block;
+    display: inline-block;
+    width: 80%;
     text-decoration: none;
 }
 
 .hompage-button{
-    display: inline-block;
     margin: 10px;
     cursor: pointer;
 }
