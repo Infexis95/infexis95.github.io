@@ -8,6 +8,23 @@
          This makes it easier to make new pages for your site. -->
     <link href="landingpagestyle.css" rel="stylesheet" type="text/css" media="all">
   </head>
+  <style> 
+    div {
+      src='images/landingpage-cantaloupehope-nobg.png';
+      background-color: red;
+      position: relative;
+      animation-name: shuttle-animation;
+      animation-duration: 4s;
+    }
+    
+    @keyframes shuttle-animation {
+      0%   {left:0px; top:0px;}
+      25%  {left:200px; top:0px;}
+      50%  {left:200px; top:200px;}
+      75%  {left:0px; top:200px;}
+      100% {left:0px; top:0px;}
+    }
+    </style>
 
     <body>
         <div id="container">
