@@ -48,6 +48,10 @@
     margin: 15px;
     cursor: pointer;
 }
+.box-element{
+    background-color: white;
+    margin:15px;
+}
 
 /* Commented out in case we need a dedicated class for the homepage button */
 /* .navbar-button-link{
@@ -84,7 +88,7 @@ h{
 }
 
 h1{
-    color:#009595;
+    color-scheme:#009595;
     text-align: center;
     font-size: 30px;
     font:bold;
