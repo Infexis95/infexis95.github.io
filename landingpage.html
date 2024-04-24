@@ -1,44 +1,41 @@
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landingpage: Hope</title>
-    <!-- The style.css file allows you to change the look of your web pages.
-         If you include the next line in all your web pages, they will all share the same look.
-         This makes it easier to make new pages for your site. -->
     <link href="landingpagestyle.css" rel="stylesheet" type="text/css" media="all">
-  </head>
-  
-  <style> 
-    div {
-      src:'images/landingpage-cantaloupehope-nobg.png';
-      background-color: transparent;
-      position: relative;
-      animation-name: shuttle-animation;
-      animation-duration: 4s;
-    }
-    
-    @keyframes shuttle-animation {
-      0% {
-        top: 150px;
-      }
-      100%{
-        top: 0px;
-      }
-    }
-    </style>
+</head>
 
-    <body>
-        <div id="container">
+<style>
+    div#header {
+        position: relative;
+        margin-top: 200px;
+        animation: fadeOutText 4s forwards; /* Animation for fading out the text */
+    }
+
+    @keyframes shuttle-animation {
+        0% { top: 150px; }
+        100% { top: 0px; }
+    }
+
+    @keyframes fadeOutText {
+        0% { opacity: 1; }
+        100% { opacity: 0; }
+    }
+</style>
+
+<body>
+    <div id="container">
         <div id="headerArea">
-            <div id="header" style="margin-top: 200px">
-            <h1 style="font-weight: 2.0; background-color: transparent;"> Ready for take off?</h1>
+            <div id="header">
+                <h1 style="font-weight: bold; background-color: transparent;">Ready for take off?</h1>
             </div>
         </div>
         
         <main>
-          <img src='images/landingpage-cantaloupehope-nobg.png'>
+            <img src='images/landingpage-cantaloupehope-nobg.png' style="position: relative; animation-name: shuttle-animation; animation-duration: 4s;">
             <a href='https://infexis95.github.io/sub/cantaloupeHope.html'><h1>:3</h1></a> 
         </main>
-        </div>
-    </body>
+    </div>
+</body>
+</html>
