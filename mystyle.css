@@ -22,24 +22,20 @@
 } */
 
 
-/* Class for <a> tags. Makes sure links clickable area stays within the button, and also removes the link underline which may extend beyond the button. */
-.button-link{
-    margin: 0;
-    padding: 0;
+.hompage-navbar-button-link{
     display: inline-block;
-    text-decoration: none;
-}
-
-.hompage-button{
-    display: inline-block;
+    background-color: cornflowerblue;
     padding: 10px 15px;
+    text-align: center;
     margin: 30px;
     cursor: pointer;
 }
 
-.navbar-button{
+.navbar-button-link{
     display: inline-block;
+    background-color: cornflowerblue;
     padding: 10px 15px;
+    text-align: center;
     margin: 30px;
     cursor: pointer;
 }
