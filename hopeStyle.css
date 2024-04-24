@@ -6,6 +6,14 @@
     height: 55px;
     align-items: center;
 }
+.homepage-button-image{
+    display:flex;
+    justify-content: center;
+    height: 50px;
+    width: 50px;
+    padding-left: 25px;
+    padding-right: 25px;
+}
 .homepage-navbar-button-link, .navbar-button-link{
     display:flex;
     background-color:cadetblue;
