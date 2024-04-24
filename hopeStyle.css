@@ -45,10 +45,17 @@
     cursor: pointer;
     width: 100px;
 }
-body{
-    background-color: pink;
-    
+
+.box1{
+    box-sizing: border-box;
+    padding: 10px;
+    background-color: white;
+    border-style: dotted;
+    border-width: 0.5px;
+    border-color: silver;
+    text-align: center;
 }
+
 
 body {
     margin: auto;
