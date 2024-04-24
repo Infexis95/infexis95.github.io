@@ -22,11 +22,13 @@
 } */
 
 
-.hompage-navbar-button-link{
+.homepage-navbar-button-link{
     display: inline-block;
     background-color: cornflowerblue;
     padding: 10px 15px;
+    text-decoration: none;
     text-align: center;
+    color: black;
     margin: 30px;
     cursor: pointer;
 }
@@ -35,7 +37,9 @@
     display: inline-block;
     background-color: cornflowerblue;
     padding: 10px 15px;
+    text-decoration: none;
     text-align: center;
+    color: black;
     margin: 30px;
     cursor: pointer;
 }
