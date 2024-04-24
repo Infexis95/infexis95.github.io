@@ -26,7 +26,7 @@
     display: inline-block;
     background-color:cadetblue;
     height: 100%;
-    padding: 10px 15px;
+    padding-right: 25px;
     text-decoration: none;
     text-align: center;
     color: black;
@@ -38,13 +38,13 @@
 .homepage-navbar-button-link:hover, .navbar-button-link:hover{
     display: inline-block;
     background-color:darkturquoise;
-    padding: 10px 15px;
+    height: 100%;
+    padding-right:25px;
     text-decoration: none;
     text-align: center;
     color: black;
     font: "Lucida Console";
     font-weight: bold;
-    border-radius: 10px;
     margin: 15px;
     cursor: pointer;
 }
