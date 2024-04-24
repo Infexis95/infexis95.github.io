@@ -50,7 +50,10 @@
 }
 .box-element{
     background-color: white;
-    margin: 150px;
+    margin: 325px;
+    border-radius: 25px;
+    text-decoration: none;
+    text-size-adjust: 0px;
 }
 
 /* Commented out in case we need a dedicated class for the homepage button */
