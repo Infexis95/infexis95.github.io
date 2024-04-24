@@ -33,6 +33,7 @@
     font: "Lucida Console";
     font-weight: bold;
     cursor: pointer;
+    width: 60px;
 }
 .homepage-navbar-button-link:hover, .navbar-button-link:hover{
     display: inline-block;
@@ -45,6 +46,7 @@
     font: "Lucida Console";
     font-weight: bold;
     cursor: pointer;
+    width: 60px;
 }
 .box-element{
     background-color: white;
@@ -72,6 +74,7 @@
     height: 50px;
     width: 50px;
     padding-left: 25px;
+    padding-right: 25px;
 }
 
 body{
