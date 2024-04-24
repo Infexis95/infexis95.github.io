@@ -23,32 +23,35 @@
 
 
 .homepage-navbar-button-link, .navbar-button-link{
-    display: inline-block;
+    display:flex;
     background-color:cadetblue;
+    flex-shrink: 0;
+    flex-grow: 1;
     height: 100%;
-    padding-right: 25px;
     text-decoration: none;
     text-align: center;
     justify-content: center;
+    align-items: center;
     color: black;
-    font: "Lucida Console";
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     cursor: pointer;
-    width: 70px;
+    width: 100px;
 }
 .homepage-navbar-button-link:hover, .navbar-button-link:hover{
-    display: inline-block;
+    display: flex;
     background-color:darkturquoise;
+    flex-shrink: 0;
+    flex-grow: 1;
     height: 100%;
-    padding-right:25px;
     text-decoration: none;
     text-align: center;
-    justify-content: center;
+    align-items: center;
     color: black;
-    font: "Lucida Console";
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     cursor: pointer;
-    width: 70px;
+    width: 100px;
 }
 .box-element{
     background-color: white;
@@ -73,10 +76,23 @@
 } */
 
 .homepage-button-image{
+    display:flex;
+    justify-content: center;
     height: 50px;
     width: 50px;
     padding-left: 25px;
     padding-right: 25px;
+}
+
+.homepage-button-image:hover{
+    display:flex;
+    justify-content: center;
+    height: 100%;
+    width: 50px;
+    padding-left: 25px;
+    padding-right: 25px;
+    background-color:rgb(13, 142, 145)
+
 }
 
 body{

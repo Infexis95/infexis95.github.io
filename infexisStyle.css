@@ -1,0 +1,13 @@
+.first_class{
+    display: flex;
+    font: "Arial Bold";
+    font-size: 64px;
+    color: coral;
+    height:100px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    top: 100%;
+    margin-top: 0;
+
+}
