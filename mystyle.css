@@ -84,7 +84,13 @@ p{
     font-size: 25px;
 }
 
-.paragraph1{
+.paragraph1-homepage{
     color:blueviolet;
     font-size: 25px;
+}
+.paragraph1-page2{
+    color:silver;
+    font-size: 25px;
+    font:"Lucida Console";
+    text-align: center;
 }
