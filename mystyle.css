@@ -90,7 +90,9 @@ p{
 }
 .paragraph1-page2{
     color:darkkhaki;
-    font-size: 10px;
+    font-size: 13px;
     font:"Lucida Console";
     text-align: center;
+    padding-left: 13%;
+    padding-right: 13%;
 }
