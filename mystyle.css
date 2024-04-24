@@ -24,7 +24,7 @@
 
 .homepage-navbar-button-link, .navbar-button-link{
     display: inline-block;
-    background-color: #009595;
+    background-color: #007777;
     padding: 10px 15px;
     text-decoration: none;
     text-align: center;
@@ -37,7 +37,7 @@
 }
 .homepage-navbar-button-link:hover, .navbar-button-link:hover{
     display: inline-block;
-    background-color: #009595;
+    background-color: #007777;
     padding: 10px 15px;
     text-decoration: none;
     text-align: center;
