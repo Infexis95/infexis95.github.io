@@ -78,11 +78,14 @@
 }
 
 .clock {
-    background-color: rgb(59, 59, 59);
+    display: flex;
+    background-color: rgb(70, 70, 70);
     font-size:xx-large;
     font-weight: bold;
+    align-items: center;
     padding: 0px 10px 0px 10px;
     color: rgb(146, 146, 146);
+    height: 100%;
 
 }
 
