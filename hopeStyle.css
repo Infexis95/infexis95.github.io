@@ -52,7 +52,7 @@
     background-color: transparent;
     border-style: dotted;
     border-width: 0.5px;
-    text-align: center;
+    border-color: transparent;
     width: 120;
     max-width: 800px;
 }
