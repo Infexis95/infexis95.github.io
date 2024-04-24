@@ -29,6 +29,7 @@
     text-decoration: none;
     text-align: center;
     color: black;
+    font: "Lucida Console";
     margin: 30px;
     cursor: pointer;
 }
@@ -39,6 +40,7 @@
     padding: 10px 15px;
     text-decoration: none;
     text-align: center;
+    font: "Lucida Console";
     color: black;
     margin: 30px;
     cursor: pointer;
