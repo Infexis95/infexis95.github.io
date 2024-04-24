@@ -32,7 +32,6 @@
     color: black;
     font: "Lucida Console";
     font-weight: bold;
-    margin: 15px;
     cursor: pointer;
 }
 .homepage-navbar-button-link:hover, .navbar-button-link:hover{
@@ -45,7 +44,6 @@
     color: black;
     font: "Lucida Console";
     font-weight: bold;
-    margin: 15px;
     cursor: pointer;
 }
 .box-element{
