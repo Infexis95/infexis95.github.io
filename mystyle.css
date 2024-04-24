@@ -30,6 +30,8 @@
     text-align: center;
     color: black;
     font: "Lucida Console";
+    font-weight: bold;
+    border-radius: 10px;
     margin: 30px;
     cursor: pointer;
 }
@@ -41,6 +43,8 @@
     text-decoration: none;
     text-align: center;
     font: "Lucida Console";
+    font-weight: bold;
+    border-radius: 10px;
     color: black;
     margin: 30px;
     cursor: pointer;
