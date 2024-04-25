@@ -47,4 +47,13 @@ body {
      text-align: center;
         }
 
+
+
 h1 {color: #Baa996;}
+
+.pedro-text{
+    user-select: all
+}
+.bubbles-text{
+    user-select: none
+}
