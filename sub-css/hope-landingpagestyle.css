@@ -1,59 +1,29 @@
-
 @font-face {
     font-family: "pixels"; 
     src: url("VeniceClassic.ttf") format("truetype");
     /* or: */
     src: url("VeniceClassic.ttf") format("opentype"); /
-      }
+}
 
-body {
-    font-family: 'pixels', 'Times New Roman';
-    margin: 0;
-    background-color: #222632;
-    background-size: 1000px;
-    background-image:url('null');
-    color: #CFBD9A;
-        }
+body{
+    background-image: url(images/landingpage-background.png);
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position:top;
+    
+}
+.marquee-top{
+    color: aqua;
+    font-size: 25px;
 
-    * {
-        box-sizing: border-box;
-    }
-
-#container {
-    max-width: 900px;
-                /* this is the width of your layout! */
-                /* if you change the above value, scroll to the bottom
-      and change the media query according to the comment! */
-    margin: 0 auto;
-                /* this centers the entire page */
-            }
-
-
-
-            /* this is the color of the main content area,
-    between the sidebars! */
-#header {
-    width: 100%;
-    background-color: #222632;
+}
+.main-container{
+    padding-top: px;
     text-align: center;
-    padding: 10px;
-        }
-
- main {
-    background-color: #222632;
-    flex: 1;
-    padding: 20px;
-    order: 2;
-     text-align: center;
-        }
-
-
-
-h1 {color: #Baa996;}
-
-.pedro-text{
-    user-select: all
 }
 .bubbles-text{
-    user-select: none
+    color: rgb(81, 66, 245);
+    font-size: 60px;
+    text-align: center;
+    padding-top: 250px;
 }
