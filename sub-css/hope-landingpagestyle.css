@@ -8,7 +8,7 @@ body{
     
 }
 .marquee-top{
-    color: darkslateblue;
+    color: #f8acff;
     font-size: 25px;
     font-family: 'Public Pixel'
     
@@ -18,7 +18,7 @@ body{
     text-align: center;
 }
 .bubbles-text{
-    color: darkslateblue;
+    color: #f8acff;
     font-size: 60px;
     text-align: center;
     padding-top: 250px;
