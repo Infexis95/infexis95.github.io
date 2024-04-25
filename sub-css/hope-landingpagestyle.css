@@ -1,9 +1,5 @@
-@font-face {
-    font-family: "pixels"; 
-    src: url("VeniceClassic.ttf") format("truetype");
-    /* or: */
-    src: url("VeniceClassic.ttf") format("opentype"); /
-}
+/* @import url('https://fonts.cdnfonts.com/css/public-pixel');
+font-family: 'Public Pixel'; */
 
 body{
     background-image: url(../images/landingpage-background.png);
@@ -15,10 +11,10 @@ body{
 .marquee-top{
     color: aqua;
     font-size: 25px;
+    font-family
 
 }
 .main-container{
-    padding-top: px;
     text-align: center;
 }
 .bubbles-text{
