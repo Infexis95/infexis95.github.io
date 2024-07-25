@@ -35,7 +35,7 @@ body {
     width: 120px;
     flex-shrink: 0;
     z-index: 99;
-    opacity: 1;
+    opacity: 0;
     transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
     transform: translateY(-100%);
 }
