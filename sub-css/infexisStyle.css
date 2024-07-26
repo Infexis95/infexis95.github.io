@@ -1,7 +1,7 @@
 body {
     margin: 0;
     padding-top: 60px;
-    background-color: #E2E2E2;
+    background-color: #FFFCFB;
     height: 90vh;
 }
 
@@ -44,20 +44,17 @@ body {
 
 .content {
     display: block;
-    margin: 0 auto;
-    justify-content: center;
-    text-align: center;
+    margin: auto;
     border-radius: 20px;
     height: 100%;
     width: 98%;
-    background-color: #FFF7F2;
 }
 
 .container{
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    margin: 0 auto;
+    flex-direction: row;
+    justify-content: space-between;
+    margin:auto;
     height: 80%;
     width: 80%;
     border-radius: 20px;
@@ -65,20 +62,20 @@ body {
 }
 
 .label {
+    display: flex;
     margin-left: 5%;
     margin-top: 20px;
     font-size: 40px;
     margin-bottom: 0;
+    align-items: flex-start;
     font-family: "Verdana", serif;
 }
 
 .init-button {
     display: flex;
-    padding: 20px;
     height: 5%;
     margin-top: 20px;
     width: 200px;
-    margin-left: 12%;
     font-family: "Verdana", serif;
     align-items: center;
     justify-content: center;
@@ -90,4 +87,24 @@ body {
 
 .init-button:hover {
     background-color: #F57132;
+}
+
+.c-2 {
+    width: 50%;
+    justify-items: center;
+}
+
+.text-area {
+    margin-left:auto;
+    width:80%;
+    height: 80%;
+    margin-right:15%;
+    margin-top:10%;
+    background-color: #36b7b7;
+}
+
+.init-input {
+    resize: none;
+    height: 100%;
+    width: 100%;
 }
