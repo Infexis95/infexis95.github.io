@@ -1,36 +1,45 @@
-const sideBar = document.querySelector('.side-bar');
-const homeButton = document.querySelector('.homepage-button');
+const bonus_button = document.querySelector('#bonus_btn');
+const range_input = document.getElementById('r2');
+const range_toggle = document.querySelector('.range');
+const bonus_input = document.getElementById("r1");
+const calc_btn = document.getElementById("calc_btn");
+const init_text = document.getElementById("init-text");
 
-let isSideBarHovered = false; // Flag to track sidebar hover state
 
-homeButton.addEventListener('mouseover', () => {
-  sideBar.classList.add('show'); // Add 'show' class for animation
-  isSideBarHovered = true; // Set flag when hovering home button
-});
+bonus_button.addEventListener('click', () => {
+        bonus_input.style.display = "inline-flex";
+        bonus_input.style.width = "380px";
+        bonus_input.placeholder = 'Bonus:'
+        range_input.style.display = "none";
+        range_input.value = '';
+        bonus_input.value = '';
+    })
 
-sideBar.addEventListener('mouseover', () => {
-  isSideBarHovered = true; // Set flag when hovering sidebar
-});
+document.getElementById('range_btn').addEventListener('click', () => {
+    document.querySelectorAll(".range-input").forEach(el =>{
+        el.style.display = 'inline-flex';
+    });
+    range_toggle.style.flexDirection = 'row';
+    bonus_input.style.width = "175px";
+    bonus_input.placeholder = "From:";
+})
 
-document.addEventListener('mouseout', () => {
-  if (!isSideBarHovered) {
-    sideBar.classList.remove('show'); // Remove 'show' class only if not hovered
-  }
-  isSideBarHovered = false; // Reset flag on any doc mouseout
-});
+calc_btn.addEventListener('click', () => {
+    calc_init(bonus_input.value, range_input.value, init_text.value);
+})
 
-// const sideBar = document.querySelector('.side-bar');
-// const homeButton = document.querySelector('.homepage-button');
-// let isSidebarHovered = false; // Flag to track hover state
+function calc_init(x, y) {
+    if (isNaN(x) || isNaN(y)) {
+        alert('Error: Bonus or Range includes non-numerical characters.')
+    } else {
 
-// homeButton.addEventListener('mouseover', () => {
-//   sideBar.classList.add('show'); // Add 'show' class for animation
-// });
+    }
+}
 
-// sideBar.addEventListener('mouseover', () => {
-//   isSidebarHovered = true; // Set flag when hovering sidebar
-// });
-
+function ran_number(x,y) {
+    if (y) {
+    }
+}
 
 function startTime() {
     const localDate = new Date()

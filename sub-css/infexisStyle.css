@@ -43,6 +43,7 @@ body {
 }
 
 .content {
+    text-align: center;
     display: block;
     margin: auto;
     border-radius: 20px;
@@ -55,51 +56,51 @@ body {
     flex-direction: row;
     justify-content: space-between;
     margin:auto;
-    height: 80%;
+    height: 90%;
     width: 80%;
     border-radius: 20px;
     background-color: #E9E9E9;
 }
 
 .label {
-    display: flex;
-    margin-left: 5%;
+    text-align: center;
     margin-top: 20px;
     font-size: 40px;
-    margin-bottom: 0;
     align-items: flex-start;
     font-family: "Verdana", serif;
 }
 
 .init-button {
-    display: flex;
     height: 5%;
-    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
     width: 200px;
     font-family: "Verdana", serif;
-    align-items: center;
     justify-content: center;
     text-decoration: none;
-    background-color: #F9A47C;
+    background-color: #F57132;
     border-radius: 15px;
     font-size: 20px;
 }
 
 .init-button:hover {
-    background-color: #F57132;
+    background-color: #F9A47C;
+}
+
+.init-button.under {
+    margin-top:20px;
 }
 
 .c-2 {
     width: 50%;
-    justify-items: center;
 }
 
 .text-area {
     margin-left:auto;
     width:80%;
     height: 80%;
-    margin-right:15%;
-    margin-top:10%;
+    margin-right:auto;
+    margin-top:auto;
     background-color: #36b7b7;
 }
 
@@ -107,4 +108,31 @@ body {
     resize: none;
     height: 100%;
     width: 100%;
+    font-size: 20px;
+}
+
+.range{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.range-input{
+    display: inline-flex;
+    margin-top: 20px;
+    width: 175px;
+    margin-left: 15px;
+    margin-right: 15px;
+    resize: none;
+    border-radius: 10px;
+    height: 30px;
+    font-size: 20px;
+    text-align: center;
+}
+
+
+.calc-button-container {
+    display: inline-block;
+    position : fixed;
+    margin-top: 300px;
 }
