@@ -31,13 +31,14 @@ document.addEventListener('mouseout', () => {
 //   isSidebarHovered = true; // Set flag when hovering sidebar
 // });
 
+
 function startTime() {
     const localDate = new Date()
     let hour = localDate.getHours()
     let minute = localDate.getMinutes()
     let second = localDate.getSeconds()
-    adjustedMinute = adjustTime(minute)
-    adjustedSecond = adjustTime(second)
+    let adjustedMinute = adjustTime(minute)
+    let adjustedSecond = adjustTime(second)
     document.getElementById('clock').innerHTML = hour + ":" + adjustedMinute + ":" + adjustedSecond;
     setTimeout(startTime, 1000);
 }
