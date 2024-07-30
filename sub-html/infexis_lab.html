@@ -3,6 +3,7 @@
 <head>
     <title>An Exercise in Cooperation</title>
     <link rel="stylesheet" href="../sub-css/infexisStyle.css">
+    <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
     <script src="../sub-js/infexisJS.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +15,7 @@
     <!--<a class="homepage-button" id="dropdown-sidebar"><img class="homepage-button-image" src="../images/wrench.png"></a>-->
 
     <a class="navbar-button" href="../index.html">Home</a>
-    <a class="navbar-button" href="../sub-html/infexis_lab.html">The Lab</a>
+    <a class="navbar-button" href="../sub-html/infexis.html">Infexis</a>
 
     <p id="clock" class="clock"></p>
 
@@ -25,7 +26,25 @@
 
 <div class="content">
     <h1 class="title-text">Welcome to the jungle, motherfucker.</h1>
+
+    <div class="splide">
+        <div class="splide__track">
+            <ul class="splide__list">
+                <li class="splide__slide"><img src="../images/favicon.ico"></li>
+                <li class="splide__slide"><img src="../images/fish-groove.gif"></li>
+                <li class="splide__slide"><img src="../images/wrench.png"></li>
+            </ul>
+        </div>
+    </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+<script>    document.addEventListener('DOMContentLoaded', function () {
+    new Splide('.splide', {
+        type   : 'loop',
+        autoplay: true,
+        interval: 3000, // Interval time in milliseconds
+    }).mount();
+}); </script>
 </body>
 </html>

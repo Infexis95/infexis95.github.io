@@ -28,17 +28,29 @@ calc_btn.addEventListener('click', () => {
     calc_init(bonus_input.value, range_input.value, init_text.value);
 })
 
-function calc_init(x, y) {
+function calc_init(x, y, z) {
     if (isNaN(x) || isNaN(y)) {
         alert('Error: Bonus or Range includes non-numerical characters.')
     } else {
-
+        let x_array = clean_init(z);
+        console.log(x_array);
     }
 }
 
-function ran_number(x,y) {
-    if (y) {
-    }
+
+function clean_init(z) {
+    const cleanedArray = z.split(',').map(el => el.replace('\n', '').trim()); // Trim to remove extra spaces
+    const result = cleanedArray.reduce((acc, cur, index) => {
+        acc[cur] = getRandomInt(1, 20); // Replace 1, 20 with your desired range
+        return acc;
+    }, {});
+    return result;
+}
+
+function getRandomInt(min, max) {
+    const minCeiled = Math.ceil(min);
+    const maxFloored = Math.floor(max);
+    return Math.floor(Math.random() * (maxFloored - minCeiled) + minCeiled); // The maximum is exclusive and the minimum is inclusive
 }
 
 function startTime() {

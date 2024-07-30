@@ -37,6 +37,8 @@ body {
     text-align: center;
     font-size: 20px;
     width: 300px;
+    left: 50%;
+    right: 50%;
 }
 .navbar-button:hover {
     background-color: #FF9766;
