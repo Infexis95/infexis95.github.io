@@ -44,3 +44,39 @@ body {
     left: 100px;
     top: 100px;
 }
+
+
+/*
+
+Below is the animation css. Not mine, I stole it ofc.
+
+ */
+
+.container{
+    height: 300px;
+    width: 300px;
+    position: absolute;
+    top: 40%;
+    left: 70%;
+    margin: -150px 0 0 -150px;
+}
+
+.square{
+    height: 94%;
+    width: 94%;
+    background: black;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -47% 0 0 -47%;
+}
+
+.black{
+    background: darkred;
+    animation: rotate 10s infinite linear;
+}
+
+@keyframes rotate{
+    0%{ transform: rotate(0deg); }
+    100%{ transform: rotate(360deg); }
+}
