@@ -1,0 +1,39 @@
+<html>
+    <head>
+      <title>Boxes on Boxes on Boxes</title>
+      <link rel="stylesheet" href="../../css/Derpious/Derpious.css">
+      <script language="JavaScript">
+          el=document.getElementById("box1");
+          width=window.innerWidth-50;
+          height=window.innerHeight-50;
+          el.style.left=width*Math.random();
+          el.style.top=height*Math.random();
+  
+          el=document.getElementById("box2");
+          width=window.innerWidth-50;
+          height=window.innerHeight-50;
+          el.style.right=width*Math.random();
+          el.style.top=height*Math.random();
+  
+          el=document.getElementById("box3");
+          width=window.innerWidth-50;
+          height=window.innerHeight-50;
+          el.style.middle=width*Math.random();
+          el.style.top=height*Math.random();
+  
+      </script>
+    </head>
+    <body>
+      <div id="box1">
+        First box 
+      </div>
+  
+      <div id="box2">
+          Second box
+      </div>
+  
+      <div id="box3">
+          Third box
+      </div>
+    </body>
+  </html>

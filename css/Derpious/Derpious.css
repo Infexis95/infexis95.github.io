@@ -1,0 +1,46 @@
+body {
+    background-color: rgb(77, 55, 55);
+}
+
+.titletext {
+    font-family: "Space Mono", monospace;
+    font-size: 35px;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.fillertext {
+    font-family: "Space Mono", monospace;
+    font-size: 18px;
+    text-align: left;
+}
+
+#box1 {
+    background-color: rgba(182, 159, 116, 0.281);
+    padding: 5px;
+    width: 500px;
+    height: 500px;
+    position: absolute;
+    left: 200px;
+    top: 100px;
+}
+
+#box2 {
+    background-color: blue;
+    padding: 5px;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 300px;
+    top: 100px;
+}
+
+#box3 {
+    background-color: green;
+    padding: 5px;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 100px;
+    top: 100px;
+}
