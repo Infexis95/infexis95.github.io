@@ -7,5 +7,7 @@ function roll2d6() {
 }
 
 function r2Dresult() {
+    result = roll2d6()
+    Result_js.innerHTML = result;
    
 }
