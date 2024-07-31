@@ -15,55 +15,67 @@ body {
     text-align: left;
 }
 
-#box1 {
-    background-color: rgba(182, 159, 116, 0.281);
-    padding: 5px;
-    width: 500px;
-    height: 500px;
-    position: absolute;
-    left: 200px;
-    top: 100px;
+.table {
+    font-family: "Space Mono", monospace;
+    border-collapse: collapse;
+    width: 40%;
 }
 
-#box2 {
-    background-color: rgb(87, 81, 81);
+.table td,
+.table th {
+    border: 1px solid #000000;
+    padding: 8px;
+}
+
+.table tr:nth-child(even) {
+    background-color: #c5c2c2;
+}
+
+.table tr:hover {
+    background-color: #ddd;
+}
+
+.table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    color: rgb(0, 0, 0);
+}
+
+.genbox {
+    background-color: rgb(130, 130, 130);
     padding: 5px;
     width: 500px;
     height: 300px;
     position: absolute;
     left: 1000px;
     top: 100px;
-}
-
-#box3 {
-    background-color: rgb(157, 160, 157);
-    padding: 5px;
-    width: 60px;
-    height: 25px;
-    position: absolute;
-    left: 50px;
-    top: 30px;
     border-style: solid;
-    border-color: rgb(39, 37, 37);
+    border-color: rgb(40, 40, 40);
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-#box4 {
-    background-color: rgb(157, 160, 157);
-    padding: 5px;
-    width: 60px;
-    height: 25px;
+.geninf {
+    font-family: "Space Mono", monospace;
+    background-color: rgb(100, 100, 100);
+    width: 100%;
+    height: 30px;
     position: absolute;
-    left: 130px;
-    top: 30px;
-    border-style: solid;
-    border-color: rgb(39, 37, 37);
+    left: 0%;
+    top: 0%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 180%;
+    border-bottom-style: solid;
+    border-color: rgb(40, 40, 40);
 }
 
-#button1 {
-    height: 100%;
-    width: 100%;
-
+.genST {
+    position: absolute;
+    left: 10%;
+    top: 15%;
+    justify-content: center;
 }

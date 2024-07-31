@@ -10,14 +10,30 @@
 </head>
 
 <body>
-    <div id="box1"><input id="test3" type="number" style="width: 55px;"></div>
-    <div>
-        <div id="box2">
-            <div id="box3"><button id="Click_Me">Roll 1d6</button></div>
-            <div id="box4">
-                <p id="Result"></p>
-            </div>
+    <table class="table">
+        <tr style="background-color: dimgray;">
+            <th>Object</th>
+            <th>Star Type</th>
+            <th>Mass</th>
+            <th>Temperature</th>
+            <th>Diameter</th>
+            <th>Luminosity</th>
+            <th>System Age</th>
+        </tr>
+        <tr>
+            <th></th>
+            <th id="Result"></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </table>
+    <div class="genbox">
+        <div class="geninf">STELLAR INFORMATION GENERATOR
         </div>
+        <div class="genST"><button onclick="roll2d6()" class="genST">Star Type</button></div>
     </div>
 </body>
 <script src="../../scripts/Derpious/DerpiousJS.js"></script>
