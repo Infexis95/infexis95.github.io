@@ -1,3 +1,10 @@
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    border: 3px solid green;
+  }
 body {
     background-color: #181716;
 }
@@ -61,4 +68,12 @@ li{
     color:#0000ee;
     font-weight: bold;
     font-size: 20px;
+}
+.landingpageButton {
+    color: #0000ee;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: gray;
+    margin-left: 200px;
 }
