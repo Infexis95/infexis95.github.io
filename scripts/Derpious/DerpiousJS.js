@@ -1,1 +1,0 @@
-const dice_roller = document.diceroller(getRandomInt(1, 6))

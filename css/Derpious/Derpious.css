@@ -45,6 +45,9 @@ body {
     top: 30px;
     border-style: solid;
     border-color: rgb(39, 37, 37);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #box4 {
@@ -53,14 +56,14 @@ body {
     width: 60px;
     height: 25px;
     position: absolute;
-    left: 120px;
+    left: 130px;
     top: 30px;
     border-style: solid;
     border-color: rgb(39, 37, 37);
 }
 
-.button {
-    height: 20px;
-    width: 20px;
+#button1 {
+    height: 100%;
+    width: 100%;
 
 }
