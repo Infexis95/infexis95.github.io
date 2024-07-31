@@ -1,0 +1,25 @@
+body {
+    background-color: #181716;
+}
+html {
+    font-family: 'Courier New', Courier, monospace;
+    color:#0000ee;
+}
+.topNav{
+    background-color: gray;
+    overflow: hidden;
+}
+.topNav a{
+    float: inline-start;
+    color: #0000ee;
+    text-align: center;
+    padding: 14px 16px;
+    font-size: 25px;
+    text-decoration: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+.topNav a:hover{
+    background-color: black;
+    color:#0000ee
+}
