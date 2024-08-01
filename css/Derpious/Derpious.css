@@ -79,3 +79,14 @@ body {
     top: 15%;
     justify-content: center;
 }
+
+.result_box {
+    background-color: #ffffff;
+    font-family: "Space Mono", monospace;
+    resize: none;
+    width: 100px;
+    height: 25px;
+    text-align: center;
+    vertical-align: auto;
+    border: none;
+}

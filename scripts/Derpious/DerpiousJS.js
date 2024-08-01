@@ -7,8 +7,7 @@ function roll2d6() {
 }
 
 function r2Dresult() {
-    result = roll2d6();
-    Result_js.innerHTML = result;
+    document.querySelectorAll('.result_box').forEach(el => {el.innerHTML = roll2d6();})
 }
 
 function startype() {
@@ -21,4 +20,9 @@ let a, b, c; {
     b = 6;
     c = a + b;
     document.getElementById("demo1").innerHTML = c;
+}
+
+function backupr2Dresult() {
+   result = roll2d6();
+   Result_js.innerHTML = result;
 }
