@@ -33,7 +33,22 @@ function calc_init(x, y, z) {
         alert('Error: Bonus or Range includes non-numerical characters.')
     } else {
         let x_array = clean_init(z);
-        console.log(x_array);
+        const x_object = Object.entries(x_array);
+        if (y) {
+            for (const [key, value] of x_object) {
+                x_array[key] = value + getRandomInt(x, y);
+            }
+        } else {
+            for (const [key, value] of x_object) {
+                x_array[key] = value + Number(x);
+            }
+        }
+        let result = ''
+        for (const name in x_array) {
+            result += name + ':' + x_array[name] + '\n';
+        }
+        init_text.value = '';
+        init_text.value = result;
     }
 }
 
