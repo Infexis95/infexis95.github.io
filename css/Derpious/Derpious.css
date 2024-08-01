@@ -31,10 +31,6 @@ body {
     background-color: #c5c2c2;
 }
 
-.table tr:hover {
-    background-color: #ddd;
-}
-
 .table th {
     padding-top: 12px;
     padding-bottom: 12px;
@@ -75,6 +71,8 @@ body {
 
 .genST {
     position: absolute;
+    width: 70px;
+    height: 30px;
     left: 10%;
     top: 15%;
     justify-content: center;
@@ -85,8 +83,18 @@ body {
     font-family: "Space Mono", monospace;
     resize: none;
     width: 100px;
-    height: 25px;
+    height: 20px;
     text-align: center;
-    vertical-align: auto;
-    border: none;
+    padding-top: 3px;
+    border-style: solid;
+    border-color: black; 
+}
+
+#exitbutton {
+    position: absolute;
+    top: 30%;
+    font-size: 30px;
+    color: wheat;
+    background-color: transparent;
+    text-decoration: none;
 }

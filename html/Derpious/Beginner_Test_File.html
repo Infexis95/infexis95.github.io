@@ -2,11 +2,14 @@
 <html lang="en">
 
 <head>
-    <title>Starting simply. Text in a box.</title>
+    <title>SpaceGen</title>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../css/Derpious/Derpious.css">
+    <style>
+        font {font-family: "Space Mono"monospace;}
+    </style>
 </head>
 
 <body>
@@ -18,12 +21,15 @@
             <th>Temperature</th>
             <th>Diameter</th>
             <th>Luminosity</th>
-            <th>System Age</th>
+            <th title="robin is a poop">System Age</th>
         </tr>
         <tr>
-            <th></th>
-            <th><textarea class="result_box"></textarea></th>
-            <th class="result_box"></th>
+            <td></td>
+            <td><textarea class="result_box"></textarea></td>
+            <td>
+                <p class="result_box"></p>
+                
+            </td>
             <th></th>
             <th></th>
             <th></th>
@@ -35,6 +41,10 @@
         </div>
         <div class="genST"><button onclick="r2Dresult()" class="genST">Star Type</button></div>
     </div>
+
+    <div><a href="../../index.html", id="exitbutton">Exit Page</a></div>
+
     <script src="../../scripts/Derpious/DerpiousJS.js"></script>
 </body>
+
 </html>
