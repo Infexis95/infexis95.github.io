@@ -5,6 +5,22 @@ html {
     font-family: 'Courier New', Courier, monospace;
     color:#0000ee;
 }
+
+p{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+h1{
+    font-size: 20px;
+}
+
+header{
+        text-align: center;
+        font-size: 25px;
+        font-weight: bold;
+}
+
 .topNav{
     background-color: gray;
     overflow: hidden;
@@ -22,4 +38,105 @@ html {
 .topNav a:hover{
     background-color: black;
     color:#0000ee
+}
+
+.maintext{
+    background-color: gray;
+    width: 1600px;
+    border: ridge gray 15px;
+    padding: 50px;
+    margin-top: 25px;
+    margin-left: 60px;
+    margin-right: 60px;
+    float: left;
+
+}
+
+.h1MainText{
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.articlebutton{
+    background-color: gray;
+    overflow: hidden;
+    color: #0000ee;
+}
+
+.article1 {
+    background-color: gray;
+    width: 300px;
+    border: ridge gray 15px;
+    padding: 50px;
+    margin-top: 25px;
+    margin-left: 120px;
+    float: left;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
+.article2 {
+    background-color: gray;
+    width: 300px;
+    border: ridge gray 15px;
+    padding: 50px;
+    margin-top: 25px;
+    margin-left: 120px;
+    float: left;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
+
+.article3 {
+    background-color: gray;
+    width: 300px;
+    border: ridge gray 15px;
+    padding: 50px;
+    margin-top: 25px;
+    margin-left: 120px;
+    float: left;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
+
+.article4 {
+    background-color: gray;
+    width: 300px;
+    border: ridge gray 15px;
+    padding: 50px;
+    margin-top: 25px;
+    margin-left: 120px;
+    float: left;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
+
+.article5 {
+    background-color: gray;
+    width: 300px;
+    border: ridge gray 15px;
+    padding: 50px;
+    margin-top: 25px;
+    margin-left: 120px;
+    float: left;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
+}
+
+.article6{
+    background-color: gray;
+    width: 300px;
+    border: ridge gray 15px;
+    padding: 50px;
+    margin-top: 25px;
+    margin-left: 120px;
+    float: left;
+    font-weight: bold;
+    font-size: 20px;
+    text-align: center;
 }
