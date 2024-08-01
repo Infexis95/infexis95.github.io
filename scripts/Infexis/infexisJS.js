@@ -34,6 +34,14 @@ function calc_init(x, y, z) {
     } else {
         let x_array = clean_init(z);
         const x_object = Object.entries(x_array);
+
+        // Convert to an array of objects for sorting
+        const sortedArray = x_object.map(([key, value]) => ({ key, value }));
+
+        // Sort by value in descending order
+        sortedArray.sort((a, b) => b.value - a.value);
+
+
         if (y) {
             for (const [key, value] of x_object) {
                 x_array[key] = value + getRandomInt(x, y);
@@ -43,9 +51,9 @@ function calc_init(x, y, z) {
                 x_array[key] = value + Number(x);
             }
         }
-        let result = ''
-        for (const name in x_array) {
-            result += name + ':' + x_array[name] + '\n';
+        let result = '';
+        for (const { key, value } of sortedArray) {
+            result += key + ':' + value + '\n';
         }
         init_text.value = '';
         init_text.value = result;
