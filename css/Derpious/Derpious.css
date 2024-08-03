@@ -69,7 +69,7 @@ body {
     border-color: rgb(40, 40, 40);
 }
 
-.genST {
+#genST {
     position: absolute;
     width: 70px;
     height: 30px;
@@ -78,7 +78,7 @@ body {
     justify-content: center;
 }
 
-.result_box {
+#result_box {
     background-color: #ffffff;
     font-family: "Space Mono", monospace;
     resize: none;
