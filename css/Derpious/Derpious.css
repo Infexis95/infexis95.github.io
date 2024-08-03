@@ -2,18 +2,7 @@ body {
     background-color: rgb(77, 55, 55);
 }
 
-.titletext {
-    font-family: "Space Mono", monospace;
-    font-size: 35px;
-    text-align: center;
-    text-decoration: underline;
-}
-
-.fillertext {
-    font-family: "Space Mono", monospace;
-    font-size: 18px;
-    text-align: left;
-}
+/* --- */
 
 .table {
     font-family: "Space Mono", monospace;
@@ -21,7 +10,7 @@ body {
     width: 40%;
 }
 
-.table td,
+.table td, 
 .table th {
     border: 1px solid #000000;
     padding: 8px;
@@ -31,12 +20,18 @@ body {
     background-color: #c5c2c2;
 }
 
+.table tr:nth-child(odd) {
+    background-color: #f0f0f0;
+}
+
 .table th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: center;
     color: rgb(0, 0, 0);
 }
+
+/* --- */
 
 .genbox {
     background-color: rgb(130, 130, 130);
@@ -52,6 +47,8 @@ body {
     align-items: center;
     justify-content: center;
 }
+
+/* --- */
 
 .geninf {
     font-family: "Space Mono", monospace;
@@ -69,6 +66,8 @@ body {
     border-color: rgb(40, 40, 40);
 }
 
+/* --- */
+
 #genST {
     position: absolute;
     width: 70px;
@@ -78,17 +77,7 @@ body {
     justify-content: center;
 }
 
-#result_box {
-    background-color: #ffffff;
-    font-family: "Space Mono", monospace;
-    resize: none;
-    width: 100px;
-    height: 20px;
-    text-align: center;
-    padding-top: 3px;
-    border-style: solid;
-    border-color: black; 
-}
+/* --- */
 
 #exitbutton {
     position: absolute;
@@ -97,4 +86,30 @@ body {
     color: wheat;
     background-color: transparent;
     text-decoration: none;
+}
+
+/* --- */
+
+#stellarinfotable, th, td {
+    text-align: center;
+    border: 1px solid black;
+    padding: 5px;
+    th, td { 
+        background-color: white;
+    }
+}
+
+/* --- */
+
+#stellarbox {
+    position: absolute;
+    top: 30px;
+    left: 50px;
+}
+
+#result_box {
+    width: 75px;
+    height: 25px;
+    text-align: center;
+    font-family: "Space Mono"monospace;
 }
