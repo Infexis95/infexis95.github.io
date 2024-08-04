@@ -1,0 +1,73 @@
+body {
+    background-color: #181716;
+}
+html {
+    font-family: 'Courier New', Courier, monospace;
+    color:#0000ee;
+}
+
+h1{
+    text-align: center;
+    font-size: 25px;
+}
+
+header{
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+p {
+    font-weight: bold;
+}
+
+li {
+    font-weight: bold;
+}
+
+.topNav{
+    background-color: gray;
+    overflow: hidden;
+}
+.topNav a{
+    float: inline-start;
+    color: #0000ee;
+    text-align: center;
+    padding: 14px 16px;
+    font-size: 25px;
+    text-decoration: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+.topNav a:hover{
+    background-color: black;
+    color:#0000ee
+}
+.container1 {
+    background-color: gray;
+    width: 700px;
+    border: ridge gray 15px;
+    padding: 50px;
+    margin-top: 25px;
+    margin-left: 480px;
+}
+.codeContainer{
+    background-color: #181716;
+    color: grey;
+    width: 500px; /*Adjusting box width*/
+    border: ridge #0000ee;
+    padding: 50px; /*Adjusting box left-top to right-bottom*/
+    padding-top: 10px; /*Adjusting box height (top -> bottom */
+    margin-left: 0px; /*Moving box left -> right*/
+    height: 0px; /*Adjusting box height*/
+    text-align:start;
+}
+.backtoHTML {
+    color: #0000ee;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    font-size: 20px;
+    background-color: gray;
+
+    margin-top: 50px;
+}
