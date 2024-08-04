@@ -426,13 +426,21 @@ slider.oninput = function() {
   output.innerHTML = this.value;
 } 
 
-function test() {
-console.log(document.getElementById("test").value)
-}
-
 function death() {
    location.reload(true);
    console.log("Welcome To The Afterlife")
+}
+
+function lumcalc() {
+   const x = document.getElementById("STtemp").value;
+   const z = document.getElementById("STdiam").value;
+
+   console.log("Star Temp: " + x);
+   console.log("Star Diam: " + z);
+
+   const truelum = Math.pow((z / 1), 2) * Math.pow((x / 5772), 4);
+
+   console.log(truelum)
 }
 
 src = "../../scripts/Derpious/stellar_data.js"
