@@ -1,8 +1,7 @@
 body {
     margin: 0;
-    padding-top: 60px;
+    padding:0;
     background-color: #FFFCFB;
-    height: 90vh;
 }
 
 .nav-bar {
@@ -45,21 +44,19 @@ body {
 }
 
 .content {
+    position: static;
     text-align: center;
-    display: block;
-    margin: auto;
-    border-radius: 20px;
-    height: 100%;
-    width: 98%;
+    height: calc(100vh - 80px);
+    width: 100vw;
 }
 
-.container{
-    display: flex;
+.main-container{
+    display: inline-flex;
     flex-direction: row;
     justify-content: space-between;
     margin:auto;
-    height: 90%;
-    width: 80%;
+    height: 85vh;
+    width: 80vw;
     border-radius: 20px;
     background-color: #E9E9E9;
 }
@@ -137,4 +134,95 @@ body {
     display: inline-block;
     position : fixed;
     margin-top: 300px;
+}
+
+.centered_container {
+    display: inline-flex;
+    position: relative;
+    top:40%;
+    background-color: #ffe1d4;
+}
+
+.transition-rotate{
+    transition: rotate 1.2s ease-in-out;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.align-center {
+    align-content: center;
+}
+
+.lab_box {
+    display: flex;
+    grid-template-columns: auto auto auto auto;
+    width:200px;
+    height:200px;
+}
+
+.grid {
+    display: grid;
+}
+
+.horizontal_bar {
+    transition: width ease-in-out 1s;
+    top:25%;
+    position: absolute;
+    height:100px;
+    width: 20px;
+
+}
+
+.vertical-bar {
+    transition: height ease-in-out 1s;
+    right:25%;
+    position: absolute;
+    width:100px;
+    height:20px;
+}
+
+.rotate-test {
+    rotate:360deg;
+}
+
+.grow-width-test {
+    width:200px;
+}
+
+.grow-height-test {
+    height:200px;
+}
+
+.right_bar {
+    left:180px;
+    background-color: goldenrod;
+}
+
+.left_bar {
+    right:180px;
+    background-color: #0000ee;
+}
+
+.up_bar {
+    bottom:180px;
+    background-color: green;
+}
+
+.extend-box-h {
+    width: 500px;
+}
+
+.down_bar {
+    top:180px;
+    background-color: orangered;
+}
+
+.img-btn {
+    position: absolute;
+    width:80px;
+    height:80px;
+    top:30%;
+    left:30%;
 }

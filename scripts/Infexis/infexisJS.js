@@ -4,9 +4,11 @@ const range_toggle = document.querySelector('.range');
 const bonus_input = document.getElementById("r1");
 const calc_btn = document.getElementById("calc_btn");
 const init_text = document.getElementById("init-text");
+const spin_btn = document.getElementById("spin-btn");
+const range_btn = document.getElementById("range-btn");
 
-
-bonus_button.addEventListener('click', () => {
+if (bonus_button) {
+    bonus_button.addEventListener('click', () => {
         bonus_input.style.display = "inline-flex";
         bonus_input.style.width = "380px";
         bonus_input.placeholder = 'Bonus:'
@@ -14,19 +16,24 @@ bonus_button.addEventListener('click', () => {
         range_input.value = '';
         bonus_input.value = '';
     })
+}
 
-document.getElementById('range_btn').addEventListener('click', () => {
-    document.querySelectorAll(".range-input").forEach(el =>{
-        el.style.display = 'inline-flex';
-    });
-    range_toggle.style.flexDirection = 'row';
-    bonus_input.style.width = "175px";
-    bonus_input.placeholder = "From:";
-})
+if (range_btn) {
+    range_btn.addEventListener('click', () => {
+        document.querySelectorAll(".range-input").forEach(el => {
+            el.style.display = 'inline-flex';
+        });
+        range_toggle.style.flexDirection = 'row';
+        bonus_input.style.width = "175px";
+        bonus_input.placeholder = "From:";
+    })
+}
 
-calc_btn.addEventListener('click', () => {
-    calc_init(bonus_input.value, range_input.value, init_text.value);
-})
+if (calc_btn) {
+    calc_btn.addEventListener('click', () => {
+        calc_init(bonus_input.value, range_input.value, init_text.value);
+    })
+}
 
 function calc_init(x, y, z) {
     if (isNaN(x) || isNaN(y)) {
@@ -40,7 +47,6 @@ function calc_init(x, y, z) {
 
         // Sort by value in descending order
         sortedArray.sort((a, b) => b.value - a.value);
-
 
         if (y) {
             for (const [key, value] of x_object) {
@@ -90,5 +96,33 @@ function startTime() {
 function adjustTime(i) {
     if (i < 10) {i = "0" + i}
     return i;
+}
+
+function sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+if (spin_btn) {
+    spin_btn.addEventListener('click', () => {
+
+        if (document.querySelector('.left_bar').classList.contains('grow-width-test')) {
+
+            document.querySelector('.left_bar').classList.remove('grow-width-test');
+            document.querySelector('.right_bar').classList.remove('grow-width-test');
+            document.querySelector('.up_bar').classList.remove('grow-height-test');
+            document.querySelector('.down_bar').classList.remove('grow-height-test');
+            document.querySelector('.centered_container').classList.remove('rotate-test')
+
+        } else {
+
+            document.querySelector('.left_bar').classList.add('grow-width-test');
+            document.querySelector('.right_bar').classList.add('grow-width-test');
+            document.querySelector('.up_bar').classList.add('grow-height-test');
+            document.querySelector('.down_bar').classList.add('grow-height-test');
+            document.querySelector('.centered_container').classList.add('rotate-test')
+
+        }
+
+    })
 }
 
