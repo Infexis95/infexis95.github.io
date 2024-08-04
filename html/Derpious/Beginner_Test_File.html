@@ -8,94 +8,131 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../css/Derpious/Derpious.css">
     <style>
-        font {
-            font-family: "Space Mono" monospace;
-        }
+
     </style>
 </head>
 
 <body>
     <table class="table">
-        <tr style="background-color: dimgray;">
-            <th>Object</th>
-            <th>Star Type</th>
-            <th>Mass</th>
-            <th>Temperature</th>
-            <th>Diameter</th>
-            <th>Luminosity</th>
-            <th>System Age</th>
-        </tr>
-        <tr>
-            <td></td>
-            <td>
-                <div> <!-- Here be Star Types -->
-                    <select type="text" id="result_box">
-                        <option>F0 V</option>
-                        <option>F1 V</option>
-                        <option>F2 V</option>
-                        <option>F3 V</option>
-                        <option>F4 V</option>
-                        <option>F5 V</option>
-                        <option>F6 V</option>
-                        <option>F7 V</option>
-                        <option>F8 V</option>
-                        <option>F9 V</option>
-                        <option>G0 V</option>
-                        <option>G1 V</option>
-                        <option>G2 V</option>
-                        <option>G3 V</option>
-                        <option>G4 V</option>
-                        <option>G5 V</option>
-                        <option>G6 V</option>
-                        <option>G7 V</option>
-                        <option>G8 V</option>
-                        <option>G9 V</option>
-                        <option>K0 V</option>
-                        <option>K1 V</option>
-                        <option>K2 V</option>
-                        <option>K3 V</option>
-                        <option>K4 V</option>
-                        <option>K5 V</option>
-                        <option>K6 V</option>
-                        <option>K7 V</option>
-                        <option>K8 V</option>
-                        <option>K9 V</option>
-                        <option>M0 V</option>
-                        <option>M1 V</option>
-                        <option>M2 V</option>
-                        <option>M3 V</option>
-                        <option>M4 V</option>
-                        <option>M5 V</option>
-                        <option>M6 V</option>
-                        <option>M7 V</option>
-                        <option>M8 V</option>
-                        <option>M9 V</option>
-                        <option hidden>Error</option>
-                </div>
-                </select>
-            </td>
-            <td>
-                <input type="text" name="stMass" id="STmass"></input>
-            </td>
-            <td>
-                <input type="text" name="stTemp" id="STtemp"></input>
-            </td>
-            <td>
-                <input type="text" name="stDiam" id="STdiam"></input>
-            </td>
-            <td>
-                <input type="text" name="stLumi" id="STlumi"></input>
-            </td>
-            <th></th>
-        </tr>
+        <div> <!-- This div contains the header for the star information table. -->
+            <tr style="background-color: dimgray;">
+                <th>Object</th>
+                <th>Star Type</th>
+                <th>Mass</th>
+                <th>Temperature</th>
+                <th>Diameter</th>
+                <th>Luminosity</th>
+                <th>System Age</th>
+            </tr>
+        </div>
+        <div> <!-- This div contains the star information table. -->
+            <tr>
+                <td></td>
+                <td>
+                    <div> <!-- Here be Star Types -->
+                        <select type="text" id="result_box">
+                            <option>F0 V</option>
+                            <option>F1 V</option>
+                            <option>F2 V</option>
+                            <option>F3 V</option>
+                            <option>F4 V</option>
+                            <option>F5 V</option>
+                            <option>F6 V</option>
+                            <option>F7 V</option>
+                            <option>F8 V</option>
+                            <option>F9 V</option>
+                            <option>G0 V</option>
+                            <option>G1 V</option>
+                            <option>G2 V</option>
+                            <option>G3 V</option>
+                            <option>G4 V</option>
+                            <option>G5 V</option>
+                            <option>G6 V</option>
+                            <option>G7 V</option>
+                            <option>G8 V</option>
+                            <option>G9 V</option>
+                            <option>K0 V</option>
+                            <option>K1 V</option>
+                            <option>K2 V</option>
+                            <option>K3 V</option>
+                            <option>K4 V</option>
+                            <option>K5 V</option>
+                            <option>K6 V</option>
+                            <option>K7 V</option>
+                            <option>K8 V</option>
+                            <option>K9 V</option>
+                            <option>M0 V</option>
+                            <option>M1 V</option>
+                            <option>M2 V</option>
+                            <option>M3 V</option>
+                            <option>M4 V</option>
+                            <option>M5 V</option>
+                            <option>M6 V</option>
+                            <option>M7 V</option>
+                            <option>M8 V</option>
+                            <option>M9 V</option>
+                            <option hidden>Error</option>
+                        </select>
+                    </div>
+                </td>
+                <td>
+                    <span class="input-symbol-solar-mass">
+                        <input type="text" name="stMass" id="STmass" maxlength="7">
+                        </input>
+                    </span>
+                </td>
+                <td>
+                    <span class="input-symbol-solar-temp">
+                        <input type="text" name="stTemp" id="STtemp" maxlength="7">
+                        </input>
+                    </span>
+                </td>
+                <td>
+                    <span class="input-symbol-solar-diam">
+                        <input type="text" name="stDiam" id="STdiam" maxlength="6">
+                        </input>
+                    </span>
+                </td>
+                <td>
+                    <span class="input-symbol-solar-lumi">
+                        <input type="text" name="stLumi" id="STlumi" maxlength="9">
+                        </input>
+                    </span>
+                </td>
+                <td></td>
+            </tr>
+        </div>
     </table>
     <div class="genbox">
         <div class="geninf">STELLAR INFORMATION GENERATOR
         </div>
-        <div id="genST"><button onclick="STType()" id="genST">Star Type</button></div>
-        <button onclick="test()" style="width: auto; height: auto; left: 170px; top: 52px;" id="tstbttn">Generate Star Details</button>
+        <div> <!-- Star Type Button -->
+            <button onclick="STType()" id="genST">
+                Star Type
+            </button>
+        </div>
+        <div> <!-- Star Details Button -->
+            <button onclick="callSTinf()" style="width: auto; height: auto; left: 170px; top: 52px;" id="genST">
+                Generate
+                Star
+                Details
+            </button>
+        </div>
+        <div>
+            <button onclick="test()" style="position: absolute; top: 52px; left: 320px;">
+                Test
+            </button>
+        </div>
+        <div>
+            <input type="checkbox" id="test">
+        </div>
+
     </div>
-    <div><a href="../../index.html" , id="exitbutton">Exit Page</a></div>
+    <div>
+        <a href="../../index.html" , id="exitbutton">
+            Exit Page
+        </a>
+    </div>
     <script src="../../scripts/Derpious/DerpiousJS.js"></script>
     <script src="../../scripts/Derpious/stellar_data.js"></script>
 </body>

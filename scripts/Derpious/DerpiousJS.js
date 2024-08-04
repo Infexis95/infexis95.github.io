@@ -1,4 +1,4 @@
-function STType() { //This Function Generates a star Type and Subtype as a string. For now, all stars are assumed to be class V.
+function STType() { //This Function Generates a star Type and Subtype as a string. Then applies the star's data.
 
    // Generate random number between 0 and 1 to be used for caluclating percentages.
    let x = Math.random();
@@ -25,6 +25,7 @@ function STType() { //This Function Generates a star Type and Subtype as a strin
    if (x < 0.091 || x > 0.909 && x < 1.000) {
       document.getElementById("result_box").value = "Error"
       console.log("startype:", result_type, "(not yet supported.)")
+      callSTinf()
       return
    }
 
@@ -58,6 +59,8 @@ function STType() { //This Function Generates a star Type and Subtype as a strin
       document.getElementById("result_box").value = result_type + result_M_subtype + " " + "V";
       console.log("Startype:", result_type, " ", " ", "gen.val", "=", x)
       console.log("M-Starsubtype:", result_M_subtype, " ", " ", "gen.val", "=", y)
+      console.log('%cStar Type, Subtype, and Class: ', 'color: yellow', result_type + result_M_subtype + " " + "V")
+      callSTinf()
 
    } else {
 
@@ -90,23 +93,15 @@ function STType() { //This Function Generates a star Type and Subtype as a strin
       console.log("Startype:", result_type, " ", " ", "gen.val", "=", x)
       console.log("Starsubtype:", result_subtype, " ", " ", "gen.val", "=", y)
       console.log('%cStar Type, Subtype, and Class: ', 'color: yellow', result_type + result_subtype + " " + "V")
+      callSTinf()
 
    }
 }
 
-function testX() {
-   var x = document.getElementById("result_box").value;
-   document.getElementById("herepls").innerHTML = x;
-}
-
-function test() {
-   console.log(document.getElementById("result_box").value)
-
+function callSTinf() { // This Function fetches the data for each of the applied startypes, it is then called by STType().
    var x = document.getElementById("result_box").value
-   console.log("answer:", " ", x)
 
-
-//Start of F0 V - F9 V ---------------------------------
+   //Start of F0 V - F9 V ---------------------------------
 
    if (x == "F0 V") {
       console.log("F0 V!")
@@ -170,7 +165,7 @@ function test() {
       document.getElementById("STlumi").value = F9V.lumi
    }
 
-// End of F0 V - F9 V ------------- Start of G0 V - G9 V
+   // End of F0 V - F9 V ------------- Start of G0 V - G9 V
 
    else if (x == "G0 V") {
       console.log("G0 V!")
@@ -232,10 +227,10 @@ function test() {
       document.getElementById("STtemp").value = G9V.temp
       document.getElementById("STdiam").value = G9V.diam
       document.getElementById("STlumi").value = G9V.lumi
-   } 
-   
-// End of G0 V - G9 V ------------- Start of K0 V - K9 V
-   
+   }
+
+   // End of G0 V - G9 V ------------- Start of K0 V - K9 V
+
    else if (x == "K0 V") {
       console.log("K0 V!")
       document.getElementById("STmass").value = K0V.mass
@@ -296,10 +291,10 @@ function test() {
       document.getElementById("STtemp").value = K9V.temp
       document.getElementById("STdiam").value = K9V.diam
       document.getElementById("STlumi").value = K9V.lumi
-   } 
-   
-// End of K0 V - K9 V ------------- Start of M0 V - M9 V   
-   
+   }
+
+   // End of K0 V - K9 V ------------- Start of M0 V - M9 V   
+
    else if (x == "M0 V") {
       console.log("M0 V!")
       document.getElementById("STmass").value = M0V.mass
@@ -362,8 +357,70 @@ function test() {
       document.getElementById("STlumi").value = M9V.lumi
    }
 
-//End of M0 V - M9 V -----------------------------------
+   //End of M0 V - M9 V -----------------------------------
+
+   else if (x == "Error") { // For unsupported Startypes
+      console.log("No details for this startype")
+      document.getElementById("STmass").value = " "
+      document.getElementById("STtemp").value = " "
+      document.getElementById("STdiam").value = " "
+      document.getElementById("STlumi").value = " "
+   }
+
+   starvariance();
 
 }
 
+function starvariance() {
+   console.log(" ");
+   console.log("Adding Variance of +-20%")
+   const m = document.getElementById("STmass").value;
+   const t = document.getElementById("STtemp").value;
+   const d = document.getElementById("STdiam").value;
+   const l = document.getElementById("STlumi").value;
+   const M = Number(m);
+   const T = Number(t);
+   const D = Number(d);
+   const L = Number(l);
+   const r = (Math.floor(Math.random() * 1001) - 500) / 1000;
+
+   //  console.log("Mass: " + M);
+   //  console.log("Temperature: " + T);
+   //  console.log("Diamter: " + D);
+   //  console.log("Luminosity: " + L);
+   //
+   //  console.log(((M * 0.2) * r) + M);
+   //  console.log(((T * 0.2) * r) + T);
+   //  console.log(((D * 0.2) * r) + D);
+   //  console.log(((L * 0.2) * r) + L);
+
+   const mr = (((M * 0.2) * r) + M);
+   const tr = (((T * 0.2) * r) + T);
+   const dr = (((D * 0.2) * r) + D);
+   const lr = (((L * 0.2) * r) + L);
+
+   console.log("Mass with Variance: " + Math.round(mr * 10000) / 10000);
+   console.log("Temperature with Variance: " + Math.round(tr));
+   console.log("Diameter with Variance: " + Math.round(dr * 10000) / 10000);
+   console.log("Luminosity with Variance: " + Math.round(lr * 10000) / 10000);
+
+   const mrR = (Math.round(mr * 10000) / 10000);
+   const trR = (Math.round(tr));
+   const drR = (Math.round(dr * 10000) / 10000);
+   const lrR = (Math.round(lr * 10000) / 10000);
+
+   document.getElementById("STmass").value = mrR;
+   document.getElementById("STtemp").value = trR;
+   document.getElementById("STdiam").value = drR;
+   document.getElementById("STlumi").value = lrR;
+
+}
+
+document.getElementById("test").addEventListener("click", test)
+
+function test() {
+
+   console.log("hello")
+
+}
 src = "../../scripts/Derpious/stellar_data.js"

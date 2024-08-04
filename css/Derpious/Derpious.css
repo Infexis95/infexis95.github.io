@@ -10,7 +10,7 @@ body {
     width: 40%;
 }
 
-.table td, 
+.table td,
 .table th {
     border: 1px solid #000000;
     padding: 8px;
@@ -90,11 +90,15 @@ body {
 
 /* --- */
 
-#stellarinfotable, th, td {
+#stellarinfotable,
+th,
+td {
     text-align: center;
     border: 1px solid black;
     padding: 5px;
-    th, td { 
+
+    th,
+    td {
         background-color: white;
     }
 }
@@ -111,11 +115,89 @@ body {
     width: 75px;
     height: 25px;
     text-align: center;
-    font-family: "Space Mono"monospace;
+    font-family: "Space Mono" monospace;
 }
 
-#tstbttn {
-position: absolute;
-left: 50px;
-top: 20%;
+/* ----- The following CSS-Code is for adding symbols to the generated star values. ----- */
+
+.input-symbol-solar-mass {
+    position: relative;
+}
+
+.input-symbol-solar-mass input {
+    padding-left: 18px;
+    vertical-align: 0%;
+}
+
+.input-symbol-solar-mass::after {
+    position: absolute;
+    top: 0;
+    content: ' \2609';
+    right: 11px;
+}
+
+#STmass {
+    width: 70px;
+}
+
+.input-symbol-solar-temp {
+    position: relative;
+}
+
+.input-symbol-solar-temp input {
+    padding-left: 18px;
+    vertical-align: 0%;
+}
+
+.input-symbol-solar-temp::after {
+    position: absolute;
+    top: 0;
+    content: ' \212A';
+    right: 13px;
+}
+
+#STtemp {
+    width: 70px;
+}
+
+.input-symbol-solar-diam {
+    position: relative;
+}
+
+.input-symbol-solar-diam input {
+    padding-left: 18px;
+    vertical-align: 0%;
+
+}
+
+.input-symbol-solar-diam::after {
+    position: absolute;
+    top: 0;
+    content: ' \2609';
+    right: 11px;
+}
+
+#STdiam {
+    width: 70px;
+}
+
+.input-symbol-solar-lumi {
+    position: relative;
+}
+
+.input-symbol-solar-lumi input {
+    padding-left: 18px;
+    vertical-align: 0%;
+
+}
+
+.input-symbol-solar-lumi::after {
+    position: absolute;
+    top: 0;
+    content: ' \2609';
+    right: 11px;
+}
+
+#STlumi {
+    width: 90px;
 }
