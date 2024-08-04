@@ -372,8 +372,6 @@ function callSTinf() { // This Function fetches the data for each of the applied
 }
 
 function starvariance() {
-   console.log(" ");
-   console.log("Adding Variance of +-20%")
    const m = document.getElementById("STmass").value;
    const t = document.getElementById("STtemp").value;
    const d = document.getElementById("STdiam").value;
@@ -383,6 +381,9 @@ function starvariance() {
    const D = Number(d);
    const L = Number(l);
    const r = (Math.floor(Math.random() * 1001) - 500) / 1000;
+   const STvar = document.getElementById("test").value;
+   console.log(" ");
+   console.log("Adding Variance of +-" + STvar + "%")
 
    //  console.log("Mass: " + M);
    //  console.log("Temperature: " + T);
@@ -394,10 +395,10 @@ function starvariance() {
    //  console.log(((D * 0.2) * r) + D);
    //  console.log(((L * 0.2) * r) + L);
 
-   const mr = (((M * 0.2) * r) + M);
-   const tr = (((T * 0.2) * r) + T);
-   const dr = (((D * 0.2) * r) + D);
-   const lr = (((L * 0.2) * r) + L);
+   const mr = (((M * STvar) * r) + M);
+   const tr = (((T * STvar) * r) + T);
+   const dr = (((D * STvar) * r) + D);
+   const lr = (((L * STvar) * r) + L);
 
    console.log("Mass with Variance: " + Math.round(mr * 10000) / 10000);
    console.log("Temperature with Variance: " + Math.round(tr));
@@ -416,11 +417,17 @@ function starvariance() {
 
 }
 
-document.getElementById("test").addEventListener("click", test)
+var slider = document.getElementById("test");
+var output = document.getElementById("STvar");
+output.innerHTML = slider.value; // Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+slider.oninput = function() {
+  output.innerHTML = this.value;
+} 
 
 function test() {
-
-   console.log("hello")
-
+console.log(document.getElementById("test").value)
 }
+
 src = "../../scripts/Derpious/stellar_data.js"
