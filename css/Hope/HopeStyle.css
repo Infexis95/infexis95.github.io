@@ -22,8 +22,9 @@ p{
 .marqueeBar{
     border-style: inset;
     text-align: center;
-    background-color: #393433;
+    background-color: #666261;
     margin-top: 10;
+    color:#080849
 }
 .topNav{
     background-color: gray;
