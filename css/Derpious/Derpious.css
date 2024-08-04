@@ -113,3 +113,9 @@ body {
     text-align: center;
     font-family: "Space Mono"monospace;
 }
+
+#tstbttn {
+position: absolute;
+left: 50px;
+top: 20%;
+}
