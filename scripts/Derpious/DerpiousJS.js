@@ -430,4 +430,9 @@ function test() {
 console.log(document.getElementById("test").value)
 }
 
+function death() {
+   location.reload(true);
+   console.log("Welcome To The Afterlife")
+}
+
 src = "../../scripts/Derpious/stellar_data.js"
