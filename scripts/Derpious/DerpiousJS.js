@@ -340,7 +340,7 @@ function lumcalc() { // This function generates the star's luminosity and is cal
    document.getElementById("STlumi").value = truelumrounded;
 }
 
-function sysage() {  // this function generates the star and system's age in Gyr, and is called during stargen function.
+function sysage() {  // This function generates the star and system's age in Gyr, and is called during stargen function.
    const mass = document.getElementById("STmass").value;
    const resbox = document.getElementById("result_box").value;
    var MSL = 10 / (Math.pow(mass, 2.5));
@@ -382,6 +382,78 @@ function sysage() {  // this function generates the star and system's age in Gyr
    }
 }
 
+function multistargen() { // This function calls the four functions below to check if the Primary Star has any Companion or Secondary Star(s).
+   primarycompanionstar();
+   secondaryclose();
+   secondarynear();
+   secondaryfar();
+}
+
+function primarycompanionstar() { // This function checks if the Primary Star has a Companion Star.
+   var x = Math.random();
+   var s = document.getElementById("result_box").value;
+   let z = s.includes("F");
+   let y = s.includes("M");
+
+   if (y == true && x <= 0.182 || x <= 0.272 || z == true && x <= 0.364) {
+      console.log("Primary Star has 'Companion' Star.");
+   }
+}
+
+function secondaryclose() { // This function checks if the Primary Star has a Close Secondary Star, and if the Close Star has a Companion Star.
+   var s = document.getElementById("result_box").value;
+   var x1 = Math.random();
+   var x2 = Math.random();
+   let z = s.includes("F");
+   let y = s.includes("M");
+
+   if (y == true && x1 <= 0.182 || x1 <= 0.272 || z == true && x1 <= 0.364) {
+      console.log("Primary Star has 'Close' Secondary Star.");
+      if (y == true && x2 <= 0.182 || x2 <= 0.272 || z == true && x2 <= 0.364) {
+         console.log("'Close' Secondary Star has a 'Companion' Star.")
+      }
+   }
+}
+
+function secondarynear() { // This function checks if the Primary Star has a Near Secondary Star, and if the Near Star has a Companion Star.
+   var s = document.getElementById("result_box").value;
+   var x1 = Math.random();
+   var x2 = Math.random();
+   let z = s.includes("F");
+   let y = s.includes("M");
+
+   if (y == true && x1 <= 0.182 || x1 <= 0.272 || z == true && x1 <= 0.364) {
+      console.log("Primary Star has 'Near' Secondary Star.");
+      if (y == true && x2 <= 0.182 || x2 <= 0.272 || z == true && x2 <= 0.364) {
+         console.log("'Near' Secondary Star has a 'Companion' Star.")
+      }
+   }
+}
+
+function secondaryfar() { // This function checks if the Primary Star has a Far Secondary Star, and if the Far Star has a Companion Star.
+   var s = document.getElementById("result_box").value;
+   var x1 = Math.random();
+   var x2 = Math.random();
+   let z = s.includes("F");
+   let y = s.includes("M");
+
+   if (y == true && x1 <= 0.182 || x1 <= 0.272 || z == true && x1 <= 0.364) {
+      console.log("Primary Star has 'Far' Secondary Star.");
+      if (y == true && x2 <= 0.182 || x2 <= 0.272 || z == true && x2 <= 0.364) {
+         console.log("'Far' Secondary Star has a 'Companion' Star.")
+      }
+   }
+}
+
+function starobjname() {
+   // this function will read the amount of stars and apply correct object names to each.
+}
+
+
+
+
+
+
 
 
 
@@ -408,3 +480,29 @@ function death() {
    location.reload(true);
    console.log("Welcome To The Afterlife")
 }
+
+
+
+
+
+
+
+
+
+
+//         2d6        2d6 + 1    2d6 - 1
+//    1    2          3          1
+//    2    3          4          2
+//    3    4          5          3
+//    4    5          6          4
+//    5    6          7          5
+//    6    7          8          6
+//    7    8          9          7
+//    8    9          10         8
+//    9    10         11         9
+//    10   11         12         10
+//    11   12         13         11
+//    ----------------------------------------------------------
+//    chance of rolling 10+ on 2d6 - 1 = 0.182
+//    chance of rolling 10+ on 2d6     = 0.272
+//    chance of rolling 10+ on 2d6 + 1 = 0.364    
