@@ -279,3 +279,39 @@ td {
     cursor: pointer;
     /* Cursor on hover */
 }
+
+.tabletop-row {
+    display: none;
+}
+
+.P-S-row {
+    display: none;
+}
+
+.P-S-C-row {
+    display: none;
+}
+
+.C-S-row {
+    display: none;
+}
+
+.C-S-C-row {
+    display: none;
+}
+
+.N-S-row {
+    display: none;
+}
+
+.N-S-C-row {
+    display: none;
+}
+
+.F-S-row {
+    display: none;
+}
+
+.F-S-C-row {
+    display: none;
+}

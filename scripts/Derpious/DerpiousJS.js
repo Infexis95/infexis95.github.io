@@ -2,6 +2,9 @@ src = "../../scripts/Derpious/stellar_data.js"
 
 function STType() { //This Function Generates a star Type and Subtype as a string. Then applies the star's data.
 
+    document.getElementsByClassName("tabletop-row").style.display='block';
+    document.getElementsByClassName("P-S-C-row").style.display='block';
+
    // Generate random number between 0 and 1 to be used for caluclating percentages.
    let x = Math.random();
    let y = Math.random();
@@ -397,6 +400,7 @@ function primarycompanionstar() { // This function checks if the Primary Star ha
 
    if (y == true && x <= 0.182 || x <= 0.272 || z == true && x <= 0.364) {
       console.log("Primary Star has 'Companion' Star.");
+      document.getElementById("P-S-C-row").style.display='block';
    }
 }
 
@@ -409,8 +413,10 @@ function secondaryclose() { // This function checks if the Primary Star has a Cl
 
    if (y == true && x1 <= 0.182 || x1 <= 0.272 || z == true && x1 <= 0.364) {
       console.log("Primary Star has 'Close' Secondary Star.");
+      document.getElementById("C-S-row").style.display='block';
       if (y == true && x2 <= 0.182 || x2 <= 0.272 || z == true && x2 <= 0.364) {
-         console.log("'Close' Secondary Star has a 'Companion' Star.")
+         console.log("'Close' Secondary Star has a 'Companion' Star.");
+         document.getElementById("C-S-C-row").style.display='block';
       }
    }
 }
@@ -436,7 +442,7 @@ function secondaryfar() { // This function checks if the Primary Star has a Far 
    var x2 = Math.random();
    let z = s.includes("F");
    let y = s.includes("M");
-
+   
    if (y == true && x1 <= 0.182 || x1 <= 0.272 || z == true && x1 <= 0.364) {
       console.log("Primary Star has 'Far' Secondary Star.");
       if (y == true && x2 <= 0.182 || x2 <= 0.272 || z == true && x2 <= 0.364) {
