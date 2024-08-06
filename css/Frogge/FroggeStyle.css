@@ -48,9 +48,9 @@ aside a {
   }
  
 .boxes {
-    background-image: linear-gradient(0deg, whitesmoke 47.73%, aquamarine 47.73%, aquamarine 50%, whitesmoke 50%, whitesmoke 97.73%, aquamarine 97.73%, aquamarine 100%);
+    background-image: linear-gradient(0deg, whitesmoke 47.73%, blue 47.73%, blue 50%, whitesmoke 50%, whitesmoke 97.73%, blue 97.73%, blue 100%);
     background-size: 44.00px 44.00px;
-    border: 2px solid aquamarine;
+    border: 2px solid blue;
     box-sizing: border-box;
     border-radius: 7px;
     padding-left: 10px;
@@ -61,11 +61,19 @@ aside a {
 }
 
 .name {
-    padding: 10px;
-    background-color: #ac1111;
-    border-style: dotted;
-    border-width: 0.5px;
-    border-color: #020100;
-    text-align: center;
-        }
-    
+    float: inline-start;
+    margin-left: -12px;
+    margin-top: -9px;
+    z-index: -1;
+    height: 25px;
+    width: 150px;
+    border: 2px solid blue;
+    border-radius: 7px;
+    background-color: rgba(0, 0, 255, 0.40);
+    color: blue;
+}
+
+.name p{
+    margin-left: 5px;
+    margin-top: 0px; 
+}
