@@ -17,7 +17,8 @@ body {
 /*put anything u don't want to be wide in the container hun <3 */
 
 main {
-    background-color: #8c918f;
+    background: linear-gradient(0deg, rgba(170,170,170,1) 75%, rgba(186,186,186,1) 75%);
+	background-size: 100% 8px;
     flex: 1;
     padding: 5px;
     margin-left: 55px
@@ -34,21 +35,36 @@ aside {
     position: fixed;
     z-index: 1;
     top: 0;
-    overflow-x: hidden;
-    font-size: smaller;
-    /* this makes the sidebar text slightly smaller */
+    overflow: hidden;
+    white-space: nowrap;
+    transition: width 0.5s;
+    -webkit-transition: width 0.5s;
+    background-color: whitesmoke;
 } 
 
+aside:hover{
+    width: 150px;
+    border-right: 2px solid blue;
+}
+
 aside a {
-    padding: 20px 0px 0px 0px;
+    padding: 15px 0px 0px 0px;
+    margin-left: 50px;
     text-decoration: none;
-    font-size: smaller;
     color: black;
     display: block;
-  }
+}
  
+#header {
+    width: 100%;
+    background-color: #3C4560;
+    height: 150px;
+    background-image: url('/_Stars_fall.png');
+    background-size: 100%;
+}
+
 .boxes {
-    background-image: linear-gradient(0deg, whitesmoke 47.73%, blue 47.73%, blue 50%, whitesmoke 50%, whitesmoke 97.73%, blue 97.73%, blue 100%);
+    background-image: linear-gradient(0deg, whitesmoke 47.73%, #9393f9 47.73%, #9393f9 50%, whitesmoke 50%, whitesmoke 97.73%, #9393f9 97.73%, #9393f9 100%);
     background-size: 44.00px 44.00px;
     border: 2px solid blue;
     box-sizing: border-box;
@@ -60,6 +76,44 @@ aside a {
     margin-bottom: 5px;
 }
 
+.boxes_unlined {
+    background-color: whitesmoke;
+    border: 2px solid blue;
+    box-sizing: border-box;
+    border-radius: 7px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 7px;
+    font-size: 19px;
+    margin-bottom: 5px;
+}
+
+.boxes_filledin {
+    background-color: black;
+    border: 2px solid blue;
+    box-sizing: border-box;
+    border-radius: 7px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 7px;
+    font-size: 19px;
+    margin-bottom: 5px;
+    color: whitesmoke;
+}
+
+.boxes_unlined > img:first-of-type {
+	width: 100%;
+    image-rendering: pixelated;
+}
+
+.boxes_filledin > img:first-of-type {
+	width: 100%;
+    image-rendering: pixelated;
+}
+.boxes_filledin a {
+	color: whitesmoke;
+}
+
 .name {
     float: inline-start;
     margin-left: -12px;
@@ -69,11 +123,13 @@ aside a {
     width: 150px;
     border: 2px solid blue;
     border-radius: 7px;
-    background-color: rgba(0, 0, 255, 0.40);
+    background-color: #9393f9;
     color: blue;
 }
 
-.name p{
+.name h1{
     margin-left: 5px;
     margin-top: 0px; 
+    font-size: 19px;
+    font-weight: normal;
 }
