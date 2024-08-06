@@ -2,9 +2,6 @@ src = "../../scripts/Derpious/stellar_data.js"
 
 function STType() { //This Function Generates a star Type and Subtype as a string. Then applies the star's data.
 
-    document.getElementsByClassName("tabletop-row").style.display='block';
-    document.getElementsByClassName("P-S-C-row").style.display='block';
-
    // Generate random number between 0 and 1 to be used for caluclating percentages.
    let x = Math.random();
    let y = Math.random();
@@ -28,7 +25,7 @@ function STType() { //This Function Generates a star Type and Subtype as a strin
 
    // Star type "special" and "hot" are different from ordinary, so I'll updated that in future.
    if (x < 0.091 || x > 0.909 && x < 1.000) {
-      document.getElementById("result_box").value = "Error"
+      document.getElementById("PS-type").value = "Error"
       console.log("startype:", result_type, "(not yet supported.)")
       callSTinf()
       return
@@ -61,7 +58,7 @@ function STType() { //This Function Generates a star Type and Subtype as a strin
       }
 
       // print information in result.
-      document.getElementById("result_box").value = result_type + result_M_subtype + " " + "V";
+      document.getElementById("PS-type").value = result_type + result_M_subtype + " " + "V";
       console.log("Startype:", result_type, " ", " ", "gen.val", "=", x)
       console.log("M-Starsubtype:", result_M_subtype, " ", " ", "gen.val", "=", y)
       console.log('%cStar Type, Subtype, and Class: ', 'color: yellow', result_type + result_M_subtype + " " + "V")
@@ -94,7 +91,7 @@ function STType() { //This Function Generates a star Type and Subtype as a strin
       }
 
       // print information in result.
-      document.getElementById("result_box").value = result_type + result_subtype + " " + "V";
+      document.getElementById("PS-type").value = result_type + result_subtype + " " + "V";
       console.log("Startype:", result_type, " ", " ", "gen.val", "=", x)
       console.log("Starsubtype:", result_subtype, " ", " ", "gen.val", "=", y)
       console.log('%cStar Type, Subtype, and Class: ', 'color: yellow', result_type + result_subtype + " " + "V")
@@ -104,192 +101,192 @@ function STType() { //This Function Generates a star Type and Subtype as a strin
 }
 
 function callSTinf() { // This Function fetches the data for each of the applied startypes, it is then called by STType().
-   var x = document.getElementById("result_box").value
+   var x = document.getElementById("PS-type").value
 
    //Start of F0 V - F9 V ---------------------------------
 
    if (x == "F0 V") {
-      document.getElementById("STmass").value = F0V.mass
-      document.getElementById("STtemp").value = F0V.temp
-      document.getElementById("STdiam").value = F0V.diam
+      document.getElementById("PS-STmass").value = F0V.mass
+      document.getElementById("PS-STtemp").value = F0V.temp
+      document.getElementById("PS-STdiam").value = F0V.diam
    } else if (x == "F1 V") {
-      document.getElementById("STmass").value = F1V.mass
-      document.getElementById("STtemp").value = F1V.temp
-      document.getElementById("STdiam").value = F1V.diam
+      document.getElementById("PS-STmass").value = F1V.mass
+      document.getElementById("PS-STtemp").value = F1V.temp
+      document.getElementById("PS-STdiam").value = F1V.diam
    } else if (x == "F2 V") {
-      document.getElementById("STmass").value = F2V.mass
-      document.getElementById("STtemp").value = F2V.temp
-      document.getElementById("STdiam").value = F2V.diam
+      document.getElementById("PS-STmass").value = F2V.mass
+      document.getElementById("PS-STtemp").value = F2V.temp
+      document.getElementById("PS-STdiam").value = F2V.diam
    } else if (x == "F3 V") {
-      document.getElementById("STmass").value = F3V.mass
-      document.getElementById("STtemp").value = F3V.temp
-      document.getElementById("STdiam").value = F3V.diam
+      document.getElementById("PS-STmass").value = F3V.mass
+      document.getElementById("PS-STtemp").value = F3V.temp
+      document.getElementById("PS-STdiam").value = F3V.diam
    } else if (x == "F4 V") {
-      document.getElementById("STmass").value = F4V.mass
-      document.getElementById("STtemp").value = F4V.temp
-      document.getElementById("STdiam").value = F4V.diam
+      document.getElementById("PS-STmass").value = F4V.mass
+      document.getElementById("PS-STtemp").value = F4V.temp
+      document.getElementById("PS-STdiam").value = F4V.diam
    } else if (x == "F5 V") {
-      document.getElementById("STmass").value = F5V.mass
-      document.getElementById("STtemp").value = F5V.temp
-      document.getElementById("STdiam").value = F5V.diam
+      document.getElementById("PS-STmass").value = F5V.mass
+      document.getElementById("PS-STtemp").value = F5V.temp
+      document.getElementById("PS-STdiam").value = F5V.diam
    } else if (x == "F6 V") {
-      document.getElementById("STmass").value = F6V.mass
-      document.getElementById("STtemp").value = F6V.temp
-      document.getElementById("STdiam").value = F6V.diam
+      document.getElementById("PS-STmass").value = F6V.mass
+      document.getElementById("PS-STtemp").value = F6V.temp
+      document.getElementById("PS-STdiam").value = F6V.diam
    } else if (x == "F7 V") {
-      document.getElementById("STmass").value = F7V.mass
-      document.getElementById("STtemp").value = F7V.temp
-      document.getElementById("STdiam").value = F7V.diam
+      document.getElementById("PS-STmass").value = F7V.mass
+      document.getElementById("PS-STtemp").value = F7V.temp
+      document.getElementById("PS-STdiam").value = F7V.diam
    } else if (x == "F8 V") {
-      document.getElementById("STmass").value = F8V.mass
-      document.getElementById("STtemp").value = F8V.temp
-      document.getElementById("STdiam").value = F8V.diam
+      document.getElementById("PS-STmass").value = F8V.mass
+      document.getElementById("PS-STtemp").value = F8V.temp
+      document.getElementById("PS-STdiam").value = F8V.diam
    } else if (x == "F9 V") {
-      document.getElementById("STmass").value = F9V.mass
-      document.getElementById("STtemp").value = F9V.temp
-      document.getElementById("STdiam").value = F9V.diam
+      document.getElementById("PS-STmass").value = F9V.mass
+      document.getElementById("PS-STtemp").value = F9V.temp
+      document.getElementById("PS-STdiam").value = F9V.diam
    }
 
    // End of F0 V - F9 V ------------- Start of G0 V - G9 V
 
    else if (x == "G0 V") {
-      document.getElementById("STmass").value = G0V.mass
-      document.getElementById("STtemp").value = G0V.temp
-      document.getElementById("STdiam").value = G0V.diam
+      document.getElementById("PS-STmass").value = G0V.mass
+      document.getElementById("PS-STtemp").value = G0V.temp
+      document.getElementById("PS-STdiam").value = G0V.diam
    } else if (x == "G1 V") {
-      document.getElementById("STmass").value = G1V.mass
-      document.getElementById("STtemp").value = G1V.temp
-      document.getElementById("STdiam").value = G1V.diam
+      document.getElementById("PS-STmass").value = G1V.mass
+      document.getElementById("PS-STtemp").value = G1V.temp
+      document.getElementById("PS-STdiam").value = G1V.diam
    } else if (x == "G2 V") {
-      document.getElementById("STmass").value = G2V.mass
-      document.getElementById("STtemp").value = G2V.temp
-      document.getElementById("STdiam").value = G2V.diam
+      document.getElementById("PS-STmass").value = G2V.mass
+      document.getElementById("PS-STtemp").value = G2V.temp
+      document.getElementById("PS-STdiam").value = G2V.diam
    } else if (x == "G3 V") {
-      document.getElementById("STmass").value = G3V.mass
-      document.getElementById("STtemp").value = G3V.temp
-      document.getElementById("STdiam").value = G3V.diam
+      document.getElementById("PS-STmass").value = G3V.mass
+      document.getElementById("PS-STtemp").value = G3V.temp
+      document.getElementById("PS-STdiam").value = G3V.diam
    } else if (x == "G4 V") {
-      document.getElementById("STmass").value = G4V.mass
-      document.getElementById("STtemp").value = G4V.temp
-      document.getElementById("STdiam").value = G4V.diam
+      document.getElementById("PS-STmass").value = G4V.mass
+      document.getElementById("PS-STtemp").value = G4V.temp
+      document.getElementById("PS-STdiam").value = G4V.diam
    } else if (x == "G5 V") {
-      document.getElementById("STmass").value = G5V.mass
-      document.getElementById("STtemp").value = G5V.temp
-      document.getElementById("STdiam").value = G5V.diam
+      document.getElementById("PS-STmass").value = G5V.mass
+      document.getElementById("PS-STtemp").value = G5V.temp
+      document.getElementById("PS-STdiam").value = G5V.diam
    } else if (x == "G6 V") {
-      document.getElementById("STmass").value = G6V.mass
-      document.getElementById("STtemp").value = G6V.temp
-      document.getElementById("STdiam").value = G6V.diam
+      document.getElementById("PS-STmass").value = G6V.mass
+      document.getElementById("PS-STtemp").value = G6V.temp
+      document.getElementById("PS-STdiam").value = G6V.diam
    } else if (x == "G7 V") {
-      document.getElementById("STmass").value = G7V.mass
-      document.getElementById("STtemp").value = G7V.temp
-      document.getElementById("STdiam").value = G7V.diam
+      document.getElementById("PS-STmass").value = G7V.mass
+      document.getElementById("PS-STtemp").value = G7V.temp
+      document.getElementById("PS-STdiam").value = G7V.diam
    } else if (x == "G8 V") {
-      document.getElementById("STmass").value = G8V.mass
-      document.getElementById("STtemp").value = G8V.temp
-      document.getElementById("STdiam").value = G8V.diam
+      document.getElementById("PS-STmass").value = G8V.mass
+      document.getElementById("PS-STtemp").value = G8V.temp
+      document.getElementById("PS-STdiam").value = G8V.diam
    } else if (x == "G9 V") {
-      document.getElementById("STmass").value = G9V.mass
-      document.getElementById("STtemp").value = G9V.temp
-      document.getElementById("STdiam").value = G9V.diam
+      document.getElementById("PS-STmass").value = G9V.mass
+      document.getElementById("PS-STtemp").value = G9V.temp
+      document.getElementById("PS-STdiam").value = G9V.diam
    }
 
    // End of G0 V - G9 V ------------- Start of K0 V - K9 V
 
    else if (x == "K0 V") {
-      document.getElementById("STmass").value = K0V.mass
-      document.getElementById("STtemp").value = K0V.temp
-      document.getElementById("STdiam").value = K0V.diam
+      document.getElementById("PS-STmass").value = K0V.mass
+      document.getElementById("PS-STtemp").value = K0V.temp
+      document.getElementById("PS-STdiam").value = K0V.diam
    } else if (x == "K1 V") {
-      document.getElementById("STmass").value = K1V.mass
-      document.getElementById("STtemp").value = K1V.temp
-      document.getElementById("STdiam").value = K1V.diam
+      document.getElementById("PS-STmass").value = K1V.mass
+      document.getElementById("PS-STtemp").value = K1V.temp
+      document.getElementById("PS-STdiam").value = K1V.diam
    } else if (x == "K2 V") {
-      document.getElementById("STmass").value = K2V.mass
-      document.getElementById("STtemp").value = K2V.temp
-      document.getElementById("STdiam").value = K2V.diam
+      document.getElementById("PS-STmass").value = K2V.mass
+      document.getElementById("PS-STtemp").value = K2V.temp
+      document.getElementById("PS-STdiam").value = K2V.diam
    } else if (x == "K3 V") {
-      document.getElementById("STmass").value = K3V.mass
-      document.getElementById("STtemp").value = K3V.temp
-      document.getElementById("STdiam").value = K3V.diam
+      document.getElementById("PS-STmass").value = K3V.mass
+      document.getElementById("PS-STtemp").value = K3V.temp
+      document.getElementById("PS-STdiam").value = K3V.diam
    } else if (x == "K4 V") {
-      document.getElementById("STmass").value = K4V.mass
-      document.getElementById("STtemp").value = K4V.temp
-      document.getElementById("STdiam").value = K4V.diam
+      document.getElementById("PS-STmass").value = K4V.mass
+      document.getElementById("PS-STtemp").value = K4V.temp
+      document.getElementById("PS-STdiam").value = K4V.diam
    } else if (x == "K5 V") {
-      document.getElementById("STmass").value = K5V.mass
-      document.getElementById("STtemp").value = K5V.temp
-      document.getElementById("STdiam").value = K5V.diam
+      document.getElementById("PS-STmass").value = K5V.mass
+      document.getElementById("PS-STtemp").value = K5V.temp
+      document.getElementById("PS-STdiam").value = K5V.diam
    } else if (x == "K6 V") {
-      document.getElementById("STmass").value = K6V.mass
-      document.getElementById("STtemp").value = K6V.temp
-      document.getElementById("STdiam").value = K6V.diam
+      document.getElementById("PS-STmass").value = K6V.mass
+      document.getElementById("PS-STtemp").value = K6V.temp
+      document.getElementById("PS-STdiam").value = K6V.diam
    } else if (x == "K6 V") {
-      document.getElementById("STmass").value = K7V.mass
-      document.getElementById("STtemp").value = K7V.temp
-      document.getElementById("STdiam").value = K7V.diam
+      document.getElementById("PS-STmass").value = K7V.mass
+      document.getElementById("PS-STtemp").value = K7V.temp
+      document.getElementById("PS-STdiam").value = K7V.diam
    } else if (x == "K8 V") {
-      document.getElementById("STmass").value = K8V.mass
-      document.getElementById("STtemp").value = K8V.temp
-      document.getElementById("STdiam").value = K8V.diam
+      document.getElementById("PS-STmass").value = K8V.mass
+      document.getElementById("PS-STtemp").value = K8V.temp
+      document.getElementById("PS-STdiam").value = K8V.diam
    } else if (x == "K9 V") {
-      document.getElementById("STmass").value = K9V.mass
-      document.getElementById("STtemp").value = K9V.temp
-      document.getElementById("STdiam").value = K9V.diam
+      document.getElementById("PS-STmass").value = K9V.mass
+      document.getElementById("PS-STtemp").value = K9V.temp
+      document.getElementById("PS-STdiam").value = K9V.diam
    }
 
    // End of K0 V - K9 V ------------- Start of M0 V - M9 V   
 
    else if (x == "M0 V") {
-      document.getElementById("STmass").value = M0V.mass
-      document.getElementById("STtemp").value = M0V.temp
-      document.getElementById("STdiam").value = M0V.diam
+      document.getElementById("PS-STmass").value = M0V.mass
+      document.getElementById("PS-STtemp").value = M0V.temp
+      document.getElementById("PS-STdiam").value = M0V.diam
    } else if (x == "M1 V") {
-      document.getElementById("STmass").value = M1V.mass
-      document.getElementById("STtemp").value = M1V.temp
-      document.getElementById("STdiam").value = M1V.diam
+      document.getElementById("PS-STmass").value = M1V.mass
+      document.getElementById("PS-STtemp").value = M1V.temp
+      document.getElementById("PS-STdiam").value = M1V.diam
    } else if (x == "M2 V") {
-      document.getElementById("STmass").value = M2V.mass
-      document.getElementById("STtemp").value = M2V.temp
-      document.getElementById("STdiam").value = M2V.diam
+      document.getElementById("PS-STmass").value = M2V.mass
+      document.getElementById("PS-STtemp").value = M2V.temp
+      document.getElementById("PS-STdiam").value = M2V.diam
    } else if (x == "M3 V") {
-      document.getElementById("STmass").value = M3V.mass
-      document.getElementById("STtemp").value = M3V.temp
-      document.getElementById("STdiam").value = M3V.diam
+      document.getElementById("PS-STmass").value = M3V.mass
+      document.getElementById("PS-STtemp").value = M3V.temp
+      document.getElementById("PS-STdiam").value = M3V.diam
    } else if (x == "M4 V") {
-      document.getElementById("STmass").value = M4V.mass
-      document.getElementById("STtemp").value = M4V.temp
-      document.getElementById("STdiam").value = M4V.diam
+      document.getElementById("PS-STmass").value = M4V.mass
+      document.getElementById("PS-STtemp").value = M4V.temp
+      document.getElementById("PS-STdiam").value = M4V.diam
    } else if (x == "M5 V") {
-      document.getElementById("STmass").value = M5V.mass
-      document.getElementById("STtemp").value = M5V.temp
-      document.getElementById("STdiam").value = M5V.diam
+      document.getElementById("PS-STmass").value = M5V.mass
+      document.getElementById("PS-STtemp").value = M5V.temp
+      document.getElementById("PS-STdiam").value = M5V.diam
    } else if (x == "M6 V") {
-      document.getElementById("STmass").value = M6V.mass
-      document.getElementById("STtemp").value = M6V.temp
-      document.getElementById("STdiam").value = M6V.diam
+      document.getElementById("PS-STmass").value = M6V.mass
+      document.getElementById("PS-STtemp").value = M6V.temp
+      document.getElementById("PS-STdiam").value = M6V.diam
    } else if (x == "M7 V") {
-      document.getElementById("STmass").value = M7V.mass
-      document.getElementById("STtemp").value = M7V.temp
-      document.getElementById("STdiam").value = M7V.diam
+      document.getElementById("PS-STmass").value = M7V.mass
+      document.getElementById("PS-STtemp").value = M7V.temp
+      document.getElementById("PS-STdiam").value = M7V.diam
    } else if (x == "M8 V") {
-      document.getElementById("STmass").value = M8V.mass
-      document.getElementById("STtemp").value = M8V.temp
-      document.getElementById("STdiam").value = M8V.diam
+      document.getElementById("PS-STmass").value = M8V.mass
+      document.getElementById("PS-STtemp").value = M8V.temp
+      document.getElementById("PS-STdiam").value = M8V.diam
    } else if (x == "M9 V") {
-      document.getElementById("STmass").value = M9V.mass
-      document.getElementById("STtemp").value = M9V.temp
-      document.getElementById("STdiam").value = M9V.diam
+      document.getElementById("PS-STmass").value = M9V.mass
+      document.getElementById("PS-STtemp").value = M9V.temp
+      document.getElementById("PS-STdiam").value = M9V.diam
    }
 
    //End of M0 V - M9 V -----------------------------------
 
    else if (x == "Error") { // For (currently) unsupported Startypes
       console.log("No details for this startype")
-      document.getElementById("STmass").value = "0"
-      document.getElementById("STtemp").value = "0"
-      document.getElementById("STdiam").value = "0"
-      document.getElementById("STlumi").value = "0"
+      document.getElementById("PS-STmass").value = "0"
+      document.getElementById("PS-STtemp").value = "0"
+      document.getElementById("PS-STdiam").value = "0"
+      document.getElementById("PS-STlumi").value = "0"
    }
 
    starvariance();
@@ -298,9 +295,9 @@ function callSTinf() { // This Function fetches the data for each of the applied
 }
 
 function starvariance() { // this function applies a variable to the base star data, as set by the user. Does not affect Luminosity or System Age. called by stargen function
-   const m = document.getElementById("STmass").value;
-   const t = document.getElementById("STtemp").value;
-   const d = document.getElementById("STdiam").value;
+   const m = document.getElementById("PS-STmass").value;
+   const t = document.getElementById("PS-STtemp").value;
+   const d = document.getElementById("PS-STdiam").value;
    const M = Number(m);
    const T = Number(t);
    const D = Number(d);
@@ -321,15 +318,15 @@ function starvariance() { // this function applies a variable to the base star d
    const trR = (Math.round(tr));
    const drR = (Math.round(dr * 10000) / 10000);
 
-   document.getElementById("STmass").value = mrR;
-   document.getElementById("STtemp").value = trR;
-   document.getElementById("STdiam").value = drR;
+   document.getElementById("PS-STmass").value = mrR;
+   document.getElementById("PS-STtemp").value = trR;
+   document.getElementById("PS-STdiam").value = drR;
 
 }
 
 function lumcalc() { // This function generates the star's luminosity and is called during stargen function.
-   const x = document.getElementById("STtemp").value;
-   const z = document.getElementById("STdiam").value;
+   const x = document.getElementById("PS-STtemp").value;
+   const z = document.getElementById("PS-STdiam").value;
 
    console.log("Star Temp: " + x);
    console.log("Star Diam: " + z);
@@ -340,12 +337,12 @@ function lumcalc() { // This function generates the star's luminosity and is cal
 
    console.log(truelumrounded);
 
-   document.getElementById("STlumi").value = truelumrounded;
+   document.getElementById("PS-STlumi").value = truelumrounded;
 }
 
 function sysage() {  // This function generates the star and system's age in Gyr, and is called during stargen function.
-   const mass = document.getElementById("STmass").value;
-   const resbox = document.getElementById("result_box").value;
+   const mass = document.getElementById("PS-STmass").value;
+   const type = document.getElementById("PS-type").value;
    var MSL = 10 / (Math.pow(mass, 2.5));
    var MSLrounded = (Math.round(MSL * 10000) / 10000); // To be used for star age generation, and also a neat detail.
    var ran1000 = Math.floor(Math.random() * 1001) + 1;
@@ -354,8 +351,8 @@ function sysage() {  // This function generates the star and system's age in Gyr
    console.log(MSLrounded);
    console.log(ran1000);
 
-   if (resbox == "Error") {  // When no star is generated due to unsupported startype, skip generating system age.
-      document.getElementById("STage").value = "0";
+   if (type == "Error") {  // When no star is generated due to unsupported startype, skip generating system age.
+      document.getElementById("systemage").value = "0";
 
    } else if (mass > 0.9) {  // generates system age for stars of mass greater than 0.9. Also contains function to set minimum value incase of star mass being less than 4.7.
       console.log("big star!")
@@ -366,11 +363,11 @@ function sysage() {  // This function generates the star and system's age in Gyr
 
       if (mass < 4.7 && bigstarrounded < 0.01) { // This function sets the minimum system age for stars of mass less than 4.7 to 0.01.
          console.log("Minimum value set to 0.01.")
-         document.getElementById("STage").value = 0.01;
+         document.getElementById("systemage").value = 0.01;
          return
       }
 
-      document.getElementById("STage").value = bigstarrounded;
+      document.getElementById("systemage").value = bigstarrounded;
 
    } else {  // generates system age for stars of mass less than 0.9. No need for minimum value addition.
       var x = Math.floor(Math.random() * 6) + 1;
@@ -381,8 +378,19 @@ function sysage() {  // This function generates the star and system's age in Gyr
 
       console.log("Small Star!")
       console.log("rounded value: " + smallstarrounded)
-      document.getElementById("STage").value = smallstarrounded;
+      document.getElementById("systemage").value = smallstarrounded;
    }
+
+var primordial = document.getElementById("systemage").value;
+
+   if (primordial <= 0 && primordial != 0) {
+      console.log("Primordial system!")
+   }
+
+   if (type == "Post-Stellar") {
+      window.alert("WHAT HAVE YOU DONE? THIS ISN'T SUPPOSED TO HAPPEN! YOU FOOOOOOOL")
+   }
+
 }
 
 function multistargen() { // This function calls the four functions below to check if the Primary Star has any Companion or Secondary Star(s).
@@ -394,18 +402,17 @@ function multistargen() { // This function calls the four functions below to che
 
 function primarycompanionstar() { // This function checks if the Primary Star has a Companion Star.
    var x = Math.random();
-   var s = document.getElementById("result_box").value;
+   var s = document.getElementById("PS-type").value;
    let z = s.includes("F");
    let y = s.includes("M");
 
    if (y == true && x <= 0.182 || x <= 0.272 || z == true && x <= 0.364) {
       console.log("Primary Star has 'Companion' Star.");
-      document.getElementById("P-S-C-row").style.display='block';
    }
 }
 
 function secondaryclose() { // This function checks if the Primary Star has a Close Secondary Star, and if the Close Star has a Companion Star.
-   var s = document.getElementById("result_box").value;
+   var s = document.getElementById("PS-type").value;
    var x1 = Math.random();
    var x2 = Math.random();
    let z = s.includes("F");
@@ -413,16 +420,14 @@ function secondaryclose() { // This function checks if the Primary Star has a Cl
 
    if (y == true && x1 <= 0.182 || x1 <= 0.272 || z == true && x1 <= 0.364) {
       console.log("Primary Star has 'Close' Secondary Star.");
-      document.getElementById("C-S-row").style.display='block';
       if (y == true && x2 <= 0.182 || x2 <= 0.272 || z == true && x2 <= 0.364) {
          console.log("'Close' Secondary Star has a 'Companion' Star.");
-         document.getElementById("C-S-C-row").style.display='block';
       }
    }
 }
 
 function secondarynear() { // This function checks if the Primary Star has a Near Secondary Star, and if the Near Star has a Companion Star.
-   var s = document.getElementById("result_box").value;
+   var s = document.getElementById("PS-type").value;
    var x1 = Math.random();
    var x2 = Math.random();
    let z = s.includes("F");
@@ -437,7 +442,7 @@ function secondarynear() { // This function checks if the Primary Star has a Nea
 }
 
 function secondaryfar() { // This function checks if the Primary Star has a Far Secondary Star, and if the Far Star has a Companion Star.
-   var s = document.getElementById("result_box").value;
+   var s = document.getElementById("PS-type").value;
    var x1 = Math.random();
    var x2 = Math.random();
    let z = s.includes("F");

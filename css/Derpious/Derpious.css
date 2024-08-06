@@ -111,7 +111,7 @@ td {
     left: 50px;
 }
 
-#result_box {
+.typeinput {
     width: 75px;
     height: 25px;
     text-align: center;
@@ -136,7 +136,7 @@ td {
     right: 11px;
 }
 
-#STmass {
+.massinput {
     width: 70px;
 }
 
@@ -156,7 +156,7 @@ td {
     right: 13px;
 }
 
-#STtemp {
+.tempinput {
     width: 70px;
 }
 
@@ -177,7 +177,7 @@ td {
     right: 11px;
 }
 
-#STdiam {
+.diaminput {
     width: 70px;
 }
 
@@ -198,7 +198,7 @@ td {
     right: 11px;
 }
 
-#STlumi {
+.lumiinput {
     width: 90px;
 }
 
@@ -219,7 +219,7 @@ td {
     right: 11px;
 }
 
-#STage {
+.sysageinput {
     width: 90px;
 }
 
