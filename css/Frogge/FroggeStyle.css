@@ -1,8 +1,71 @@
 body {
     font-family: 'Courier New', 'Times New Roman';
     margin: 0;
-    background-color: #553f34;
-    background-size: 1000px;
-    background-image:url('null');
-    color: #110905;
+    background-color: whitesmoke;
+    color: black;
+}
+
+* {
+    box-sizing: border-box;
+ }
+
+#container {
+    max-width: 700px;
+    margin: 0 auto;
+        /*centers the page!!*/
+} 
+/*put anything u don't want to be wide in the container hun <3 */
+
+main {
+    background-color: #8c918f;
+    flex: 1;
+    padding: 5px;
+    margin-left: 55px
+}
+
+#flex {
+    display: flex;
+}
+
+aside {
+    width: 50px;
+    padding: 5px;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    font-size: smaller;
+    /* this makes the sidebar text slightly smaller */
+} 
+
+aside a {
+    padding: 20px 0px 0px 0px;
+    text-decoration: none;
+    font-size: smaller;
+    color: black;
+    display: block;
+  }
+ 
+.boxes {
+    background-image: linear-gradient(0deg, whitesmoke 47.73%, aquamarine 47.73%, aquamarine 50%, whitesmoke 50%, whitesmoke 97.73%, aquamarine 97.73%, aquamarine 100%);
+    background-size: 44.00px 44.00px;
+    border: 2px solid aquamarine;
+    box-sizing: border-box;
+    border-radius: 7px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 7px;
+    font-size: 19px;
+    margin-bottom: 5px;
+}
+
+.name {
+    padding: 10px;
+    background-color: #ac1111;
+    border-style: dotted;
+    border-width: 0.5px;
+    border-color: #020100;
+    text-align: center;
         }
+    
