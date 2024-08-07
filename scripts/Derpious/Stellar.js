@@ -40,7 +40,11 @@ function test() {
             { type: '9', roll: [7] },
         ]
     }
+
+    console.log(PrimaryStarType);
+    //console.log(PrimaryStarSubType[DD2]);
 }
+
 
 
 function PS_Type() {
@@ -106,3 +110,15 @@ function PS_Type() {
     console.log('Star Type:', starTypeName);
     callSTinf();
 }
+
+
+for (const iterator of object) {
+    
+}
+
+for (const starTypeData of starTypeProbabilities) {
+    cumulativeProbability += starTypeData.probability;
+    if (randomValue <= cumulativeProbability) {
+        starType = starTypeData.type;
+        break;
+    }
