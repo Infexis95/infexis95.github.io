@@ -52,6 +52,11 @@ function generatePrimaryStarType() {
         { type: 'Anomaly', roll: [11, 12] },
     ];
 
+    const getStarType = (roll, starTypeArray) => {
+        const foundType = starTypeArray.find(type => type.roll.includes(roll));
+        return foundType ? {prefix: foundType.type, type: foundType.type.split(' ')[1] || '' } : {};
+    };
+
     const getPrimaryStarType = (roll1) => {
         const Type = StarType.find(type => type.roll.includes(roll1));
         console.log(Type)
@@ -108,6 +113,15 @@ function generatePrimaryStarType() {
         }
     }
 
+    const AllStarTypes = [
+    () => getStarType(roll[1], StarType),
+    () => getStarType(roll[2], HotStarType),
+    () => getStarType(roll[3], SpecialStarType),
+    () => getStarType(roll[4], UnusualStarType),
+    () => getStarType(roll[5], GiantStarType),
+    () => getStarType(roll[6], PeculiarStarType),
+    ];
+
     const callPST = getPrimaryStarType(roll[1]);
     console.log("Star Type: " + callPST);
     const callhPST = getHotPrimaryStarType(roll[2]);
@@ -121,4 +135,12 @@ function generatePrimaryStarType() {
     const callpPST = getPeculiarPrimaryStarType(roll[6]);
     console.log("Peculiar Star Type: " + callpPST);
     
+    const AllStarTypesMap = AllStarTypes.map((type) => {
+        const { prefix = '', type: starType } = type();
+        return starType ? `${prefix} ${starType}` : '';
+    });
+
+    const FinalStarType = AllStarTypesMap.join(' ');
+
+    console.log("Final Star Type: " + FinalStarType);
 }
