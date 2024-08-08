@@ -1,64 +1,23 @@
+src = "../../scripts/Derpious/stellar_data.js"
+
 function generatePrimaryStarType() {
     const roll_2D = () => Math.floor(Math.random() * 11) + 2;
-    const roll = [roll_2D(), roll_2D(), roll_2D(), roll_2D(), roll_2D(), roll_2D()]
+    const roll = Array.from({ length: 7 }, () => roll_2D());
 
-    const StarType = [
-        { type: 'Special', roll: [2] },
-        { type: 'M', roll: [3, 4, 5, 6] },
-        { type: 'K', roll: [7, 8] },
-        { type: 'G', roll: [9, 10] },
-        { type: 'F', roll: [11] },
-        { type: 'Hot', roll: [12] },
-    ];
+    const starClasses = {
+        1: " VI",
+        2: " V",
+        3: " IV",
+        4: " III",
+        5: " II",
+        6: " Ib",
+        7: " Ia"
+      };
 
-    const HotStarType = [
-        { type: 'A', roll: [2, 4, 5, 6, 7, 8, 9] },
-        { type: 'B', roll: [10, 11] },
-        { type: 'O', roll: [12] },
-    ];
-
-    const SpecialStarType = [                        
-        { type: 'Unusual', roll: [2, 3] },    
-        { type: 'Class VI', roll: [4, 5] },        
-        { type: 'Class IV', roll: [6, 7, 8] },           
-        { type: 'Class III', roll: [10, 11] },             
-        { type: 'Giants', roll: [12] },                  
-    ];                                                   
-
-    const UnusualStarType = [
-        { type: 'Peculiar', roll: [2] },
-        { type: 'Class VI', roll: [3] },
-        { type: 'Class IV', roll: [4] },
-        { type: 'BD', roll: [5, 6, 7] },
-        { type: 'D', roll: [8, 9, 10] },
-        { type: 'Class III', roll: [11] },
-        { type: 'Giants', roll: [12] },
-    ];
-
-    const GiantStarType = [
-        { type: 'Class III', roll: [2, 3, 4, 5, 6, 7, 8] },
-        { type: 'Class II', roll: [9, 10] },
-        { type: 'Class Ib', roll: [11] },
-        { type: 'Class Ia', roll: [12] },
-    ];
-
-    const PeculiarStarType = [
-        { type: 'Black Hole', roll: [2] },
-        { type: 'Pulsar', roll: [3] },
-        { type: 'Neutron Star', roll: [4] },
-        { type: 'Nebula', roll: [5, 6] },
-        { type: 'Protostar', roll: [7, 8, 9] },
-        { type: 'Star Cluster', roll: [10] },
-        { type: 'Anomaly', roll: [11, 12] },
-    ];
-
-    const getStarType = (roll, starTypeArray) => {
-        const foundType = starTypeArray.find(type => type.roll.includes(roll));
-        return foundType ? {prefix: foundType.type, type: foundType.type.split(' ')[1] || '' } : {};
-    };
 
     const getPrimaryStarType = (roll1) => {
         const Type = StarType.find(type => type.roll.includes(roll1));
+        console.log(roll1)
         console.log(Type)
         return Type ? Type.type : '';
     };
@@ -66,6 +25,7 @@ function generatePrimaryStarType() {
     const getHotPrimaryStarType = (roll2) => {
         if (callPST == 'Hot') {
             const hotType = HotStarType.find(type => type.roll.includes(roll2));
+            console.log(roll2)
             console.log(hotType)
             return hotType ? hotType.type : '';
         } else {
@@ -76,6 +36,7 @@ function generatePrimaryStarType() {
     const getSpecialPrimaryStarType = (roll3) => {
         if (callPST == 'Special') {
             const specialType = SpecialStarType.find(type => type.roll.includes(roll3));
+            console.log(roll3)
             console.log(specialType)
             return specialType ? specialType.type : '';
         } else {
@@ -86,6 +47,7 @@ function generatePrimaryStarType() {
     const getUnusualPrimaryStarType = (roll4) => {
         if (callsPST == 'Unusual') {
             const unusualType = UnusualStarType.find(type => type.roll.includes(roll4));
+            console.log(roll4)
             console.log(unusualType)
             return unusualType ? unusualType.type : '';
         } else {
@@ -96,6 +58,7 @@ function generatePrimaryStarType() {
     const getGiantPrimaryStarType = (roll5) => {
         if (callsPST == 'Giants') {
             const giantType = GiantStarType.find(type => type.roll.includes(roll5));
+            console.log(roll5)
             console.log(giantType)
             return giantType ? giantType.type : '';
         } else {
@@ -105,42 +68,55 @@ function generatePrimaryStarType() {
 
     const getPeculiarPrimaryStarType = (roll6) => {
         if (calluPST == 'Peculiar') {
-            const unusualType = UnusualStarType.find(type => type.roll.includes(roll6));
-            console.log(unusualType)
-            return unusualType ? unusualType.type : '';
+            const peculiarType = PeculiarStarType.find(type => type.roll.includes(roll6));
+            console.log(roll6)
+            console.log(peculiarType)
+            return peculiarType ? peculiarType.type : '';
         } else {
             return
         }
     }
 
-    const AllStarTypes = [
-    () => getStarType(roll[1], StarType),
-    () => getStarType(roll[2], HotStarType),
-    () => getStarType(roll[3], SpecialStarType),
-    () => getStarType(roll[4], UnusualStarType),
-    () => getStarType(roll[5], GiantStarType),
-    () => getStarType(roll[6], PeculiarStarType),
-    ];
+    const getExtraPrimaryStarType = (roll7) => {
+            const extraType = ExtraStarType.find(type => type.roll.includes(roll7));
+            return extraType ? extraType.type : '';
+    }
 
     const callPST = getPrimaryStarType(roll[1]);
     console.log("Star Type: " + callPST);
     const callhPST = getHotPrimaryStarType(roll[2]);
-    console.log("Hot Star Type: " + callhPST);
+    if (callPST == "Hot") {
+        console.log("Hot Star Type: " + callhPST);
+    }
     const callsPST = getSpecialPrimaryStarType(roll[3]);
-    console.log("Special Star Type: " + callsPST);
+    if (callPST == "Special") {
+        console.log("Special Star Type: " + callsPST);
+    }
     const calluPST = getUnusualPrimaryStarType(roll[4]);
-    console.log("Unusual Star Type: " + calluPST);
+    if (callsPST == "Unusual") {
+        console.log("Unusual Star Type: " + calluPST);
+    }
     const callgPST = getGiantPrimaryStarType(roll[5]);
-    console.log("Giant Star Type: " + callgPST);
+    if (callsPST == "Giants") {
+        console.log("Giant Star Type: " + callgPST);
+    }
     const callpPST = getPeculiarPrimaryStarType(roll[6]);
-    console.log("Peculiar Star Type: " + callpPST);
-    
-    const AllStarTypesMap = AllStarTypes.map((type) => {
-        const { prefix = '', type: starType } = type();
-        return starType ? `${prefix} ${starType}` : '';
-    });
+    if (calluPST == "Peculiar") {
+        console.log("Peculiar Star Type: " + callpPST);
+    }
+    const callePST = getExtraPrimaryStarType(roll[7]);
+    console.log("Star Type: " + callePST);
 
-    const FinalStarType = AllStarTypesMap.join(' ');
+    let x = callPST;
+    let y = starClasses[2];
+    if (callPST == "Hot") {
+        x = callhPST
+    } else if (callPST == "Special" && callsPST.includes("Class")) {
+        x = callePST
+        y = callsPST.replace("Class", "");
+    }
 
-    console.log("Final Star Type: " + FinalStarType);
+        console.log("Final Star Type: " + x + y);
+
+
 }
