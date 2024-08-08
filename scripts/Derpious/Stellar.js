@@ -1,11 +1,8 @@
-function test() {
-    let DD1 = Math.floor(Math.random() * 12) + 1;
-    let DD2 = Math.floor(Math.random() * 12) + 1;
+function generatePrimaryStarType() {
+    const roll_2D = () => Math.floor(Math.random() * 11) + 2;
+    const roll = [roll_2D(), roll_2D(), roll_2D(), roll_2D(), roll_2D(), roll_2D()]
 
-    console.log(DD1);
-    console.log(DD2);
-
-    const PrimaryStarType = [
+    const StarType = [
         { type: 'Special', roll: [2] },
         { type: 'M', roll: [3, 4, 5, 6] },
         { type: 'K', roll: [7, 8] },
@@ -14,111 +11,114 @@ function test() {
         { type: 'Hot', roll: [12] },
     ];
 
-    const PrimaryStarSubType = {
-        M: [
-            { type: '0', roll: [6] },
-            { type: '1', roll: [8] },
-            { type: '2', roll: [7] },
-            { type: '3', roll: [9] },
-            { type: '4', roll: [5] },
-            { type: '5', roll: [4, 10] },
-            { type: '6', roll: [3] },
-            { type: '7', roll: [11] },
-            { type: '8', roll: [2] },
-            { type: '9', roll: [12] },
-        ],
-        default: [
-            { type: '0', roll: [2, 12] },
-            { type: '1', roll: [3] },
-            { type: '2', roll: [11] },
-            { type: '3', roll: [4] },
-            { type: '4', roll: [10] },
-            { type: '5', roll: [5] },
-            { type: '6', roll: [9] },
-            { type: '7', roll: [6] },
-            { type: '8', roll: [8] },
-            { type: '9', roll: [7] },
-        ]
-    }
-
-    console.log(PrimaryStarType);
-    //console.log(PrimaryStarSubType[DD2]);
-}
-
-
-
-function PS_Type() {
-    // Define star type probabilities and corresponding values
-    const starTypeProbabilities = [
-        { type: 'Special', probability: 0.091 },
-        { type: 'M', probability: 0.363 },
-        { type: 'K', probability: 0.182 },
-        { type: 'G', probability: 0.182 },
-        { type: 'F', probability: 0.182 },
-        { type: 'Hot', probability: 0.091 }
+    const HotStarType = [
+        { type: 'A', roll: [2, 4, 5, 6, 7, 8, 9] },
+        { type: 'B', roll: [10, 11] },
+        { type: 'O', roll: [12] },
     ];
 
-    const subtypeProbabilities = [
-        { subtype: '0', probability: 0.091 },
-        { subtype: '1', probability: 0.091 },
-        { subtype: '2', probability: 0.091 },
-        // ... other subtypes ...
-        { subtype: '9', probability: 0.091 }
+    const SpecialStarType = [                        
+        { type: 'Unusual', roll: [2, 3] },    
+        { type: 'Class VI', roll: [4, 5] },        
+        { type: 'Class IV', roll: [6, 7, 8] },           
+        { type: 'Class III', roll: [10, 11] },             
+        { type: 'Giants', roll: [12] },                  
+    ];                                                   
+
+    const UnusualStarType = [
+        { type: 'Peculiar', roll: [2] },
+        { type: 'Class VI', roll: [3] },
+        { type: 'Class IV', roll: [4] },
+        { type: 'BD', roll: [5, 6, 7] },
+        { type: 'D', roll: [8, 9, 10] },
+        { type: 'Class III', roll: [11] },
+        { type: 'Giants', roll: [12] },
     ];
 
-    // Generate random number for star type
-    const randomValue = Math.random();
-    let cumulativeProbability = 0;
-    let starType = 'Error';
+    const GiantStarType = [
+        { type: 'Class III', roll: [2, 3, 4, 5, 6, 7, 8] },
+        { type: 'Class II', roll: [9, 10] },
+        { type: 'Class Ib', roll: [11] },
+        { type: 'Class Ia', roll: [12] },
+    ];
 
-    for (const starTypeData of starTypeProbabilities) {
-        cumulativeProbability += starTypeData.probability;
-        if (randomValue <= cumulativeProbability) {
-            starType = starTypeData.type;
-            break;
+    const PeculiarStarType = [
+        { type: 'Black Hole', roll: [2] },
+        { type: 'Pulsar', roll: [3] },
+        { type: 'Neutron Star', roll: [4] },
+        { type: 'Nebula', roll: [5, 6] },
+        { type: 'Protostar', roll: [7, 8, 9] },
+        { type: 'Star Cluster', roll: [10] },
+        { type: 'Anomaly', roll: [11, 12] },
+    ];
+
+    const getPrimaryStarType = (roll1) => {
+        const Type = StarType.find(type => type.roll.includes(roll1));
+        console.log(Type)
+        return Type ? Type.type : '';
+    };
+
+    const getHotPrimaryStarType = (roll2) => {
+        if (callPST == 'Hot') {
+            const hotType = HotStarType.find(type => type.roll.includes(roll2));
+            console.log(hotType)
+            return hotType ? hotType.type : '';
+        } else {
+            return
         }
     }
 
-    // Handle special and hot star types (replace with your logic)
-    if (starType === 'Special' || starType === 'Hot') {
-        document.getElementById("PS-type").value = "Error";
-        console.log("startype:", starType, "(not yet supported.)");
-        callSTinf();
-        return;
-    }
-
-    // Generate subtype based on star type
-    let subtype = '';
-    if (starType === 'M') {
-        // Adjust subtype probabilities for M stars if needed
-    }
-
-    // Generate random number for subtype
-    const randomSubtypeValue = Math.random();
-    cumulativeProbability = 0;
-
-    for (const subtypeData of subtypeProbabilities) {
-        cumulativeProbability += subtypeData.probability;
-        if (randomSubtypeValue <= cumulativeProbability) {
-            subtype = subtypeData.subtype;
-            break;
+    const getSpecialPrimaryStarType = (roll3) => {
+        if (callPST == 'Special') {
+            const specialType = SpecialStarType.find(type => type.roll.includes(roll3));
+            console.log(specialType)
+            return specialType ? specialType.type : '';
+        } else {
+            return
         }
     }
 
-    const starTypeName = starType + subtype + ' V';
-    document.getElementById("PS-type").value = starTypeName;
-    console.log('Star Type:', starTypeName);
-    callSTinf();
-}
+    const getUnusualPrimaryStarType = (roll4) => {
+        if (callsPST == 'Unusual') {
+            const unusualType = UnusualStarType.find(type => type.roll.includes(roll4));
+            console.log(unusualType)
+            return unusualType ? unusualType.type : '';
+        } else {
+            return
+        }
+    }
 
+    const getGiantPrimaryStarType = (roll5) => {
+        if (callsPST == 'Giants') {
+            const giantType = GiantStarType.find(type => type.roll.includes(roll5));
+            console.log(giantType)
+            return giantType ? giantType.type : '';
+        } else {
+            return
+        }
+    }
 
-for (const iterator of object) {
+    const getPeculiarPrimaryStarType = (roll6) => {
+        if (calluPST == 'Peculiar') {
+            const unusualType = UnusualStarType.find(type => type.roll.includes(roll6));
+            console.log(unusualType)
+            return unusualType ? unusualType.type : '';
+        } else {
+            return
+        }
+    }
+
+    const callPST = getPrimaryStarType(roll[1]);
+    console.log("Star Type: " + callPST);
+    const callhPST = getHotPrimaryStarType(roll[2]);
+    console.log("Hot Star Type: " + callhPST);
+    const callsPST = getSpecialPrimaryStarType(roll[3]);
+    console.log("Special Star Type: " + callsPST);
+    const calluPST = getUnusualPrimaryStarType(roll[4]);
+    console.log("Unusual Star Type: " + calluPST);
+    const callgPST = getGiantPrimaryStarType(roll[5]);
+    console.log("Giant Star Type: " + callgPST);
+    const callpPST = getPeculiarPrimaryStarType(roll[6]);
+    console.log("Peculiar Star Type: " + callpPST);
     
 }
-
-for (const starTypeData of starTypeProbabilities) {
-    cumulativeProbability += starTypeData.probability;
-    if (randomValue <= cumulativeProbability) {
-        starType = starTypeData.type;
-        break;
-    }
