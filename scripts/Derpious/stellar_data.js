@@ -95,5 +95,12 @@ const ExtraStarType = [
     { type: 'M', roll: [2, 3, 4, 5, 6] },
     { type: 'K', roll: [7, 8] },
     { type: 'G', roll: [9, 10] },
-    { type: 'F', roll: [11, 12] },
+    { type: 'F', roll: [11] },
+    { type: 'Hot', roll: [12] }
 ]
+
+const ExtraHotStarType = [
+    { type: 'A', roll: [2, 3, 4, 5, 6, 7, 8, 9] },
+    { type: 'B', roll: [10, 11] },
+    { type: 'O', roll: [12] },
+];

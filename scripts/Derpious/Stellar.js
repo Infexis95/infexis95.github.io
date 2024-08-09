@@ -2,7 +2,7 @@ src = "../../scripts/Derpious/stellar_data.js"
 
 function generatePrimaryStarType() {
     const roll_2D = () => Math.floor(Math.random() * 11) + 2;
-    const roll = Array.from({ length: 7 }, () => roll_2D());
+    const roll = Array.from({ length: 9 }, () => roll_2D());
 
     const starClasses = {
         1: " VI",
@@ -82,6 +82,12 @@ function generatePrimaryStarType() {
             return extraType ? extraType.type : '';
     }
 
+    const getHotExtraPrimaryStarType = (roll8) => {
+        const extraHotType = ExtraHotStarType.find(type => type.roll.includes(roll8));
+        return extraHotType ? extraHotType.type : '';
+}
+    
+
     const callPST = getPrimaryStarType(roll[1]);
     console.log("Star Type: " + callPST);
     const callhPST = getHotPrimaryStarType(roll[2]);
@@ -105,18 +111,28 @@ function generatePrimaryStarType() {
         console.log("Peculiar Star Type: " + callpPST);
     }
     const callePST = getExtraPrimaryStarType(roll[7]);
-    console.log("Star Type: " + callePST);
-
-    let x = callPST;
-    let y = starClasses[2];
-    if (callPST == "Hot") {
-        x = callhPST
-    } else if (callPST == "Special" && callsPST.includes("Class")) {
-        x = callePST
-        y = callsPST.replace("Class", "");
+    console.log("extra Star Type: " + callePST);
+    const callehPST = getHotExtraPrimaryStarType(roll[8]);
+    if (callePST == "Hot") {
+        console.log("Extra Hot Star Type: " + callehPST)   
     }
 
-        console.log("Final Star Type: " + x + y);
+    let x = callPST;
+    let y = Math.floor(Math.random() * 9);
+    let z = starClasses[2];
+    if (x == "Hot") {
+        x = callhPST
+    }
+    if (x == "Special" && callsPST == "Class IV"){
+        x = callePST
+        if (callePST == "Hot") {
+            x = callehPST
+        }
+        z = starClasses[3]
+    }
+    
 
 
+
+        console.log("Final Star Type: " + x + y + z);
 }
