@@ -1,5 +1,7 @@
 src = "../../scripts/Derpious/stellar_data.js"
 
+const Flee = "FLEEEEE"
+
 function STType() { //This Function Generates a star Type and Subtype as a string. Then applies the star's data.
 
    // Generate random number between 0 and 1 to be used for caluclating percentages.

@@ -13,10 +13,45 @@
 <body>
     <div>
         <button onclick="generatePrimaryStar()">
-            test
+            Generate Primary Star
+        </button>
+        <button onclick="generatePrimaryStarData()">
+            Generate Primary Star Data
         </button>
     </div>
-
+<div>
+    <table style="background-color: grey;">
+        <tr>
+            <th>
+                Primary Star Type
+            </th>
+            <th>
+                Primary Star Mass
+            </th>
+            <th>
+                Primary Star Temp
+            </th>
+            <th>
+                Primary Star Diam
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <input type="text" id="InputPrimaryStarType" style="text-align: center;">
+            </th>
+            <th>
+                <input type="text" id="InputPrimaryStarMass" style="text-align: center;">
+            </th>
+            <th>
+                <input type="text" id="InputPrimaryStarTemperature" style="text-align: center;">
+            </th>
+            <th>
+                <input type="text" id="InputPrimaryStarDiameter" style="text-align: center;">
+            </th>
+            
+        </tr>
+    </table>
+</div>
 
     <script src="../../scripts/Derpious/Stellar.js"></script>
     <script src="../../scripts/Derpious/stellar_data.js"></script>

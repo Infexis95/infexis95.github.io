@@ -276,6 +276,34 @@ function generatePrimaryStar() {
 
 
     // Output The Full Primary Star in Console.
-    let PrimaryStar = T + S + C;
-    console.log("Primary Star: " + PrimaryStar);
+    let PrimaryStar = T + S;
+    let PrimaryClass = C
+    console.log("Primary Star: " + PrimaryStar + PrimaryClass);
+    document.getElementById("InputPrimaryStarType").value = PrimaryStar + PrimaryClass;
+    generatePrimaryStarData();
+}
+
+function generatePrimaryStarData() {
+    let StarDataKey = document.getElementById("InputPrimaryStarType").value;
+    StarDataKey = StarDataKey.replace(" ", "");
+    const StarData = starData[StarDataKey];
+
+
+    Mass = parseFloat(StarData.mass);
+    Temp = parseFloat(StarData.temp);
+    Diam = parseFloat(StarData.diam);
+    console.log("Mass (numeric): " + Mass);
+    console.log("Temp (numeric): " + Temp);
+    console.log("Diam (numeric): " + Diam);
+
+    // This part rounds the generated variance values to up to 5 decimals.
+    const RoundedMassVariance = (Math.round(mr * 10000) / 10000);
+    const RoundedTempVariance = (Math.round(tr));
+    const RoundedDiamVariance = (Math.round(dr * 10000) / 10000);
+
+    // This part prints the generated values with variance.
+    document.getElementById("InputPrimaryStarMass").value = RoundedMassVariance;
+    document.getElementById("InputPrimaryStarTemperature").value = RoundedTempVariance;
+    document.getElementById("InputPrimaryStarDiameter").value = RoundedDiamVariance;
+
 }
