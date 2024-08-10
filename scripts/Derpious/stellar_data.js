@@ -41,6 +41,16 @@ const M9V = { mass: "0.08", temp: "2400", diam: "0.1", lumi: "0.00029" }
 
 // -------------------------------------------------------------------------------------
 
+const starClasses = {
+    1: " VI",
+    2: " V",
+    3: " IV",
+    4: " III",
+    5: " II",
+    6: " Ib",
+    7: " Ia"
+};
+
 const StarType = [
     { type: 'Special', roll: [2] },
     { type: 'M', roll: [3, 4, 5, 6] },
@@ -91,16 +101,112 @@ const PeculiarStarType = [
     { type: 'Anomaly', roll: [11, 12] },
 ];
 
-const ExtraStarType = [
-    { type: 'M', roll: [2, 3, 4, 5, 6] },
-    { type: 'K', roll: [7, 8] },
-    { type: 'G', roll: [9, 10] },
-    { type: 'F', roll: [11] },
-    { type: 'Hot', roll: [12] }
+const ExtraStarType = [  // effecitvely added a +1 to the dice roll. Increasing likelyhood of a Hot roll and removing the possibilty of a special roll.
+    { type: 'M', roll: [2, 3, 4, 5] },
+    { type: 'K', roll: [6, 7] },
+    { type: 'G', roll: [8, 9] },
+    { type: 'F', roll: [10] },
+    { type: 'Hot', roll: [11, 12] }
 ]
 
 const ExtraHotStarType = [
     { type: 'A', roll: [2, 3, 4, 5, 6, 7, 8, 9] },
     { type: 'B', roll: [10, 11] },
     { type: 'O', roll: [12] },
+];
+
+const ClassVIStarType = [
+    { type: 'M', roll: [2, 3, 4, 5] },
+    { type: 'K', roll: [6, 7] },
+    { type: 'G', roll: [8, 9, 10] },
+    { type: 'Hot', roll: [11, 12] }
+]
+
+const HotClassVIStarType = [
+    { type: 'B', roll: [2, 3, 4, 5, 6, 7, 8, 9, 10, 11] },
+    { type: 'O', roll: [12] },
+];
+
+const ClassIVStarType = [
+    { type: 'K', roll: [2, 3, 4] },
+    { type: 'G', roll: [5, 6, 7, 8] },
+    { type: 'F', roll: [9, 10] },
+    { type: 'Hot', roll: [11, 12] }
+]
+
+const HotClassIVStarType = [
+    { type: 'A', roll: [2, 3, 4, 5, 6, 7, 8, 9] },
+    { type: 'B', roll: [10, 11, 12] },
+];
+
+const BrownDwarfType = [
+    { type: 'M', roll: [2] },
+    { type: 'L', roll: [3, 4, 5, 6, 7] },
+    { type: 'T', roll: [8, 9, 10] },
+    { type: 'Y', roll: [11, 12] },
+];
+
+const SubType = [
+    { type: '0', roll: [2, 12] },
+    { type: '1', roll: [3] },
+    { type: '2', roll: [11] },
+    { type: '3', roll: [4] },
+    { type: '4', roll: [10] },
+    { type: '5', roll: [5] },
+    { type: '6', roll: [9] },
+    { type: '7', roll: [6] },
+    { type: '8', roll: [8] },
+    { type: '9', roll: [7] },
+];
+
+const SubType_M = [
+    { type: '0', roll: [6] },
+    { type: '1', roll: [8] },
+    { type: '2', roll: [7] },
+    { type: '3', roll: [9] },
+    { type: '4', roll: [5] },
+    { type: '5', roll: [4, 10] },
+    { type: '6', roll: [3] },
+    { type: '7', roll: [11] },
+    { type: '8', roll: [2] },
+    { type: '9', roll: [12] },
+];
+
+const SubType_K = [
+    { type: '0', roll: [2, 5, 12] },
+    { type: '1', roll: [3, 9] },
+    { type: '2', roll: [6, 11] },
+    { type: '3', roll: [4, 8] },
+    { type: '4', roll: [7, 10] },
+];
+
+const SubType_BD = [
+    { type: '0', roll: [2] },
+    { type: '1', roll: [3] },
+    { type: '2', roll: [4] },
+    { type: '3', roll: [5] },
+    { type: '4', roll: [6] },
+    { type: '5', roll: [7, 8] },
+    { type: '6', roll: [9] },
+    { type: '7', roll: [10] },
+    { type: '8', roll: [11] },
+    { type: '9', roll: [12] },
+];
+
+const SubType_BD_Y = [
+    { type: '0', roll: [2, 3, 4] },
+    { type: '1', roll: [5, 6] },
+    { type: '2', roll: [7, 8] },
+    { type: '3', roll: [9, 10] },
+    { type: '4', roll: [11] },
+    { type: '5', roll: [12] },
+];
+
+const SubType_D = [
+    { type: 'M', roll: [2] },
+    { type: 'K', roll: [3] },
+    { type: 'G', roll: [4, 5] },
+    { type: 'F', roll: [6, 7, 8] },
+    { type: 'A', roll: [9, 10] },
+    { type: 'B', roll: [11, 12] },
 ];
