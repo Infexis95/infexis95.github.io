@@ -101,7 +101,7 @@ const PeculiarStarType = [
     { type: 'Anomaly', roll: [11, 12] },
 ];
 
-const ExtraStarType = [  // effecitvely added a +1 to the dice roll. Increasing likelyhood of a Hot roll and removing the possibilty of a special roll.
+const ExtraStarType = [
     { type: 'M', roll: [2, 3, 4, 5] },
     { type: 'K', roll: [6, 7] },
     { type: 'G', roll: [8, 9] },
