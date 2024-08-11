@@ -405,7 +405,7 @@ function Whitedwarf() {
             document.getElementById("InputPrimaryStarAge").value = WhiteDwarfFinalAge;
             document.getElementById("InputPrimaryStarMass").value = WDMassRounded;
             document.getElementById("InputPrimaryStarDiameter").value = WDDiamRounded;
-;
+            ;
             //Calls Temp and Luminosity Functions
             WhiteDwarfTemp();
             lumcalc();
@@ -558,4 +558,326 @@ function WhiteDwarfTemp() {
     // Prints the generated temperature in console and in input.
     console.log("Primary Star Temperature: " + TempResult);
     document.getElementById("InputPrimaryStarTemperature").value = TempResult;
+};
+
+function TableAdder() {
+    x = document.getElementById("PrimaryCompanionStarTableRow");
+    x.style.display = "table-row";
+}
+
+function ExtraStars() {
+    const PrimaryStar = document.getElementById("InputPrimaryStarType").value;
+    console.log(PrimaryStar);
+
+    // Initial function checks if Close Secondary Stars are allowed or not, based on Star Class.
+    const NoClose_DM_plus1 = ["Ia", "Ib", "II", "III"];
+    const DM_plus1 = ["IV", "V", "VI", "O", "B", "A", "F"];
+    const DM_minus1 = ["V", "VI", "M"];
+    const NO_DM = ["K", "G"]
+    const BD = ["L", "Y", "T"]
+    const D = ["DM", "DK", "DG", "DF", "DA", "DB"]
+    if (NoClose_DM_plus1.some(type => PrimaryStar.includes(type))) {
+        const roll_2Dplus1 = () => Math.floor(Math.random() * 11) + 3;
+        const roll = Array.from({ length: 5 }, () => roll_2Dplus1());
+
+        let PrimaryCompanionPresent = false;
+        let NearSecondaryPresent = false;
+        let NearSecondaryCompanionPresent = false;
+        let FarSecondaryPresent = false;
+        let FarSecondaryCompanionPresent = false;
+
+        if (roll[0] >= 10) {
+            PrimaryCompanionPresent = true;
+        }; if (roll[1] >= 10) {
+            NearSecondaryPresent = true;
+        }; if (NearSecondaryPresent === true && roll[3] >= 10) {
+            NearSecondaryCompanionPresent = true;
+        }; if (roll[2] >= 10) {
+            FarSecondaryPresent = true;
+        }; if (FarSecondaryPresent === true && roll[4] >= 10) {
+            FarSecondaryCompanionPresent = true;
+        };
+
+        if (PrimaryCompanionPresent === true) {
+            console.log("PRIMARY COMPANION!")
+            let PCrow = document.getElementById("PrimaryCompanionStarTableRow")
+            PCrow.style.display = "table-row"
+        }
+        if (NearSecondaryPresent === true) {
+            console.log("NEAR SECONDARY!")
+            let NSrow = document.getElementById("NearStarTableRow")
+            NSrow.style.display = "table-row"
+        }
+        if (NearSecondaryCompanionPresent === true) {
+            console.log("NEAR COMPANION!")
+            let NSCrow = document.getElementById("NearCompanionStarTableRow")
+            NSCrow.style.display = "table-row"
+        }
+        if (FarSecondaryPresent === true) {
+            console.log("FAR SECONDARY!")
+            let FSrow = document.getElementById("FarStarTableRow")
+            FSrow.style.display = "table-row"
+        }
+        if (FarSecondaryCompanionPresent === true) {
+            console.log("FAR COMPANION!")
+            let FSCrow = document.getElementById("FarCompanionStarTableRow")
+            FSCrow.style.display = "table-row"
+        }
+
+    } else if ((DM_plus1.some(type => PrimaryStar.includes(type))) && !PrimaryStar.includes("M") && !(NO_DM.some(type => PrimaryStar.includes(type)))) {
+        const roll_2Dplus1 = () => Math.floor(Math.random() * 11) + 3;
+        const roll = Array.from({ length: 7 }, () => roll_2Dplus1());
+
+        let PrimaryCompanionPresent = false;
+        let CloseSecondaryPresent = false;
+        let CloseSecondaryCompanionPresent = false;
+        let NearSecondaryPresent = false;
+        let NearSecondaryCompanionPresent = false;
+        let FarSecondaryPresent = false;
+        let FarSecondaryCompanionPresent = false;
+
+        if (roll[0] >= 10) {
+            PrimaryCompanionPresent = true;
+        }; if (roll[1] >= 10) {
+            CloseSecondaryPresent = true;
+        }; if (CloseSecondaryPresent === true && roll[2] >= 10) {
+            CloseSecondaryCompanionPresent = true;
+        }; if (roll[3] >= 10) {
+            NearSecondaryPresent = true;
+        }; if (NearSecondaryPresent === true && roll[4] >= 10) {
+            NearSecondaryCompanionPresent = true;
+        }; if (roll[5] >= 10) {
+            FarSecondaryPresent = true;
+        }; if (FarSecondaryPresent === true && roll[6] >= 10) {
+            FarSecondaryCompanionPresent = true;
+        };
+
+        if (PrimaryCompanionPresent === true) {
+            console.log("PRIMARY COMPANION!")
+            let PCrow = document.getElementById("PrimaryCompanionStarTableRow")
+            PCrow.style.display = "table-row"
+        }
+        if (CloseSecondaryPresent === true) {
+            console.log("CLOSE SECONDARY!")
+            let CSrow = document.getElementById("CloseStarTableRow")
+            CSrow.style.display = "table-row"
+        }
+        if (CloseSecondaryCompanionPresent === true) {
+            console.log("CLOSE COMPANION!")
+            let CSCrow = document.getElementById("CloseCompanionStarTableRow")
+            CSCrow.style.display = "table-row"
+        }
+        if (NearSecondaryPresent === true) {
+            console.log("NEAR SECONDARY!")
+            let NSrow = document.getElementById("NearStarTableRow")
+            NSrow.style.display = "table-row"
+        }
+        if (NearSecondaryCompanionPresent === true) {
+            console.log("NEAR COMPANION!")
+            let NSCrow = document.getElementById("NearCompanionStarTableRow")
+            NSCrow.style.display = "table-row"
+        }
+        if (FarSecondaryPresent === true) {
+            console.log("FAR SECONDARY!")
+            let FSrow = document.getElementById("FarStarTableRow")
+            FSrow.style.display = "table-row"
+        }
+        if (FarSecondaryCompanionPresent === true) {
+            console.log("FAR COMPANION!")
+            let FSCrow = document.getElementById("FarCompanionStarTableRow")
+            FSCrow.style.display = "table-row"
+        }
+
+    } else if (DM_minus1.some(type => PrimaryStar.includes(type)) && !(NO_DM.some(type => PrimaryStar.includes(type)))) {
+        const roll_2Dplus1 = () => Math.floor(Math.random() * 11) + 1;
+        const roll = Array.from({ length: 7 }, () => roll_2Dplus1());
+
+        let PrimaryCompanionPresent = false;
+        let CloseSecondaryPresent = false;
+        let CloseSecondaryCompanionPresent = false;
+        let NearSecondaryPresent = false;
+        let NearSecondaryCompanionPresent = false;
+        let FarSecondaryPresent = false;
+        let FarSecondaryCompanionPresent = false;
+
+        if (roll[0] >= 10) {
+            PrimaryCompanionPresent = true;
+        }; if (roll[1] >= 10) {
+            CloseSecondaryPresent = true;
+        }; if (CloseSecondaryPresent === true && roll[2] >= 10) {
+            CloseSecondaryCompanionPresent = true;
+        }; if (roll[3] >= 10) {
+            NearSecondaryPresent = true;
+        }; if (NearSecondaryPresent === true && roll[4] >= 10) {
+            NearSecondaryCompanionPresent = true;
+        }; if (roll[5] >= 10) {
+            FarSecondaryPresent = true;
+        }; if (FarSecondaryPresent === true && roll[6] >= 10) {
+            FarSecondaryCompanionPresent = true;
+        };
+
+        if (PrimaryCompanionPresent === true) {
+            console.log("PRIMARY COMPANION!")
+            let PCrow = document.getElementById("PrimaryCompanionStarTableRow")
+            PCrow.style.display = "table-row"
+        }
+        if (CloseSecondaryPresent === true) {
+            console.log("CLOSE SECONDARY!")
+            let CSrow = document.getElementById("CloseStarTableRow")
+            CSrow.style.display = "table-row"
+        }
+        if (CloseSecondaryCompanionPresent === true) {
+            console.log("CLOSE COMPANION!")
+            let CSCrow = document.getElementById("CloseCompanionStarTableRow")
+            CSCrow.style.display = "table-row"
+        }
+        if (NearSecondaryPresent === true) {
+            console.log("NEAR SECONDARY!")
+            let NSrow = document.getElementById("NearStarTableRow")
+            NSrow.style.display = "table-row"
+        }
+        if (NearSecondaryCompanionPresent === true) {
+            console.log("NEAR COMPANION!")
+            let NSCrow = document.getElementById("NearCompanionStarTableRow")
+            NSCrow.style.display = "table-row"
+        }
+        if (FarSecondaryPresent === true) {
+            console.log("FAR SECONDARY!")
+            let FSrow = document.getElementById("FarStarTableRow")
+            FSrow.style.display = "table-row"
+        }
+        if (FarSecondaryCompanionPresent === true) {
+            console.log("FAR COMPANION!")
+            let FSCrow = document.getElementById("FarCompanionStarTableRow")
+            FSCrow.style.display = "table-row"
+        }
+
+    } else if (BD.some(type => PrimaryStar.includes(type)) || (D.some(type => PrimaryStar.includes(type)))) {
+        const roll_2Dplus1 = () => Math.floor(Math.random() * 11) + 1;
+        const roll = Array.from({ length: 7 }, () => roll_2Dplus1());
+
+        let PrimaryCompanionPresent = false;
+        let CloseSecondaryPresent = false;
+        let CloseSecondaryCompanionPresent = false;
+        let NearSecondaryPresent = false;
+        let NearSecondaryCompanionPresent = false;
+        let FarSecondaryPresent = false;
+        let FarSecondaryCompanionPresent = false;
+
+        if (roll[0] >= 10) {
+            PrimaryCompanionPresent = true;
+        }; if (roll[1] >= 10) {
+            CloseSecondaryPresent = true;
+        }; if (CloseSecondaryPresent === true && roll[2] >= 10) {
+            CloseSecondaryCompanionPresent = true;
+        }; if (roll[3] >= 10) {
+            NearSecondaryPresent = true;
+        }; if (NearSecondaryPresent === true && roll[4] >= 10) {
+            NearSecondaryCompanionPresent = true;
+        }; if (roll[5] >= 10) {
+            FarSecondaryPresent = true;
+        }; if (FarSecondaryPresent === true && roll[6] >= 10) {
+            FarSecondaryCompanionPresent = true;
+        };
+
+        if (PrimaryCompanionPresent === true) {
+            console.log("PRIMARY COMPANION!")
+            let PCrow = document.getElementById("PrimaryCompanionStarTableRow")
+            PCrow.style.display = "table-row"
+        }
+        if (CloseSecondaryPresent === true) {
+            console.log("CLOSE SECONDARY!")
+            let CSrow = document.getElementById("CloseStarTableRow")
+            CSrow.style.display = "table-row"
+        }
+        if (CloseSecondaryCompanionPresent === true) {
+            console.log("CLOSE COMPANION!")
+            let CSCrow = document.getElementById("CloseCompanionStarTableRow")
+            CSCrow.style.display = "table-row"
+        }
+        if (NearSecondaryPresent === true) {
+            console.log("NEAR SECONDARY!")
+            let NSrow = document.getElementById("NearStarTableRow")
+            NSrow.style.display = "table-row"
+        }
+        if (NearSecondaryCompanionPresent === true) {
+            console.log("NEAR COMPANION!")
+            let NSCrow = document.getElementById("NearCompanionStarTableRow")
+            NSCrow.style.display = "table-row"
+        }
+        if (FarSecondaryPresent === true) {
+            console.log("FAR SECONDARY!")
+            let FSrow = document.getElementById("FarStarTableRow")
+            FSrow.style.display = "table-row"
+        }
+        if (FarSecondaryCompanionPresent === true) {
+            console.log("FAR COMPANION!")
+            let FSCrow = document.getElementById("FarCompanionStarTableRow")
+            FSCrow.style.display = "table-row"
+        }
+
+    } else {
+        const roll_2Dplus1 = () => Math.floor(Math.random() * 11) + 2;
+        const roll = Array.from({ length: 7 }, () => roll_2Dplus1());
+
+        let PrimaryCompanionPresent = false;
+        let CloseSecondaryPresent = false;
+        let CloseSecondaryCompanionPresent = false;
+        let NearSecondaryPresent = false;
+        let NearSecondaryCompanionPresent = false;
+        let FarSecondaryPresent = false;
+        let FarSecondaryCompanionPresent = false;
+
+        if (roll[0] >= 10) {
+            PrimaryCompanionPresent = true;
+        }; if (roll[1] >= 10) {
+            CloseSecondaryPresent = true;
+        }; if (CloseSecondaryPresent === true && roll[2] >= 10) {
+            CloseSecondaryCompanionPresent = true;
+        }; if (roll[3] >= 10) {
+            NearSecondaryPresent = true;
+        }; if (NearSecondaryPresent === true && roll[4] >= 10) {
+            NearSecondaryCompanionPresent = true;
+        }; if (roll[5] >= 10) {
+            FarSecondaryPresent = true;
+        }; if (FarSecondaryPresent === true && roll[6] >= 10) {
+            FarSecondaryCompanionPresent = true;
+        };
+
+        if (PrimaryCompanionPresent === true) {
+            console.log("PRIMARY COMPANION!")
+            let PCrow = document.getElementById("PrimaryCompanionStarTableRow")
+            PCrow.style.display = "table-row"
+        }
+        if (CloseSecondaryPresent === true) {
+            console.log("CLOSE SECONDARY!")
+            let CSrow = document.getElementById("CloseStarTableRow")
+            CSrow.style.display = "table-row"
+        }
+        if (CloseSecondaryCompanionPresent === true) {
+            console.log("CLOSE COMPANION!")
+            let CSCrow = document.getElementById("CloseCompanionStarTableRow")
+            CSCrow.style.display = "table-row"
+        }
+        if (NearSecondaryPresent === true) {
+            console.log("NEAR SECONDARY!")
+            let NSrow = document.getElementById("NearStarTableRow")
+            NSrow.style.display = "table-row"
+        }
+        if (NearSecondaryCompanionPresent === true) {
+            console.log("NEAR COMPANION!")
+            let NSCrow = document.getElementById("NearCompanionStarTableRow")
+            NSCrow.style.display = "table-row"
+        }
+        if (FarSecondaryPresent === true) {
+            console.log("FAR SECONDARY!")
+            let FSrow = document.getElementById("FarStarTableRow")
+            FSrow.style.display = "table-row"
+        }
+        if (FarSecondaryCompanionPresent === true) {
+            console.log("FAR COMPANION!")
+            let FSCrow = document.getElementById("FarCompanionStarTableRow")
+            FSCrow.style.display = "table-row"
+        }
+    }
 }
