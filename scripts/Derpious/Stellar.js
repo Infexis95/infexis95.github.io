@@ -280,30 +280,282 @@ function generatePrimaryStar() {
     let PrimaryClass = C
     console.log("Primary Star: " + PrimaryStar + PrimaryClass);
     document.getElementById("InputPrimaryStarType").value = PrimaryStar + PrimaryClass;
-    generatePrimaryStarData();
-}
+
+    if (calluPST == "D") {
+        Whitedwarf();
+    } else {
+        generatePrimaryStarData();
+    }
+};
 
 function generatePrimaryStarData() {
+    // Fetches StarType and changes it into a Key to be used for fetching data.
     let StarDataKey = document.getElementById("InputPrimaryStarType").value;
     StarDataKey = StarDataKey.replace(" ", "");
     const StarData = starData[StarDataKey];
 
+    // Turns the data from a string into numeric values.
+    // Temp = parseFloat(StarData.temp);
 
-    Mass = parseFloat(StarData.mass);
-    Temp = parseFloat(StarData.temp);
-    Diam = parseFloat(StarData.diam);
-    console.log("Mass (numeric): " + Mass);
-    console.log("Temp (numeric): " + Temp);
-    console.log("Diam (numeric): " + Diam);
+    let Mass = parseFloat(StarData.mass);
+    const GiantMassVarianceRoll = (Math.floor(Math.random() * 5) + 2) / 10;
+    const randomMass = (Math.floor(Math.random() * 1001) - 500) / 1000;
+    let MassVar = GiantMassVarianceRoll
+    if (StarDataKey.includes("V")) {
+        MassVar = 0.2
+    }
+    let MassVariance = (((Mass * MassVar) * randomMass) + Mass);
+    const RoundedMassVariance = (Math.round(MassVariance * 10000) / 10000);
 
-    // This part rounds the generated variance values to up to 5 decimals.
-    const RoundedMassVariance = (Math.round(mr * 10000) / 10000);
-    const RoundedTempVariance = (Math.round(tr));
-    const RoundedDiamVariance = (Math.round(dr * 10000) / 10000);
+    let Diam = parseFloat(StarData.diam);
+    const GiantDiamVarianceRoll = (Math.floor(Math.random() * 5) + 2) / 10;
+    const randomDiam = (Math.floor(Math.random() * 1001) - 500) / 1000;
+    let DiamVar = GiantDiamVarianceRoll
+    if (StarDataKey.includes("V")) {
+        DiamVar = 0.2
+    }
+    let DiamVariance = (((Diam * DiamVar) * randomDiam) + Diam);
+    const RoundedDiamVariance = (Math.round(DiamVariance * 10000) / 10000);
+
+
+
+    const starDataKeys = Object.keys(starData);
+    const currentIndex = starDataKeys.indexOf(StarDataKey);
+
+    let previousStarData, nextStarData;
+    if (currentIndex > 0) {
+        previousStarData = starData[starDataKeys[currentIndex - 1]];
+    }; if (currentIndex < starDataKeys.length - 1) {
+        nextStarData = starData[starDataKeys[currentIndex + 1]];
+    }
+
+    let Middle_Temp = Number(StarData.temp);
+    let Higher_Temp = Number(previousStarData ? previousStarData.temp : null);
+    let Lower_Temp = Number(nextStarData ? nextStarData.temp : null);
+
+    if (StarDataKey.includes("M9") || StarDataKey.includes("Y5")) {
+        Lower_Temp = 0
+    }; if (StarDataKey.includes("O0") || StarDataKey.includes("L0")) {
+        Higher_Temp = 0
+    }
+
+    const randomTemp = (Math.floor(Math.random() * 1001) - 500) / 1000;
+    let TempDifference = (((Middle_Temp - Lower_Temp) + (Higher_Temp - Middle_Temp)) / 2)
+    let y = (Higher_Temp - Middle_Temp)
+    let z = (Middle_Temp - Lower_Temp)
+    let TempVariance = ((TempDifference * randomTemp) + Middle_Temp)
+    const RoundedTempVariance = (Math.round(TempVariance));
 
     // This part prints the generated values with variance.
+    console.log("Primary Star Mass: " + RoundedMassVariance);
+    console.log("Primary Star Temperature: " + RoundedTempVariance);
+    console.log("Primary Star Diameter: " + RoundedDiamVariance);
+
     document.getElementById("InputPrimaryStarMass").value = RoundedMassVariance;
     document.getElementById("InputPrimaryStarTemperature").value = RoundedTempVariance;
     document.getElementById("InputPrimaryStarDiameter").value = RoundedDiamVariance;
 
+    lumcalc()
+    SystemAge()
+};
+
+function Whitedwarf() {
+    const Roll_2D_Minus_1 = (Math.floor(Math.random() * 11) + 1) / 10;
+    const Roll_d10 = (Math.floor(Math.random() * 9) + 1) / 100;
+    const WDmass = Roll_2D_Minus_1 + Roll_d10;
+
+    // IF Mass is equal to "1.2", coinflip. On a 1, it adds a value between 0.01 and 0.24 to a new potential max of 1.44
+    const MoreMassive = Math.round(Math.random());
+    if (WDmass == "1.2" && MoreMassive == 1) {
+        let MoreMass = (Math.floor(Math.random() * 23) + 1) / 100;
+        let WDMass = (WDmass + MoreMass);
+        let WDDiam = (1 / WDMass) * 0.01;
+        let WDMassRounded = Math.round(WDMass * 10000) / 10000;
+        let WDDiamRounded = Math.round(WDDiam * 10000) / 10000;
+        const SmallStarAge = (Math.floor(Math.random() * 13) + 1) + ((Math.floor(Math.random() * 10000) + 1) / 10000);
+        const ProgenitorStarMass = WDMassRounded * Math.floor(Math.random() * 3) + 3;
+        const MainSequenceLifespan = Math.round((10 / Math.pow(ProgenitorStarMass, 2.5)) * 10000) / 10000;
+        const SubGiantLifespan = 1 / (4 + ProgenitorStarMass);
+        const GiantLifespan = 1 / (10 * Math.pow(ProgenitorStarMass, 3));
+        const StarFinalAge = MainSequenceLifespan * (1 + (SubGiantLifespan) + (GiantLifespan));
+        const WhiteDwarfFinalAge = (Math.round((SmallStarAge + StarFinalAge) * 10000) / 10000).toFixed(4);
+
+        // If Age is more than 13.0 Gyr, sets age to 13.0 Gyr
+        if (WhiteDwarfFinalAge >= 13.0) {
+            const Adjustment = WhiteDwarfFinalAge - 13.0;
+            const AdjustedWhiteDwarfFinalAge = (WhiteDwarfFinalAge - Adjustment);
+
+            // Outputs Info to Console and input fields.
+            console.log("Primary Star Age: " + WhiteDwarfFinalAge);
+            console.log("Primary Star Mass: " + WDMassRounded);
+            console.log("Primary Star Diameter: " + WDDiamRounded);
+            document.getElementById("InputPrimaryStarAge").value = AdjustedWhiteDwarfFinalAge;
+            document.getElementById("InputPrimaryStarMass").value = WDMassRounded;
+            document.getElementById("InputPrimaryStarDiameter").value = WDDiamRounded;
+
+            //Calls Temp and Luminosity Functions
+            WhiteDwarfTemp();
+            lumcalc();
+
+        } else {
+            // Outputs Info to Console and input fields.
+            console.log("Primary Star Age: " + WhiteDwarfFinalAge);
+            console.log("Primary Star Mass: " + WDMassRounded);
+            console.log("Primary Star Diameter: " + WDDiamRounded);
+            document.getElementById("InputPrimaryStarAge").value = WhiteDwarfFinalAge;
+            document.getElementById("InputPrimaryStarMass").value = WDMassRounded;
+            document.getElementById("InputPrimaryStarDiameter").value = WDDiamRounded;
+;
+            //Calls Temp and Luminosity Functions
+            WhiteDwarfTemp();
+            lumcalc();
+
+        }
+    } else {
+
+        // IF Mass is less than 1.2, prints it to console.
+        let WDdiam = (1 / WDmass) * 0.01;
+        let WDmassRounded = Math.round(WDmass * 10000) / 10000;
+        let WDdiamRounded = Math.round(WDdiam * 10000) / 10000;
+        const SmallStarAge = (Math.floor(Math.random() * 13) + 1) + ((Math.floor(Math.random() * 10000) + 1) / 10000);
+        const ProgenitorStarMass = WDmassRounded * Math.floor(Math.random() * 3) + 3;
+        const MainSequenceLifespan = Math.round((10 / Math.pow(ProgenitorStarMass, 2.5)) * 10000) / 10000;
+        const SubGiantLifespan = 1 / (4 + ProgenitorStarMass);
+        const GiantLifespan = 1 / (10 * Math.pow(ProgenitorStarMass, 3));
+        const StarFinalAge = MainSequenceLifespan * (1 + (SubGiantLifespan) + (GiantLifespan));
+        const WhiteDwarfFinalAge = (Math.round((SmallStarAge + StarFinalAge) * 10000) / 10000).toFixed(4);
+
+        if (WhiteDwarfFinalAge >= 13.0) {
+            const Adjustment = WhiteDwarfFinalAge - 13.0;
+            const AdjustedWhiteDwarfFinalAge = (WhiteDwarfFinalAge - Adjustment);
+
+            // Outputs Info to Console and input fields.
+            console.log("Primary Star Age: " + WhiteDwarfFinalAge);
+            console.log("Primary Star Mass: " + WDmassRounded);
+            console.log("Primary Star Diameter: " + WDdiamRounded);
+            document.getElementById("InputPrimaryStarAge").value = AdjustedWhiteDwarfFinalAge;
+            document.getElementById("InputPrimaryStarMass").value = WDmassRounded;
+            document.getElementById("InputPrimaryStarDiameter").value = WDdiamRounded;
+
+            //Calls Temp and Luminosity Functions    
+            WhiteDwarfTemp();
+            lumcalc();
+
+
+        } else {
+            // Outputs Info to Console and input fields.
+            console.log("Primary Star Age: " + WhiteDwarfFinalAge);
+            console.log("Primary Star Mass: " + WDmassRounded);
+            console.log("Primary Star Diameter: " + WDdiamRounded);
+            document.getElementById("InputPrimaryStarAge").value = WhiteDwarfFinalAge;
+            document.getElementById("InputPrimaryStarMass").value = WDmassRounded;
+            document.getElementById("InputPrimaryStarDiameter").value = WDdiamRounded;
+
+            //Calls Temp and Luminosity Functions
+            WhiteDwarfTemp();
+            lumcalc();
+        }
+    }
+};
+
+function lumcalc() {
+    // Generates Luminosity by using a formula
+    const Temp = document.getElementById("InputPrimaryStarTemperature").value;
+    const Diam = document.getElementById("InputPrimaryStarDiameter").value;
+    const Luminosity = Math.pow((Diam / 1), 2) * Math.pow((Temp / 5772), 4);
+
+    if (Luminosity <= 0.001) {
+        let LuminosityRounded = (Math.round(Luminosity * 100000000) / 100000000)
+        console.log("Primary Star Luminosity: " + LuminosityRounded);
+        document.getElementById("InputPrimaryStarLuminosity").value = LuminosityRounded;
+    } else {
+        var LuminosityRounded = (Math.round(Luminosity * 10000) / 10000)
+        console.log("Primary Star Luminosity: " + LuminosityRounded);
+        document.getElementById("InputPrimaryStarLuminosity").value = LuminosityRounded;
+    }
+};
+
+function SystemAge() {
+    const Type = document.getElementById("InputPrimaryStarType").value;
+    const Mass = document.getElementById("InputPrimaryStarMass").value;
+    const MainSequenceLifespan = (10 / Math.pow(Mass, 2.5));
+
+    // Checks if Star Class is III and, if so, uses the Class III formula.
+    if (Type.includes("IV")) {
+        const SubGiantLifespan = MainSequenceLifespan / (4 + Mass);
+        const SubGiantAge = SubGiantLifespan * (Math.floor(Math.random() * 100) + 1);
+        const TotalClassIVStarAge = (Math.round(MainSequenceLifespan + SubGiantAge * (Math.floor(Math.random() * 100) + 1) * 10000) / 10000).toFixed(4);
+        console.log("Primary Star Age: " + TotalClassIVStarAge);
+        document.getElementById("InputPrimaryStarAge").value = TotalClassIVStarAge;
+
+        // Checks if Star Class is III and, if so, uses the Class III formula.
+    } else if (Type.includes("III")) {
+        const GiantLifespan = MainSequenceLifespan / (10 * Math.pow(Mass, 3));
+        const SubGiantLifespan = (MainSequenceLifespan / (4 + Mass)) * (Math.floor(Math.random() * 100) + 1);
+        const TotalClassIIIStarAge = (Math.round(MainSequenceLifespan + SubGiantLifespan + GiantLifespan * (Math.floor(Math.random() * 100) + 1) * 10000) / 10000).toFixed(4);
+        console.log("Primary Star Age: " + TotalClassIIIStarAge);
+        document.getElementById("InputPrimaryStarAge").value = TotalClassIIIStarAge;
+
+        // Checks if the star is a Brown or a White Dwarf
+    } else if (Type.length == 2) {
+        if ((/\d/.test(Type) == true)) { // If a dwarf is brown, uses the below function. else, it returns the function.
+            const SmallStarAge = (Math.floor(Math.random() * 13) + 1) + ((Math.floor(Math.random() * 10000) + 1) / 10000);
+            const SmallStarAgeRounded = (Math.round(SmallStarAge * 10000) / 10000).toFixed(4);
+            console.log("Primary Star Age: " + SmallStarAgeRounded);
+            document.getElementById("InputPrimaryStarAge").value = SmallStarAgeRounded;
+
+        } else {
+            return;
+        }
+
+
+
+    } else {
+        // Checks if mass is less than or above 0.9. If it's less than 0.9, the age calculation uses the Small Star Age formula.
+        if (Mass <= 0.9) {
+            const SmallStarAge = (Math.floor(Math.random() * 13) + 1) + ((Math.floor(Math.random() * 10000) + 1) / 10000);
+            const SmallStarAgeRounded = (Math.round(SmallStarAge * 10000) / 10000).toFixed(4);
+            console.log("Primary Star Age: " + SmallStarAgeRounded);
+            document.getElementById("InputPrimaryStarAge").value = SmallStarAgeRounded;
+
+            // If the mass is above 0.9, the age calculation uses the Large Star Age formula.
+        } else {
+            LargeStarAge = (MainSequenceLifespan * ((Math.floor(Math.random() * 1001) + 1) / 1000));
+
+            // This part is used to make the numbers visually reasonable. So that a number with no decimals has 8 zeros
+            if (LargeStarAge <= 0.0001) {
+                let LargeStarAgeRounded = (Math.round(LargeStarAge * 100000000) / 100000000).toFixed(8);
+                console.log("Primary Star Age: " + LargeStarAgeRounded);
+                document.getElementById("InputPrimaryStarAge").value = LargeStarAgeRounded;
+
+                // second part of top function
+            } else if (LargeStarAge >= 0.0001) {  // Im unsure of the "else if" is redundant or not...
+                let LargeStarAgeRounded = (Math.round(LargeStarAge * 10000) / 10000).toFixed(4);
+                console.log("Primary Star Age: " + LargeStarAgeRounded);
+                document.getElementById("InputPrimaryStarAge").value = LargeStarAgeRounded;
+            }
+        }
+    }
+
+    // Checks if Star Mass is less than 4.7, and sets the minimum mass to 0.01.
+    const Age = document.getElementById("InputPrimaryStarAge").value;
+    if (Mass <= 4.7 && Age <= 0.01) {
+        const MinimumAge = 0.01;
+        console.log("Primary Star Age: " + MinimumAge);
+        document.getElementById("InputPrimaryStarAge").value = MinimumAge;
+    }
+};
+
+function WhiteDwarfTemp() {
+    // This function fetches Age and Mass from the generated star and uses it to fetch average temperature for a 0.6 mass white dwarf.
+    // Then, it puts the average temperature through a calculation to determine the temperature for the generated mass white dwarf.
+    const WhiteDwarfAge = document.getElementById("InputPrimaryStarAge").value;
+    const WhiteDwarfMass = document.getElementById("InputPrimaryStarMass").value;
+    const WhiteDwarfAgeRounded = (Math.round(WhiteDwarfAge * 10) / 10).toFixed(1);
+    const WDData = WhiteDwarfTempData.find(data => data.age === WhiteDwarfAgeRounded);
+    const TempResult = Math.round(WDData.temp * (WhiteDwarfMass / 0.6));
+
+    // Prints the generated temperature in console and in input.
+    console.log("Primary Star Temperature: " + TempResult);
+    document.getElementById("InputPrimaryStarTemperature").value = TempResult;
 }
