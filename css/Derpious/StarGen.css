@@ -1,0 +1,70 @@
+body {
+    background-color: rgb(77, 55, 55);
+    /* font-family: "Space Mono", monospace; */
+}
+
+.StarGenTable,
+.StarGenTable tr,
+.StarGenTable td,
+.StarGenTable th {
+    width: fit-content;
+    height: fit-content;
+    background-color: grey;
+    border-collapse: collapse;
+    border-style: solid;
+    padding: 5px;
+    border-color: rgb(48, 48, 48);
+}
+
+
+.StarNameinput {
+    width: 100px;
+}
+
+.Designationinput {
+    width: 100px;
+}
+
+.Classinput {
+    width: 60px;
+}
+
+.Massinput {
+    width: 60px;
+}
+
+.Temperatureinput {
+    width: 60px;
+}
+
+.Diameterinput {
+    width: 80px;
+}
+
+.Luminosityinput {
+    width: 90px;
+}
+
+.Orbitinput {
+    width: 50px;
+}
+
+.AUinput {
+    width: 60px;
+}
+
+.Eccinput {
+    width: 60px;
+}
+
+.Periodinput {
+    width: 60px;
+}
+
+.MAOinput {
+    width: 60px;
+}
+
+.HZCOinput {
+    width: 60px;
+}

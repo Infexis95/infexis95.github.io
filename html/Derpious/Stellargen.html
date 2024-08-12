@@ -6,20 +6,20 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../css/Derpious/Derpious.css">
+    <link rel="stylesheet" href="../../css/Derpious/StarGen.css">
     <link rel="icon" type="image/x-icon" href="../../images/favicon.ico">
 </head>
 
 <body>
-    <div>
+    <div style="background-color: lightgrey; width: fit-content;">
         <button onclick="generatePrimaryStar()">
             Generate Primary Star
         </button>
         <button onclick="TableAdder()">
             Make More Tables
         </button>
-        <button onclick="">
-            no function
+        <button onclick="test()">
+            Test
         </button>
         <button onclick="">
             no function
@@ -31,220 +31,210 @@
             Extra Stars
         </button>
     </div>
-<div>
-    <table style="background-color: grey;">
-        <tr id="HeaderTableRow">
-            <th>
-                Designation
-            </th>
-            <th>
-                Primary Star Type
-            </th>
-            <th>
-                Primary Star Mass
-            </th>
-            <th>
-                Primary Star Temp
-            </th>
-            <th>
-                Primary Star Diam
-            </th>
-            <th>
-                Primary Star Lumi
-            </th>
-            <th>
-                Primary Star Age
-            </th>
-        </tr>
-        <tr id="PrimaryStarTableRow">
-            <td>
-                <input type="text" id="InputPrimaryStarDesignation" style="text-align: center;" placeholder="Primary Star">
-            </td>
-            <td>
-                <input type="text" id="InputPrimaryStarType" style="text-align: center;">
-            </td>
-            <td>
-                <input type="text" id="InputPrimaryStarMass" style="text-align: center;">
-            </td>
-            <td>
-                <input type="text" id="InputPrimaryStarTemperature" style="text-align: center;">
-            </td>
-            <td>
-                <input type="text" id="InputPrimaryStarDiameter" style="text-align: center;">
-            </td>
-            <td>
-                <input type="text" id="InputPrimaryStarLuminosity" style="text-align: center;">
-            </td>
-            <td>
-                <input type="text" id="InputPrimaryStarAge" style="text-align: center;">
-            </td>
-        </tr>
-        <tr id="PrimaryCompanionStarTableRow" style="display: none;">
-            <td>
-                <input type="text" id="InputPrimaryCompanionStarDesignation" style="text-align: center;" placeholder="Primary Companion Star">
-            </td>
-            <td>
-                <input type="text" id="InputPrimaryCompanionStarType" style="text-align: center;">
-            </td>
-            <td>
-                <input type="text" id="InputPrimaryCompanionStarMass" style="text-align: center;">
-            </td>
-            <td>
-                <input type="text" id="InputPrimaryCompanionStarTemperature" style="text-align: center;">
-            </td>
-            <td>
-                <input type="text" id="InputPrimaryCompanionStarDiameter" style="text-align: center;">
-            </td>
-            <td>
-                <input type="text" id="InputPrimaryCompanionStarLuminosity" style="text-align: center;">
-            </td>
-            <td>
-                <input type="text" id="InputPrimaryCompanionStarAge" style="text-align: center;">
-            </td>
-        </tr>
-        <tr id="CloseStarTableRow" style="display: none;">
-            <td>
-                <input type="text" id="InputCloseStarDesignation" style="text-align: center;" placeholder="Close Star">
-            </td>
-            <td>
-                <input type="text" id="InputCloseStarType" style="text-align: center;">
-            </td>
-            <td>
-                <input type="text" id="InputCloseStarMass" style="text-align: center;">
-            </td>
-            <td>
-                <input type="text" id="InputCloseStarTemperature" style="text-align: center;">
-            </td>
-            <td>
-                <input type="text" id="InputCloseStarDiameter" style="text-align: center;">
-            </td>
-            <td>
-                <input type="text" id="InputCloseStarLuminosity" style="text-align: center;">
-            </td>
-            <td>
-                <input type="text" id="InputCloseStarAge" style="text-align: center;">
-            </td>
-        </tr>
-        <tr id="CloseCompanionStarTableRow" style="display: none;">
-            <td>
-                <input type="text" id="InputCloseCompanionStarDesignation" style="text-align: center;" placeholder="Close Companion Star">
-            </td>
-            <td>
-                <input type="text" id="InputCloseCompanionStarType" style="text-align: center;">
-            </td>
-            <td>
-                <input type="text" id="InputCloseCompanionStarMass" style="text-align: center;">
-            </td>
-            <td>
-                <input type="text" id="InputCloseCompanionStarTemperature" style="text-align: center;">
-            </td>
-            <td>
-                <input type="text" id="InputCloseCompanionStarDiameter" style="text-align: center;">
-            </td>
-            <td>
-                <input type="text" id="InputCloseCompanionStarLuminosity" style="text-align: center;">
-            </td>
-            <td>
-                <input type="text" id="InputCloseCompanionStarAge" style="text-align: center;">
-            </td>
-        </tr>
-        <tr id="NearStarTableRow" style="display: none;">
-            <td>
-                <input type="text" id="InputNearStarDesignation" style="text-align: center;" placeholder="Near Star">
-            </td>
-            <td>
-                <input type="text" id="InputNearStarType" style="text-align: center;">
-            </td>
-            <td>
-                <input type="text" id="InputNearStarMass" style="text-align: center;">
-            </td>
-            <td>
-                <input type="text" id="InputNearStarTemperature" style="text-align: center;">
-            </td>
-            <td>
-                <input type="text" id="InputNearStarDiameter" style="text-align: center;">
-            </td>
-            <td>
-                <input type="text" id="InputNearStarLuminosity" style="text-align: center;">
-            </td>
-            <td>
-                <input type="text" id="InputNearStarAge" style="text-align: center;">
-            </td>
-        </tr>
-        <tr id="NearCompanionStarTableRow" style="display: none;">
-            <td>
-                <input type="text" id="InputNearCompanionStarDesignation" style="text-align: center;" placeholder="Near Companion Star">
-            </td>
-            <td>
-                <input type="text" id="InputNearCompanionStarType" style="text-align: center;">
-            </td>
-            <td>
-                <input type="text" id="InputNearCompanionStarMass" style="text-align: center;">
-            </td>
-            <td>
-                <input type="text" id="InputNearCompanionStarTemperature" style="text-align: center;">
-            </td>
-            <td>
-                <input type="text" id="InputNearCompanionStarDiameter" style="text-align: center;">
-            </td>
-            <td>
-                <input type="text" id="InputNearCompanionStarLuminosity" style="text-align: center;">
-            </td>
-            <td>
-                <input type="text" id="InputNearCompanionStarAge" style="text-align: center;">
-            </td>
-        </tr>
-        <tr id="FarStarTableRow" style="display: none;">
-            <td>
-                <input type="text" id="InputFarStarDesignation" style="text-align: center;" placeholder="Far Star">
-            </td>
-            <td>
-                <input type="text" id="InputFarStarType" style="text-align: center;">
-            </td>
-            <td>
-                <input type="text" id="InputFarStarMass" style="text-align: center;">
-            </td>
-            <td>
-                <input type="text" id="InputFarStarTemperature" style="text-align: center;">
-            </td>
-            <td>
-                <input type="text" id="InputFarStarDiameter" style="text-align: center;">
-            </td>
-            <td>
-                <input type="text" id="InputFarStarLuminosity" style="text-align: center;">
-            </td>
-            <td>
-                <input type="text" id="InputFarStarAge" style="text-align: center;">
-            </td>
-        </tr>
-        <tr id="FarCompanionStarTableRow" style="display: none;">
-            <td>
-                <input type="text" id="InputFarCompanionStarDesignation" style="text-align: center;" placeholder="Far Companion Star">
-            </td>
-            <td>
-                <input type="text" id="InputFarCompanionStarType" style="text-align: center;">
-            </td>
-            <td>
-                <input type="text" id="InputFarCompanionStarMass" style="text-align: center;">
-            </td>
-            <td>
-                <input type="text" id="InputFarCompanionStarTemperature" style="text-align: center;">
-            </td>
-            <td>
-                <input type="text" id="InputFarCompanionStarDiameter" style="text-align: center;">
-            </td>
-            <td>
-                <input type="text" id="InputFarCompanionStarLuminosity" style="text-align: center;">
-            </td>
-            <td>
-                <input type="text" id="InputFarCompanionStarAge" style="text-align: center;">
-            </td>
-        </tr>
-    </table>
-</div>
+    <div>
+        <table style="background-color: rgb(77, 55, 55);" class="StarGenTable">
+     <!--       <tr>
+                <th> Sector | Location </th>
+                <th> <input type="text" name="" id=""> </th>
+                <th> Initial Survey: </th>
+                <th> <input type="text" name="" id=""> </th>
+                <th> Last Updated: </th>
+                <th> <input type="text" name="" id=""> </th>
+            </tr>
+
+
+            <tr>
+                <td style="border-style: none; background-color: rgb(77, 55, 55);" 7"></td>
+            </tr>
+
+
+            <tr>
+                <th> IISS Designation </th>
+                <th> <input type="text" name="" id=""> </th>
+                <th> System Age (Gyr): </th>
+                <th> <input type="text" name="" id="InputPrimaryStarAge"> </th>
+            </tr>
+
+
+            <tr>
+                <td style="border-style: none; background-color: rgb(77, 55, 55);"></td>
+            </tr>
+
+
+            <tr class="ObjectAmountsRow">
+                <th> Objects </th>
+                <th> Stellar: </th>
+                <th> <input type="text" name="" id=""> </th>
+                <th> Planetary Detections? </th>
+                <td> <input type="text" name="" id=""> </td>
+                <th> Class I Status? </th>
+                <td> <input type="text" name="" id=""> </td>
+            </tr>
+
+
+            <tr>
+                <td style="border-style: none; background-color: rgb(77, 55, 55);"></td>
+            </tr>
+
+        -->
+            <tr Class="StarDetailsRow">
+                <th> Stars </th>
+                <th> Component </th>
+                <th> Class </th>
+                <th> Mass </th>
+                <th> Temp </th>
+                <th> Diameter </th>
+                <th> Luminosity </th>
+                <th> Orbit# </th>
+                <th> AU </th>
+                <th> Ecc </th>
+                <th> Period </th>
+                <th> MAO </th>
+                <th> HZCO </th>
+            </tr>
+            <tr id="PrimaryStarTableRow">
+                <th> <input type="text" name="" id="" class="StarNameinput"> </th>
+                <td> <input type="text" name="" id="InputPrimaryStarDesignation" class="Designationinput"
+                        placeholder="Primary Star">
+                </td>
+                <td> <input type="text" name="" id="InputPrimaryStarType" class="Classinput"> </td>
+                <td> <input type="text" name="" id="InputPrimaryStarMass" class="Massinput"> </td>
+                <td> <input type="text" name="" id="InputPrimaryStarTemperature" class="Temperatureinput"> </td>
+                <td> <input type="text" name="" id="InputPrimaryStarDiameter" class="Diameterinput"> </td>
+                <td> <input type="text" name="" id="InputPrimaryStarLuminosity" class="Luminosityinput"> </td>
+                <td> <input type="text" name="" id="" class="Orbitinput"> </td>
+                <td> <input type="text" name="" id="" class="AUinput"> </td>
+                <td> <input type="text" name="" id="" class="Eccinput"> </td>
+                <td> <input type="text" name="" id="" class="Periodinput"> </td>
+                <td> <input type="text" name="" id="" class="MAOinput"> </td>
+                <td> <input type="text" name="" id="" class="HZCOinput"> </td>
+            </tr>
+            <tr id="PrimaryCompanionStarTableRow" style="display: none;">
+                <td> <input type="text" name="" id="" class="StarNameinput"> </td>
+                <td> <input type="text" name="" id="InputPrimaryCompanionStarDesignation" class="Designationinput"
+                        placeholder="Primary Companion Star"> </td>
+                <td> <input type="text" name="" id="InputPrimaryCompanionStarType" class="Classinput"> </td>
+                <td> <input type="text" name="" id="InputPrimaryCompanionStarMass" class="Massinput"> </td>
+                <td> <input type="text" name="" id="InputPrimaryCompanionStarTemperature" class="Temperatureinput">
+                </td>
+                <td> <input type="text" name="" id="InputPrimaryCompanionStarDiameter" class="Diameterinput">
+                </td>
+                <td> <input type="text" name="" id="InputPrimaryCompanionStarLuminosity" class="Luminosityinput">
+                </td>
+                <td> <input type="text" name="" id="" class="Orbitinput"> </td>
+                <td> <input type="text" name="" id="" class="AUinput"> </td>
+                <td> <input type="text" name="" id="" class="Eccinput"> </td>
+                <td> <input type="text" name="" id="" class="Periodinput"> </td>
+                <td> <input type="text" name="" id="" class="MAOinput"> </td>
+                <td> <input type="text" name="" id="" class="HZCOinput"> </td>
+            </tr>
+            <tr id="CloseStarTableRow" style="display: none;">
+                <td> <input type="text" name="" id="" class="StarNameinput"> </td>
+                <td> <input type="text" name="" id="InputCloseStarDesignation" class="Designationinput"
+                        placeholder="Close Star"> </td>
+                <td> <input type="text" name="" id="InputCloseStarType" class="Classinput"> </td>
+                <td> <input type="text" name="" id="InputCloseStarMass" class="Massinput"> </td>
+                <td> <input type="text" name="" id="InputCloseStarTemperature" class="Temperatureinput"> </td>
+                <td> <input type="text" name="" id="InputCloseStarDiameter" class="Diameterinput"> </td>
+                <td> <input type="text" name="" id="InputCloseStarLuminosity" class="Luminosityinput"> </td>
+                <td> <input type="text" name="" id="" class="Orbitinput"> </td>
+                <td> <input type="text" name="" id="" class="AUinput"> </td>
+                <td> <input type="text" name="" id="" class="Eccinput"> </td>
+                <td> <input type="text" name="" id="" class="Periodinput"> </td>
+                <td> <input type="text" name="" id="" class="MAOinput"> </td>
+                <td> <input type="text" name="" id="" class="HZCOinput"> </td>
+
+            </tr>
+            <tr id="CloseCompanionStarTableRow" style="display: none;">
+                <td> <input type="text" name="" id="" class="StarNameinput"> </td>
+                <td> <input type="text" name="" id="InputCloseCompanionStarDesignation" class="Designationinput"
+                        placeholder="Close Companion Star"> </td>
+                <td> <input type="text" name="" id="InputCloseCompanionStarType" class="Classinput"> </td>
+                <td> <input type="text" name="" id="InputCloseCompanionStarMass" class="Massinput"> </td>
+                <td> <input type="text" name="" id="InputCloseCompanionStarTemperature" class="Temperatureinput">
+                </td>
+                <td> <input type="text" name="" id="InputCloseCompanionStarDiameter" class="Diameterinput"> </td>
+                <td> <input type="text" name="" id="InputCloseCompanionStarLuminosity" class="Luminosityinput">
+                </td>
+                <td> <input type="text" name="" id="" class="Orbitinput"> </td>
+                <td> <input type="text" name="" id="" class="AUinput"> </td>
+                <td> <input type="text" name="" id="" class="Eccinput"> </td>
+                <td> <input type="text" name="" id="" class="Periodinput"> </td>
+                <td> <input type="text" name="" id="" class="MAOinput"> </td>
+                <td> <input type="text" name="" id="" class="HZCOinput"> </td>
+            </tr>
+            <tr id="NearStarTableRow" style="display: none;">
+                <td> <input type="text" name="" id="" class="StarNameinput"> </td>
+                <td> <input type="text" name="" id="InputNearStarDesignation" class="Designationinput"
+                        placeholder="Near Star"> </td>
+                <td> <input type="text" name="" id="InputNearStarType" class="Classinput"> </td>
+                <td> <input type="text" name="" id="InputNearStarMass" class="Massinput"> </td>
+                <td> <input type="text" name="" id="InputNearStarTemperature" class="Temperatureinput"> </td>
+                <td> <input type="text" name="" id="InputNearStarDiameter" class="Diameterinput"> </td>
+                <td> <input type="text" name="" id="InputNearStarLuminosity" class="Luminosityinput"> </td>
+                <td> <input type="text" name="" id="" class="Orbitinput"> </td>
+                <td> <input type="text" name="" id="" class="AUinput"> </td>
+                <td> <input type="text" name="" id="" class="Eccinput"> </td>
+                <td> <input type="text" name="" id="" class="Periodinput"> </td>
+                <td> <input type="text" name="" id="" class="MAOinput"> </td>
+                <td> <input type="text" name="" id="" class="HZCOinput"> </td>
+            </tr>
+            <tr id="NearCompanionStarTableRow" style="display: none;">
+                <td> <input type="text" name="" id="" class="StarNameinput"> </td>
+                <td> <input type="text" name="" id="InputNearCompanionStarDesignation" class="Designationinput"
+                        placeholder="Near Companion Star"> </td>
+                <td> <input type="text" name="" id="InputNearCompanionStarType" class="Classinput"> </td>
+                <td> <input type="text" name="" id="InputNearCompanionStarMass" class="Massinput"> </td>
+                <td> <input type="text" name="" id="InputNearCompanionStarTemperature" class="Temperatureinput">
+                </td>
+                <td> <input type="text" name="" id="InputNearCompanionStarDiameter" class="Diameterinput"> </td>
+                <td> <input type="text" name="" id="InputNearCompanionStarLuminosity" class="Luminosityinput"> </td>
+                <td> <input type="text" name="" id="" class="Orbitinput"> </td>
+                <td> <input type="text" name="" id="" class="AUinput"> </td>
+                <td> <input type="text" name="" id="" class="Eccinput"> </td>
+                <td> <input type="text" name="" id="" class="Periodinput"> </td>
+                <td> <input type="text" name="" id="" class="MAOinput"> </td>
+                <td> <input type="text" name="" id="" class="HZCOinput"> </td>
+            </tr>
+            <tr id="FarStarTableRow" style="display: none;">
+                <td> <input type="text" name="" id="" class="StarNameinput"> </td>
+                <td> <input type="text" name="" id="InputFarStarDesignation" class="Designationinput"
+                        placeholder="Far Star">
+                </td>
+                <td> <input type="text" name="" id="InputFarStarType" class="Classinput"> </td>
+                <td> <input type="text" name="" id="InputFarStarMass" class="Massinput"> </td>
+                <td> <input type="text" name="" id="InputFarStarTemperature" class="Temperatureinput"> </td>
+                <td> <input type="text" name="" id="InputFarStarDiameter" class="Diameterinput"> </td>
+                <td> <input type="text" name="" id="InputFarStarLuminosity" class="Luminosityinput"> </td>
+                <td> <input type="text" name="" id="" class="Orbitinput"> </td>
+                <td> <input type="text" name="" id="" class="AUinput"> </td>
+                <td> <input type="text" name="" id="" class="Eccinput"> </td>
+                <td> <input type="text" name="" id="" class="Periodinput"> </td>
+                <td> <input type="text" name="" id="" class="MAOinput"> </td>
+                <td> <input type="text" name="" id="" class="HZCOinput"> </td>
+            </tr>
+            <tr id="FarCompanionStarTableRow" style="display: none;">
+                <td> <input type="text" name="" id="" class="StarNameinput"> </td>
+                <td> <input type="text" name="" id="InputFarCompanionStarDesignation" class="Designationinput"
+                        placeholder="Far Companion Star">
+                </td>
+                <td> <input type="text" name="" id="InputFarCompanionStarType" class="Classinput"> </td>
+                <td> <input type="text" name="" id="InputFarCompanionStarMass" class="Massinput"> </td>
+                <td> <input type="text" name="" id="InputFarCompanionStarTemperature" class="Temperatureinput"> </td>
+                <td> <input type="text" name="" id="InputFarCompanionStarDiameter" class="Diameterinput"> </td>
+                <td> <input type="text" name="" id="InputFarCompanionStarLuminosity" class="Luminosityinput"> </td>
+                <td> <input type="text" name="" id="" class="Orbitinput"> </td>
+                <td> <input type="text" name="" id="" class="AUinput"> </td>
+                <td> <input type="text" name="" id="" class="Eccinput"> </td>
+                <td> <input type="text" name="" id="" class="Periodinput"> </td>
+                <td> <input type="text" name="" id="" class="MAOinput"> </td>
+                <td> <input type="text" name="" id="" class="HZCOinput"> </td>
+            </tr>
+        </table>
+    </div>
 
     <script src="../../scripts/Derpious/Stellar.js"></script>
     <script src="../../scripts/Derpious/stellar_data.js"></script>
-</body>
+    </bod>
 
 </html>

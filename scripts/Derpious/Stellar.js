@@ -881,3 +881,16 @@ function ExtraStars() {
         }
     }
 }
+
+function test() {  // I can use a function similar to this to generate information for stars IF their table is revealed.
+    let FSCrow = document.getElementById("FarCompanionStarTableRow");
+
+    // Use getComputedStyle to get the current display property of the element
+    let displayValue = window.getComputedStyle(FSCrow).display;
+
+    if (displayValue === "table-row") {
+        console.log("Table Present!");
+    } else {
+        return;
+    }
+}
