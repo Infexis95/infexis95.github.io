@@ -16,55 +16,102 @@ body {
     border-color: rgb(48, 48, 48);
 }
 
+.SpacingRow {
+    border-style: none;
+    background-color: rgb(77, 55, 55);
+    font-size: 14px;
+    text-align: center;
+}
 
-.StarNameinput {
-    width: 100px;
+
+.SectorLocationinput {
+    width: 10px;
+}
+
+.IniitalSurveyinput {
+    width: 10px;
+}
+
+.LastUpdatedinput {
+    width: 10px;
 }
 
 .Designationinput {
-    width: 100px;
+    width: 10px;
+}
+
+.SystemAgeinput {
+    width: 10px;
+}
+
+.StellarAmountinput {
+    width: 10px;
+}
+
+.GasGiantAmountinput {
+    width: 10px;
+}
+
+.PlanetoidBeltAmountinput {
+    width: 10px;
+}
+
+.TerrestrialAmountinput {
+    width: 10px;
+}
+
+.ClassIIIinput {
+    width: 10px;
+}
+
+.StarNameinput {
+    width: 10px;
+}
+
+.Designationinput {
+    width: 10px;
 }
 
 .Classinput {
-    width: 60px;
+    width: 10px;
 }
 
 .Massinput {
-    width: 60px;
+    width: 10px;
 }
 
 .Temperatureinput {
-    width: 60px;
+    width: 10px;
 }
 
 .Diameterinput {
-    width: 80px;
+    width: 10px;
 }
 
 .Luminosityinput {
-    width: 90px;
+    width: 10px;
 }
 
 .Orbitinput {
-    width: 50px;
+    width: 10px;
 }
 
 .AUinput {
-    width: 60px;
+    width: 10px;
 }
 
 .Eccinput {
-    width: 60px;
+    width: 10px;
 }
 
 .Periodinput {
-    width: 60px;
+    width: 10px;
 }
 
 .MAOinput {
-    width: 60px;
+    width: 10px;
 }
 
 .HZCOinput {
-    width: 60px;
+    width: 10px;
 }
