@@ -252,29 +252,6 @@ function generatePrimaryStar() {
     // Anomalies. Because of this, I've decided not to develop rolls on the   //
     // Peculiar Table for now, and leaving it for the future.                 //
 
-
-    // I've put these here to be able to debug easily in future. not to be used for now.
-    //    console.log("Type " + callPST);
-    //    console.log("Hot Type " + callhPST);
-    //    console.log("Special Type " + callsPST);
-    //    console.log("Unusual Type " + calluPST);
-    //    console.log("Giant Type " + callgPST);
-    //    console.log("Peculiar Type " + callpPST);
-    //    console.log("Extra Type " + callePST);
-    //    console.log("Hot Extra Type " + callehPST);
-    //    console.log("Class VI Type " + callVIPST);
-    //    console.log("Hot Class VI Type " + callhVIPST);
-    //    console.log("Class IV Type " + callIVPST);
-    //    console.log("Hot Class IV Type " + callhIVPST);
-    //    console.log("Brown Dwarf Type " + callBDT);
-    //    console.log("Sub Type " + callSBT);
-    //    console.log("M-Sub Type " + callmSBT);
-    //    console.log("K-Sub Type " + callkSBT);
-    //    console.log("Brown Dwarf Sub Type " + callBDST);
-    //    console.log("Y-Brown Dwarf Sub Type " + callBDYST);
-    //    console.log("White Dwarf Type " + callDST);
-
-
     // Output The Full Primary Star in Console.
     let PrimaryStar = T + S;
     let PrimaryClass = C
@@ -602,26 +579,31 @@ function ExtraStars() {
             console.log("PRIMARY COMPANION!")
             let PCrow = document.getElementById("PrimaryCompanionStarTableRow")
             PCrow.style.display = "table-row"
+            PrimaryCompanionStar()
         }
         if (NearSecondaryPresent === true) {
             console.log("NEAR SECONDARY!")
             let NSrow = document.getElementById("NearStarTableRow")
             NSrow.style.display = "table-row"
+            NearStar()
         }
         if (NearSecondaryCompanionPresent === true) {
             console.log("NEAR COMPANION!")
             let NSCrow = document.getElementById("NearCompanionStarTableRow")
             NSCrow.style.display = "table-row"
+            NearCompanionStar()
         }
         if (FarSecondaryPresent === true) {
             console.log("FAR SECONDARY!")
             let FSrow = document.getElementById("FarStarTableRow")
             FSrow.style.display = "table-row"
+            FarStar()
         }
         if (FarSecondaryCompanionPresent === true) {
             console.log("FAR COMPANION!")
             let FSCrow = document.getElementById("FarCompanionStarTableRow")
             FSCrow.style.display = "table-row"
+            FarCompanionStar()
         }
 
     } else if ((DM_plus1.some(type => PrimaryStar.includes(type))) && !PrimaryStar.includes("M") && !(NO_DM.some(type => PrimaryStar.includes(type)))) {
@@ -656,36 +638,43 @@ function ExtraStars() {
             console.log("PRIMARY COMPANION!")
             let PCrow = document.getElementById("PrimaryCompanionStarTableRow")
             PCrow.style.display = "table-row"
+            PrimaryCompanionStar()
         }
         if (CloseSecondaryPresent === true) {
             console.log("CLOSE SECONDARY!")
             let CSrow = document.getElementById("CloseStarTableRow")
             CSrow.style.display = "table-row"
+            CloseStar()
         }
         if (CloseSecondaryCompanionPresent === true) {
             console.log("CLOSE COMPANION!")
             let CSCrow = document.getElementById("CloseCompanionStarTableRow")
             CSCrow.style.display = "table-row"
+            CloseCompanionStar()
         }
         if (NearSecondaryPresent === true) {
             console.log("NEAR SECONDARY!")
             let NSrow = document.getElementById("NearStarTableRow")
             NSrow.style.display = "table-row"
+            NearStar()
         }
         if (NearSecondaryCompanionPresent === true) {
             console.log("NEAR COMPANION!")
             let NSCrow = document.getElementById("NearCompanionStarTableRow")
             NSCrow.style.display = "table-row"
+            NearCompanionStar()
         }
         if (FarSecondaryPresent === true) {
             console.log("FAR SECONDARY!")
             let FSrow = document.getElementById("FarStarTableRow")
             FSrow.style.display = "table-row"
+            FarStar()
         }
         if (FarSecondaryCompanionPresent === true) {
             console.log("FAR COMPANION!")
             let FSCrow = document.getElementById("FarCompanionStarTableRow")
             FSCrow.style.display = "table-row"
+            FarCompanionStar()
         }
 
     } else if (DM_minus1.some(type => PrimaryStar.includes(type)) && !(NO_DM.some(type => PrimaryStar.includes(type)))) {
@@ -720,36 +709,43 @@ function ExtraStars() {
             console.log("PRIMARY COMPANION!")
             let PCrow = document.getElementById("PrimaryCompanionStarTableRow")
             PCrow.style.display = "table-row"
+            PrimaryCompanionStar()
         }
         if (CloseSecondaryPresent === true) {
             console.log("CLOSE SECONDARY!")
             let CSrow = document.getElementById("CloseStarTableRow")
             CSrow.style.display = "table-row"
+            CloseStar()
         }
         if (CloseSecondaryCompanionPresent === true) {
             console.log("CLOSE COMPANION!")
             let CSCrow = document.getElementById("CloseCompanionStarTableRow")
             CSCrow.style.display = "table-row"
+            CloseCompanionStar()
         }
         if (NearSecondaryPresent === true) {
             console.log("NEAR SECONDARY!")
             let NSrow = document.getElementById("NearStarTableRow")
             NSrow.style.display = "table-row"
+            NearStar()
         }
         if (NearSecondaryCompanionPresent === true) {
             console.log("NEAR COMPANION!")
             let NSCrow = document.getElementById("NearCompanionStarTableRow")
             NSCrow.style.display = "table-row"
+            NearCompanionStar()
         }
         if (FarSecondaryPresent === true) {
             console.log("FAR SECONDARY!")
             let FSrow = document.getElementById("FarStarTableRow")
             FSrow.style.display = "table-row"
+            FarStar()
         }
         if (FarSecondaryCompanionPresent === true) {
             console.log("FAR COMPANION!")
             let FSCrow = document.getElementById("FarCompanionStarTableRow")
             FSCrow.style.display = "table-row"
+            FarCompanionStar()
         }
 
     } else if (BD.some(type => PrimaryStar.includes(type)) || (D.some(type => PrimaryStar.includes(type)))) {
@@ -784,36 +780,43 @@ function ExtraStars() {
             console.log("PRIMARY COMPANION!")
             let PCrow = document.getElementById("PrimaryCompanionStarTableRow")
             PCrow.style.display = "table-row"
+            PrimaryCompanionStar()
         }
         if (CloseSecondaryPresent === true) {
             console.log("CLOSE SECONDARY!")
             let CSrow = document.getElementById("CloseStarTableRow")
             CSrow.style.display = "table-row"
+            CloseStar()
         }
         if (CloseSecondaryCompanionPresent === true) {
             console.log("CLOSE COMPANION!")
             let CSCrow = document.getElementById("CloseCompanionStarTableRow")
             CSCrow.style.display = "table-row"
+            CloseCompanionStar()
         }
         if (NearSecondaryPresent === true) {
             console.log("NEAR SECONDARY!")
             let NSrow = document.getElementById("NearStarTableRow")
             NSrow.style.display = "table-row"
+            NearStar()
         }
         if (NearSecondaryCompanionPresent === true) {
             console.log("NEAR COMPANION!")
             let NSCrow = document.getElementById("NearCompanionStarTableRow")
             NSCrow.style.display = "table-row"
+            NearCompanionStar()
         }
         if (FarSecondaryPresent === true) {
             console.log("FAR SECONDARY!")
             let FSrow = document.getElementById("FarStarTableRow")
             FSrow.style.display = "table-row"
+            FarStar()
         }
         if (FarSecondaryCompanionPresent === true) {
             console.log("FAR COMPANION!")
             let FSCrow = document.getElementById("FarCompanionStarTableRow")
             FSCrow.style.display = "table-row"
+            FarCompanionStar()
         }
 
     } else {
@@ -848,49 +851,234 @@ function ExtraStars() {
             console.log("PRIMARY COMPANION!")
             let PCrow = document.getElementById("PrimaryCompanionStarTableRow")
             PCrow.style.display = "table-row"
+            PrimaryCompanionStar()
         }
         if (CloseSecondaryPresent === true) {
             console.log("CLOSE SECONDARY!")
             let CSrow = document.getElementById("CloseStarTableRow")
             CSrow.style.display = "table-row"
+            CloseStar()
         }
         if (CloseSecondaryCompanionPresent === true) {
             console.log("CLOSE COMPANION!")
             let CSCrow = document.getElementById("CloseCompanionStarTableRow")
             CSCrow.style.display = "table-row"
+            CloseCompanionStar()
         }
         if (NearSecondaryPresent === true) {
             console.log("NEAR SECONDARY!")
             let NSrow = document.getElementById("NearStarTableRow")
             NSrow.style.display = "table-row"
+            NearStar()
         }
         if (NearSecondaryCompanionPresent === true) {
             console.log("NEAR COMPANION!")
             let NSCrow = document.getElementById("NearCompanionStarTableRow")
             NSCrow.style.display = "table-row"
+            NearCompanionStar()
         }
         if (FarSecondaryPresent === true) {
             console.log("FAR SECONDARY!")
             let FSrow = document.getElementById("FarStarTableRow")
             FSrow.style.display = "table-row"
+            FarStar()
         }
         if (FarSecondaryCompanionPresent === true) {
             console.log("FAR COMPANION!")
             let FSCrow = document.getElementById("FarCompanionStarTableRow")
             FSCrow.style.display = "table-row"
+            FarCompanionStar()
         }
     }
 }
 
-function test() {  // I can use a function similar to this to generate information for stars IF their table is revealed.
+
+function PrimaryCompanionStar() {  // I can use a function similar to this to generate information for stars IF their table is revealed.
+    let PCSrow = document.getElementById("PrimaryCompanionStarTableRow");
+
+    // Use getComputedStyle to get the current display property of the element
+    let displayValue = window.getComputedStyle(PCSrow).display;
+
+    if (displayValue === "table-row") {
+
+
+        // Orbit
+        let oneD = Math.floor(Math.random() * 6) + 1;
+        let twoD = Math.floor(Math.random() * 11) - 5;
+        let orbit = Number(((oneD / 10) + (twoD / 100)).toFixed(2));
+        let orbitforcalc = Math.floor(orbit);
+
+
+        // AU
+        const AUcalc = ORBITtoAU.find(orbit => orbit.orbit === orbitforcalc.toString());
+        let AU = Number(((AUcalc.distAU) + (AUcalc.diffAU) * (orbit - orbitforcalc))).toFixed(3);
+
+
+        // Eccentricity
+        const roll_2D = Math.floor(Math.random() * 11) + 4; // Rolls 2d6 + 2
+        let Ecc;
+        if (roll_2D <= 5) {
+            Ecc = (Math.random() * 0.005).toFixed(3);
+        } else if (roll_2D == 6 || roll_2D == 7) {
+            Ecc = (Math.random() * (0.03 - 0.005) + 0.005).toFixed(3);
+        } else if (roll_2D == 8 || roll_2D == 9) {
+            Ecc = (Math.random() * (0.09 - 0.04) + 0.04).toFixed(3);
+        } else if (roll_2D == 10) {
+            Ecc = (Math.random() * (0.35 - 0.10) + 0.10).toFixed(3);
+        } else if (roll_2D == 11) {
+            Ecc = (Math.random() * (0.65 - 0.15) + 0.15).toFixed(3);
+        } else if (roll_2D >= 12) {
+            Ecc = (Math.random() * (0.90 - 0.40) + 0.40).toFixed(3);
+        };
+
+
+        // Seperation Calc, for future potential use?
+        let MinSeperation = AU * (1 - Ecc);
+        let MaxSeperation = AU * (1 + Ecc);
+
+
+        // Print to page
+        document.getElementById("InputPrimaryCompanionOrbit").value = orbit;
+        document.getElementById("InputPrimaryCompanionAU").value = AU;
+        document.getElementById("InputPrimaryCompanionEcc").value = Ecc;
+    } else {
+        return;
+    }
+};
+
+
+function CloseStar() {  // I can use a function similar to this to generate information for stars IF their table is revealed.
+    let CSrow = document.getElementById("CloseStarTableRow");
+
+    // Use getComputedStyle to get the current display property of the element
+    let displayValue = window.getComputedStyle(CSrow).display;
+
+    if (displayValue === "table-row") {
+
+
+        // Orbit
+        let orbit = (Math.floor(Math.random() * 6) + (Math.floor(Math.random() * 6) / 10));
+        if (orbit < 1) {
+            orbit = 0.5
+        };
+        let orbitforcalc = Math.floor(orbit);
+
+
+        // AU
+        const AUcalc = ORBITtoAU.find(orbit => orbit.orbit === orbitforcalc.toString());
+        let AU = Number((Number(AUcalc.distAU) + Number(AUcalc.diffAU) * Number(orbit - orbitforcalc))).toFixed(3);
+
+
+        // Eccentricity
+        const roll_2D = Math.floor(Math.random() * 11) + 4; // Rolls 2d6 + 2
+        let Ecc;
+        if (roll_2D <= 5) {
+            Ecc = (Math.random() * 0.005).toFixed(3);
+        } else if (roll_2D == 6 || roll_2D == 7) {
+            Ecc = (Math.random() * (0.03 - 0.005) + 0.005).toFixed(3);
+        } else if (roll_2D == 8 || roll_2D == 9) {
+            Ecc = (Math.random() * (0.09 - 0.04) + 0.04).toFixed(3);
+        } else if (roll_2D == 10) {
+            Ecc = (Math.random() * (0.35 - 0.10) + 0.10).toFixed(3);
+        } else if (roll_2D == 11) {
+            Ecc = (Math.random() * (0.65 - 0.15) + 0.15).toFixed(3);
+        } else if (roll_2D >= 12) {
+            Ecc = (Math.random() * (0.90 - 0.40) + 0.40).toFixed(3);
+        };
+
+
+        // Seperation Calc, for future potential use?
+        let MinSeperation = AU * (1 - Ecc);
+        let MaxSeperation = AU * (1 + Ecc);
+
+
+        // Print to page
+        document.getElementById("InputCloseStarOrbit").value = orbit;
+        document.getElementById("InputCloseStarAU").value = AU;
+        document.getElementById("InputCloseStarEcc").value = Ecc;
+    } else {
+        return;
+    }
+};
+
+function CloseCompanionStar() {  // I can use a function similar to this to generate information for stars IF their table is revealed.
+    let FSCrow = document.getElementById("CloseCompanionStarTableRow");
+
+    // Use getComputedStyle to get the current display property of the element
+    let displayValue = window.getComputedStyle(FSCrow).display;
+
+    if (displayValue === "table-row") {
+        console.log("Close Companion Function!");
+    } else {
+        return;
+    }
+};
+function NearStar() {  // I can use a function similar to this to generate information for stars IF their table is revealed.
+    let FSCrow = document.getElementById("NearStarTableRow");
+
+    // Use getComputedStyle to get the current display property of the element
+    let displayValue = window.getComputedStyle(FSCrow).display;
+
+    if (displayValue === "table-row") {
+        console.log("Near Star Function!");
+    } else {
+        return;
+    }
+};
+function NearCompanionStar() {  // I can use a function similar to this to generate information for stars IF their table is revealed.
+    let FSCrow = document.getElementById("NearCompanionStarTableRow");
+
+    // Use getComputedStyle to get the current display property of the element
+    let displayValue = window.getComputedStyle(FSCrow).display;
+
+    if (displayValue === "table-row") {
+        console.log("Near Companion Function!");
+    } else {
+        return;
+    }
+};
+function FarStar() {  // I can use a function similar to this to generate information for stars IF their table is revealed.
+    let FSCrow = document.getElementById("FarStarTableRow");
+
+    // Use getComputedStyle to get the current display property of the element
+    let displayValue = window.getComputedStyle(FSCrow).display;
+
+    if (displayValue === "table-row") {
+        console.log("Far Star Function!");
+    } else {
+        return;
+    }
+};
+function FarCompanionStar() {  // I can use a function similar to this to generate information for stars IF their table is revealed.
     let FSCrow = document.getElementById("FarCompanionStarTableRow");
 
     // Use getComputedStyle to get the current display property of the element
     let displayValue = window.getComputedStyle(FSCrow).display;
 
     if (displayValue === "table-row") {
-        console.log("Table Present!");
+        console.log("Far Companion Function!");
     } else {
         return;
     }
+};
+
+function tryme() {
+    const roll_2D = Math.floor(Math.random() * 11) + 4; // Rolls 2d6 + 2
+
+    let Ecc;
+    if (roll_2D <= 5) {
+        Ecc = (Math.random() * 0.005).toFixed(3);
+    } else if (roll_2D == 6 || roll_2D == 7) {
+        Ecc = (Math.random() * (0.03 - 0.005) + 0.005).toFixed(3);
+    } else if (roll_2D == 8 || roll_2D == 9) {
+        Ecc = (Math.random() * (0.09 - 0.04) + 0.04).toFixed(3);
+    } else if (roll_2D == 10) {
+        Ecc = (Math.random() * (0.35 - 0.10) + 0.10).toFixed(3);
+    } else if (roll_2D == 11) {
+        Ecc = (Math.random() * (0.65 - 0.15) + 0.15).toFixed(3);
+    } else if (roll_2D >= 12) {
+        Ecc = (Math.random() * (0.90 - 0.40) + 0.40).toFixed(3);
+    };
+
+    console.log("Eccentricity: " + Ecc);
 }
