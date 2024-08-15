@@ -1002,37 +1002,155 @@ function CloseStar() {  // I can use a function similar to this to generate info
 };
 
 function CloseCompanionStar() {  // I can use a function similar to this to generate information for stars IF their table is revealed.
-    let FSCrow = document.getElementById("CloseCompanionStarTableRow");
+    let CSCrow = document.getElementById("CloseCompanionStarTableRow");
 
     // Use getComputedStyle to get the current display property of the element
-    let displayValue = window.getComputedStyle(FSCrow).display;
+    let displayValue = window.getComputedStyle(CSCrow).display;
 
     if (displayValue === "table-row") {
-        console.log("Close Companion Function!");
+
+
+        // Orbit
+        let oneD = Math.floor(Math.random() * 6) + 1;
+        let twoD = Math.floor(Math.random() * 11) - 5;
+        let orbit = Number(((oneD / 10) + (twoD / 100)).toFixed(2));
+        let orbitforcalc = Math.floor(orbit);
+
+
+        // AU
+        const AUcalc = ORBITtoAU.find(orbit => orbit.orbit === orbitforcalc.toString());
+        let AU = Number(((AUcalc.distAU) + (AUcalc.diffAU) * (orbit - orbitforcalc))).toFixed(3);
+
+
+        // Eccentricity
+        const roll_2D = Math.floor(Math.random() * 11) + 4; // Rolls 2d6 + 2
+        let Ecc;
+        if (roll_2D <= 5) {
+            Ecc = (Math.random() * 0.005).toFixed(3);
+        } else if (roll_2D == 6 || roll_2D == 7) {
+            Ecc = (Math.random() * (0.03 - 0.005) + 0.005).toFixed(3);
+        } else if (roll_2D == 8 || roll_2D == 9) {
+            Ecc = (Math.random() * (0.09 - 0.04) + 0.04).toFixed(3);
+        } else if (roll_2D == 10) {
+            Ecc = (Math.random() * (0.35 - 0.10) + 0.10).toFixed(3);
+        } else if (roll_2D == 11) {
+            Ecc = (Math.random() * (0.65 - 0.15) + 0.15).toFixed(3);
+        } else if (roll_2D >= 12) {
+            Ecc = (Math.random() * (0.90 - 0.40) + 0.40).toFixed(3);
+        };
+
+
+        // Seperation Calc, for future potential use?
+        let MinSeperation = AU * (1 - Ecc);
+        let MaxSeperation = AU * (1 + Ecc);
+
+
+        // Print to page
+        document.getElementById("InputCloseCompanionOrbit").value = orbit;
+        document.getElementById("InputCloseCompanionAU").value = AU;
+        document.getElementById("InputCloseCompanionEcc").value = Ecc;
     } else {
         return;
     }
 };
 function NearStar() {  // I can use a function similar to this to generate information for stars IF their table is revealed.
-    let FSCrow = document.getElementById("NearStarTableRow");
+    let NSrow = document.getElementById("NearStarTableRow");
 
     // Use getComputedStyle to get the current display property of the element
-    let displayValue = window.getComputedStyle(FSCrow).display;
+    let displayValue = window.getComputedStyle(NSrow).display;
 
     if (displayValue === "table-row") {
-        console.log("Near Star Function!");
+
+
+        // Orbit
+        let orbit = (Math.floor(Math.random() * (12 - 6) + 6) + (Math.floor(Math.random() * 6) / 10));
+        let orbitforcalc = Math.floor(orbit);
+
+
+        // AU
+        const AUcalc = ORBITtoAU.find(orbit => orbit.orbit === orbitforcalc.toString());
+        let AU = Number((Number(AUcalc.distAU) + Number(AUcalc.diffAU) * Number(orbit - orbitforcalc))).toFixed(2);
+
+
+        // Eccentricity
+        const roll_2D = Math.floor(Math.random() * 11) + 4; // Rolls 2d6 + 2
+        let Ecc;
+        if (roll_2D <= 5) {
+            Ecc = (Math.random() * 0.005).toFixed(3);
+        } else if (roll_2D == 6 || roll_2D == 7) {
+            Ecc = (Math.random() * (0.03 - 0.005) + 0.005).toFixed(3);
+        } else if (roll_2D == 8 || roll_2D == 9) {
+            Ecc = (Math.random() * (0.09 - 0.04) + 0.04).toFixed(3);
+        } else if (roll_2D == 10) {
+            Ecc = (Math.random() * (0.35 - 0.10) + 0.10).toFixed(3);
+        } else if (roll_2D == 11) {
+            Ecc = (Math.random() * (0.65 - 0.15) + 0.15).toFixed(3);
+        } else if (roll_2D >= 12) {
+            Ecc = (Math.random() * (0.90 - 0.40) + 0.40).toFixed(3);
+        };
+
+
+        // Seperation Calc, for future potential use?
+        let MinSeperation = AU * (1 - Ecc);
+        let MaxSeperation = AU * (1 + Ecc);
+
+
+        // Print to page
+        document.getElementById("InputNearStarOrbit").value = orbit;
+        document.getElementById("InputNearStarAU").value = AU;
+        document.getElementById("InputNearStarEcc").value = Ecc;
     } else {
         return;
     }
 };
 function NearCompanionStar() {  // I can use a function similar to this to generate information for stars IF their table is revealed.
-    let FSCrow = document.getElementById("NearCompanionStarTableRow");
+    let NSCrow = document.getElementById("NearCompanionStarTableRow");
 
     // Use getComputedStyle to get the current display property of the element
-    let displayValue = window.getComputedStyle(FSCrow).display;
+    let displayValue = window.getComputedStyle(NSCrow).display;
 
     if (displayValue === "table-row") {
-        console.log("Near Companion Function!");
+
+
+        // Orbit
+        let oneD = Math.floor(Math.random() * 6) + 1;
+        let twoD = Math.floor(Math.random() * 11) - 5;
+        let orbit = Number(((oneD / 10) + (twoD / 100)).toFixed(2));
+        let orbitforcalc = Math.floor(orbit);
+
+
+        // AU
+        const AUcalc = ORBITtoAU.find(orbit => orbit.orbit === orbitforcalc.toString());
+        let AU = Number(((AUcalc.distAU) + (AUcalc.diffAU) * (orbit - orbitforcalc))).toFixed(3);
+
+
+        // Eccentricity
+        const roll_2D = Math.floor(Math.random() * 11) + 4; // Rolls 2d6 + 2
+        let Ecc;
+        if (roll_2D <= 5) {
+            Ecc = (Math.random() * 0.005).toFixed(3);
+        } else if (roll_2D == 6 || roll_2D == 7) {
+            Ecc = (Math.random() * (0.03 - 0.005) + 0.005).toFixed(3);
+        } else if (roll_2D == 8 || roll_2D == 9) {
+            Ecc = (Math.random() * (0.09 - 0.04) + 0.04).toFixed(3);
+        } else if (roll_2D == 10) {
+            Ecc = (Math.random() * (0.35 - 0.10) + 0.10).toFixed(3);
+        } else if (roll_2D == 11) {
+            Ecc = (Math.random() * (0.65 - 0.15) + 0.15).toFixed(3);
+        } else if (roll_2D >= 12) {
+            Ecc = (Math.random() * (0.90 - 0.40) + 0.40).toFixed(3);
+        };
+
+
+        // Seperation Calc, for future potential use?
+        let MinSeperation = AU * (1 - Ecc);
+        let MaxSeperation = AU * (1 + Ecc);
+
+
+        // Print to page
+        document.getElementById("InputNearCompanionOrbit").value = orbit;
+        document.getElementById("InputNearCompanionAU").value = AU;
+        document.getElementById("InputNearCompanionEcc").value = Ecc;
     } else {
         return;
     }
@@ -1044,7 +1162,45 @@ function FarStar() {  // I can use a function similar to this to generate inform
     let displayValue = window.getComputedStyle(FSCrow).display;
 
     if (displayValue === "table-row") {
-        console.log("Far Star Function!");
+
+
+        // Orbit
+        let orbit = (Math.floor(Math.random() * (18 - 12) + 12) + (Math.floor(Math.random() * 6) / 10));
+        let orbitforcalc = Math.floor(orbit);
+
+
+        // AU
+        const AUcalc = ORBITtoAU.find(orbit => orbit.orbit === orbitforcalc.toString());
+        let AU = Math.round((Number(AUcalc.distAU) + Number(AUcalc.diffAU) * Number(orbit - orbitforcalc)));
+
+
+        // Eccentricity
+        const roll_2D = Math.floor(Math.random() * 11) + 4; // Rolls 2d6 + 2
+        let Ecc;
+        if (roll_2D <= 5) {
+            Ecc = (Math.random() * 0.005).toFixed(3);
+        } else if (roll_2D == 6 || roll_2D == 7) {
+            Ecc = (Math.random() * (0.03 - 0.005) + 0.005).toFixed(3);
+        } else if (roll_2D == 8 || roll_2D == 9) {
+            Ecc = (Math.random() * (0.09 - 0.04) + 0.04).toFixed(3);
+        } else if (roll_2D == 10) {
+            Ecc = (Math.random() * (0.35 - 0.10) + 0.10).toFixed(3);
+        } else if (roll_2D == 11) {
+            Ecc = (Math.random() * (0.65 - 0.15) + 0.15).toFixed(3);
+        } else if (roll_2D >= 12) {
+            Ecc = (Math.random() * (0.90 - 0.40) + 0.40).toFixed(3);
+        };
+
+
+        // Seperation Calc, for future potential use?
+        let MinSeperation = AU * (1 - Ecc);
+        let MaxSeperation = AU * (1 + Ecc);
+
+
+        // Print to page
+        document.getElementById("InputFarStarOrbit").value = orbit;
+        document.getElementById("InputFarStarAU").value = AU;
+        document.getElementById("InputFarStarEcc").value = Ecc;
     } else {
         return;
     }
@@ -1056,29 +1212,55 @@ function FarCompanionStar() {  // I can use a function similar to this to genera
     let displayValue = window.getComputedStyle(FSCrow).display;
 
     if (displayValue === "table-row") {
-        console.log("Far Companion Function!");
+
+
+        // Orbit
+        let oneD = Math.floor(Math.random() * 6) + 1;
+        let twoD = Math.floor(Math.random() * 11) - 5;
+        let orbit = Number(((oneD / 10) + (twoD / 100)).toFixed(2));
+        let orbitforcalc = Math.floor(orbit);
+
+
+        // AU
+        const AUcalc = ORBITtoAU.find(orbit => orbit.orbit === orbitforcalc.toString());
+        let AU = Number(((AUcalc.distAU) + (AUcalc.diffAU) * (orbit - orbitforcalc))).toFixed(3);
+
+
+        // Eccentricity
+        const roll_2D = Math.floor(Math.random() * 11) + 4; // Rolls 2d6 + 2
+        let Ecc;
+        if (roll_2D <= 5) {
+            Ecc = (Math.random() * 0.005).toFixed(3);
+        } else if (roll_2D == 6 || roll_2D == 7) {
+            Ecc = (Math.random() * (0.03 - 0.005) + 0.005).toFixed(3);
+        } else if (roll_2D == 8 || roll_2D == 9) {
+            Ecc = (Math.random() * (0.09 - 0.04) + 0.04).toFixed(3);
+        } else if (roll_2D == 10) {
+            Ecc = (Math.random() * (0.35 - 0.10) + 0.10).toFixed(3);
+        } else if (roll_2D == 11) {
+            Ecc = (Math.random() * (0.65 - 0.15) + 0.15).toFixed(3);
+        } else if (roll_2D >= 12) {
+            Ecc = (Math.random() * (0.90 - 0.40) + 0.40).toFixed(3);
+        };
+
+
+        // Seperation Calc, for future potential use?
+        let MinSeperation = AU * (1 - Ecc);
+        let MaxSeperation = AU * (1 + Ecc);
+
+
+        // Print to page
+        document.getElementById("InputFarCompanionOrbit").value = orbit;
+        document.getElementById("InputFarCompanionAU").value = AU;
+        document.getElementById("InputFarCompanionEcc").value = Ecc;
     } else {
         return;
     }
 };
 
 function tryme() {
-    const roll_2D = Math.floor(Math.random() * 11) + 4; // Rolls 2d6 + 2
+    const roll_2D = (Math.floor(Math.random() * (12 - 6) + 6) + (Math.floor(Math.random() * 6) / 10));
 
-    let Ecc;
-    if (roll_2D <= 5) {
-        Ecc = (Math.random() * 0.005).toFixed(3);
-    } else if (roll_2D == 6 || roll_2D == 7) {
-        Ecc = (Math.random() * (0.03 - 0.005) + 0.005).toFixed(3);
-    } else if (roll_2D == 8 || roll_2D == 9) {
-        Ecc = (Math.random() * (0.09 - 0.04) + 0.04).toFixed(3);
-    } else if (roll_2D == 10) {
-        Ecc = (Math.random() * (0.35 - 0.10) + 0.10).toFixed(3);
-    } else if (roll_2D == 11) {
-        Ecc = (Math.random() * (0.65 - 0.15) + 0.15).toFixed(3);
-    } else if (roll_2D >= 12) {
-        Ecc = (Math.random() * (0.90 - 0.40) + 0.40).toFixed(3);
-    };
 
-    console.log("Eccentricity: " + Ecc);
+    console.log("Test: " + roll_2D);
 }
