@@ -544,7 +544,6 @@ function TableAdder() {
 
 function ExtraStars() {
     const PrimaryStar = document.getElementById("InputPrimaryStarType").value;
-    console.log(PrimaryStar);
 
     // Initial function checks if Close Secondary Stars are allowed or not, based on Star Class.
     const NoClose_DM_plus1 = ["Ia", "Ib", "II", "III"];
@@ -890,11 +889,15 @@ function ExtraStars() {
             FarCompanionStar()
         }
     }
+
+    CallComponent()
+
 }
 
 
 function PrimaryCompanionStar() {  // I can use a function similar to this to generate information for stars IF their table is revealed.
     let PCSrow = document.getElementById("PrimaryCompanionStarTableRow");
+    let PStype = document.getElementById("InputPrimaryStarType").value;
 
     // Use getComputedStyle to get the current display property of the element
     let displayValue = window.getComputedStyle(PCSrow).display;
@@ -903,6 +906,52 @@ function PrimaryCompanionStar() {  // I can use a function similar to this to ge
 
 
         // Orbit
+        if (PStype.includes("Ia") || PStype.includes("Ib") || PStype.includes("II") || PStype.includes("III")) {
+            console.log("Hello, class III");
+
+            // FIX ORBITS FOR GIANT STARS. MAO * 1d6
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        }
+
         let oneD = Math.floor(Math.random() * 6) + 1;
         let twoD = Math.floor(Math.random() * 11) - 5;
         let orbit = Number(((oneD / 10) + (twoD / 100)).toFixed(2));
@@ -1257,6 +1306,96 @@ function FarCompanionStar() {  // I can use a function similar to this to genera
         return;
     }
 };
+
+function CallComponent() {
+    let PCrow = document.getElementById("PrimaryCompanionStarTableRow");
+    let PCrowDisplay = window.getComputedStyle(PCrow).display;
+
+    let CSrow = document.getElementById("CloseStarTableRow");
+    let CSrowDisplay = window.getComputedStyle(CSrow).display;
+
+    let CCrow = document.getElementById("CloseCompanionStarTableRow");
+    let CCrowDisplay = window.getComputedStyle(CCrow).display;
+
+    let NSrow = document.getElementById("NearStarTableRow");
+    let NSrowDisplay = window.getComputedStyle(NSrow).display;
+
+    let NCrow = document.getElementById("NearCompanionStarTableRow");
+    let NCrowDisplay = window.getComputedStyle(NCrow).display;
+
+    let FSrow = document.getElementById("FarStarTableRow");
+    let FSrowDisplay = window.getComputedStyle(FSrow).display;
+
+    let FCrow = document.getElementById("FarCompanionStarTableRow");
+    let FCrowDisplay = window.getComputedStyle(FCrow).display;
+
+
+
+    // Sets Primary Star Designation to "A" as default.
+    document.getElementById("InputPrimaryStarDesignation").value = "A";
+
+    //  Switches both the Primary Star and Companion Star to "Aa" and "Ab" respectively, as needed.
+    if (PCrowDisplay === "table-row") {
+        document.getElementById("InputPrimaryStarDesignation").value = "Aa";
+        document.getElementById("InputPrimaryCompanionStarDesignation").value = "Ab";
+    }
+
+    // Sets Close Star Designation to "B" as default.
+    if (CSrowDisplay === "table-row") {
+        document.getElementById("InputCloseStarDesignation").value = "B";
+    }
+
+    //  Switches both the Close Star and Close Companion Star to "Ba" and "Bb" respectively, as needed.
+    if (CCrowDisplay === "table-row") {
+        document.getElementById("InputCloseStarDesignation").value = "Ba";
+        document.getElementById("InputCloseCompanionStarDesignation").value = "Bb";
+    }
+
+    //Sets Default value for Near stars to C, and "Ca" + "Cb" for near companion
+    if (CSrowDisplay === "table-row") {
+        document.getElementById("InputNearStarDesignation").value = "C";
+        if (NCrowDisplay === "table-row") {
+            document.getElementById("InputNearStarDesignation").value = "Ca";
+            document.getElementById("InputNearCompanionStarDesignation").value = "Cb";
+        }
+
+        //if there is no Close star, the Near star is designated as "B" instead, and "Ba" + "Bb" for companions.
+    } else if (CSrowDisplay != "table-row") {
+        document.getElementById("InputNearStarDesignation").value = "B";
+        if (NCrowDisplay === "table-row") {
+            document.getElementById("InputNearStarDesignation").value = "Ba";
+            document.getElementById("InputNearCompanionStarDesignation").value = "Bb";
+        }
+    }
+
+    //Sets Default value for Near stars to C, and "Ca" + "Cb" for near companion
+    if (CSrowDisplay === "table-row" && NSrowDisplay === "table-row") {
+        document.getElementById("InputFarStarDesignation").value = "D";
+        if (FCrowDisplay === "table-row") {
+            document.getElementById("InputFarStarDesignation").value = "Da";
+            document.getElementById("InputFarCompanionStarDesignation").value = "Db";
+        }
+
+        //if there is no Close star, the Near star is designated as "B" instead, and "Ba" + "Bb" for companions.
+    } else if (CSrowDisplay != "table-row" && NSrowDisplay === "table-row" || NSrowDisplay != "table-row" && CSrowDisplay === "table-row") {
+        document.getElementById("InputFarStarDesignation").value = "C";
+        if (FCrowDisplay === "table-row") {
+            document.getElementById("InputFarStarDesignation").value = "Ca";
+            document.getElementById("InputFarCompanionStarDesignation").value = "Cb";
+        }
+
+
+    } else if (CSrowDisplay != "table-row" && NSrowDisplay != "table-row") {
+        document.getElementById("InputFarStarDesignation").value = "B";
+        if (FCrowDisplay === "table-row") {
+            document.getElementById("InputFarStarDesignation").value = "Ba";
+            document.getElementById("InputFarCompanionStarDesignation").value = "Bb";
+        }
+    }
+
+
+
+}
 
 function tryme() {
     const roll_2D = (Math.floor(Math.random() * (12 - 6) + 6) + (Math.floor(Math.random() * 6) / 10));
