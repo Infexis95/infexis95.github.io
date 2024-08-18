@@ -31,6 +31,14 @@ const SpecialStarType = [
     { type: 'Giants', roll: [11, 12] },
 ];
 
+const SpecialSecondaryStarType = [
+    { type: 'Unusual', roll: [2, 3] },
+    { type: 'Class VI', roll: [4, 5] },
+    { type: 'Class IV', roll: [6, 7, 8] },
+    { type: 'Class III', roll: [9, 10] },
+    { type: 'Giants', roll: [11, 12] },
+];
+
 const UnusualStarType = [
     { type: 'Peculiar', roll: [2] },
     { type: 'Class VI', roll: [3] },
@@ -314,6 +322,8 @@ const starData = {
     "M7Ib": {    mass: "22.5",     temp: "2700",     diam: "700",      MAO: "6.38"     },
     "M8Ib": {    mass: "23.75",    temp: "2550",     diam: "750",      MAO: "6.485"    },
     "M9Ib": {    mass: "25",       temp: "2400",     diam: "800",      MAO: "6.59"     },
+
+    
     //----------------------------CLASS II-----------------------------//
     //-----------------------------------------------------------------//
     "O0II": {    mass: "130",      temp: "50000",    diam: "22",       MAO: "0.55"     },
