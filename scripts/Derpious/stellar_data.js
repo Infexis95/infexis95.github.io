@@ -323,7 +323,7 @@ const starData = {
     "M8Ib": {    mass: "23.75",    temp: "2550",     diam: "750",      MAO: "6.485"    },
     "M9Ib": {    mass: "25",       temp: "2400",     diam: "800",      MAO: "6.59"     },
 
-    
+
     //----------------------------CLASS II-----------------------------//
     //-----------------------------------------------------------------//
     "O0II": {    mass: "130",      temp: "50000",    diam: "22",       MAO: "0.55"     },
@@ -728,25 +728,25 @@ const starData = {
     ];
 
     const ORBITtoAU = [
-        { orbit: '0',   distAU: "0",      diffAU: "0.4"    },
-        { orbit: '1',   distAU: "0.4",    diffAU: "0.3"    },
-        { orbit: '2',   distAU: "0.7",    diffAU: "0.3"    },
-        { orbit: '3',   distAU: "1",      diffAU: "0.6"    },
-        { orbit: '4',   distAU: "1.6",    diffAU: "1.2"    },
-        { orbit: '5',   distAU: "2.8",    diffAU: "2.4"    },
-        { orbit: '6',   distAU: "5.2",    diffAU: "4.8"    },
-        { orbit: '7',   distAU: "10",     diffAU: "10"     },
-        { orbit: '8',   distAU: "20",     diffAU: "20"     },
-        { orbit: '9',   distAU: "40",     diffAU: "37"     },
-        { orbit: '10',  distAU: "77",     diffAU: "77"     },
-        { orbit: '11',  distAU: "154",    diffAU: "154"    },
-        { orbit: '12',  distAU: "308",    diffAU: "307"    },
-        { orbit: '13',  distAU: "615",    diffAU: "615"    },
-        { orbit: '14',  distAU: "1230",   diffAU: "1270"   },
-        { orbit: '15',  distAU: "2500",   diffAU: "2400"   },
-        { orbit: '16',  distAU: "4900",   diffAU: "4900"   },
-        { orbit: '17',  distAU: "9800",   diffAU: "9700"   },
-        { orbit: '18',  distAU: "19500",  diffAU: "20000"  },
-        { orbit: '19',  distAU: "39500",  diffAU: "39200"  },
-        { orbit: '20',  distAU: "78700",  diffAU: ""       },
+        { orbit: '0',   distAU: 0,      diffAU: 0.4    },
+        { orbit: '1',   distAU: 0.4,    diffAU: 0.3    },
+        { orbit: '2',   distAU: 0.7,    diffAU: 0.3    },
+        { orbit: '3',   distAU: 1,      diffAU: 0.6    },
+        { orbit: '4',   distAU: 1.6,    diffAU: 1.2    },
+        { orbit: '5',   distAU: 2.8,    diffAU: 2.4    },
+        { orbit: '6',   distAU: 5.2,    diffAU: 4.8    },
+        { orbit: '7',   distAU: 10,     diffAU: 10     },
+        { orbit: '8',   distAU: 20,     diffAU: 20     },
+        { orbit: '9',   distAU: 40,     diffAU: 37     },
+        { orbit: '10',  distAU: 77,     diffAU: 77     },
+        { orbit: '11',  distAU: 154,    diffAU: 154    },
+        { orbit: '12',  distAU: 308,    diffAU: 307    },
+        { orbit: '13',  distAU: 615,    diffAU: 615    },
+        { orbit: '14',  distAU: 1230,   diffAU: 1270   },
+        { orbit: '15',  distAU: 2500,   diffAU: 2400   },
+        { orbit: '16',  distAU: 4900,   diffAU: 4900   },
+        { orbit: '17',  distAU: 9800,   diffAU: 9700   },
+        { orbit: '18',  distAU: 19500,  diffAU: 20000  },
+        { orbit: '19',  distAU: 39500,  diffAU: 39200  },
+        { orbit: '20',  distAU: 78700,  diffAU: ""     },
     ]

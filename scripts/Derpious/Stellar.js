@@ -430,6 +430,19 @@ function Whitedwarf() {
     }
 };
 
+function WhiteDwarfTemp() {
+    // This function fetches Age and Mass from the generated star and uses it to fetch average temperature for a 0.6 mass white dwarf.
+    // Then, it puts the average temperature through a calculation to determine the temperature for the generated mass white dwarf.
+    const WhiteDwarfAge = document.getElementById("InputPrimaryStarAge").value;
+    const WhiteDwarfMass = document.getElementById("InputPrimaryStarMass").value;
+    const WhiteDwarfAgeRounded = (Math.round(WhiteDwarfAge * 10) / 10).toFixed(1);
+    const WDData = WhiteDwarfTempData.find(data => data.age === WhiteDwarfAgeRounded);
+    const TempResult = Math.round(WDData.temp * (WhiteDwarfMass / 0.6));
+
+    // Prints the generated temperature in console and in input.
+    document.getElementById("InputPrimaryStarTemperature").value = TempResult;
+};
+
 function lumcalc() {
     // Generates Luminosity by using a formula
     const Temp = document.getElementById("InputPrimaryStarTemperature").value;
@@ -485,7 +498,7 @@ function SystemAge() {
         if (Mass <= 0.9) {
             const SmallStarAge = (Math.floor(Math.random() * 13) + 1) + ((Math.floor(Math.random() * 10000) + 1) / 10000);
             const SmallStarAgeRounded = (Math.round(SmallStarAge * 10000) / 10000).toFixed(4);
-            
+
             document.getElementById("InputPrimaryStarAge").value = SmallStarAgeRounded;
 
             // If the mass is above 0.9, the age calculation uses the Large Star Age formula.
@@ -495,13 +508,13 @@ function SystemAge() {
             // This part is used to make the numbers visually reasonable. So that a number with no decimals has 8 zeros
             if (LargeStarAge <= 0.0001) {
                 let LargeStarAgeRounded = (Math.round(LargeStarAge * 100000000) / 100000000).toFixed(8);
-                
+
                 document.getElementById("InputPrimaryStarAge").value = LargeStarAgeRounded;
 
                 // second part of top function
             } else if (LargeStarAge >= 0.0001) {  // Im unsure of the "else if" is redundant or not...
                 let LargeStarAgeRounded = (Math.round(LargeStarAge * 10000) / 10000).toFixed(4);
-                
+
                 document.getElementById("InputPrimaryStarAge").value = LargeStarAgeRounded;
             }
         }
@@ -511,22 +524,9 @@ function SystemAge() {
     const Age = document.getElementById("InputPrimaryStarAge").value;
     if (Mass <= 4.7 && Age <= 0.01) {
         const MinimumAge = 0.01;
-        
+
         document.getElementById("InputPrimaryStarAge").value = MinimumAge;
     }
-};
-
-function WhiteDwarfTemp() {
-    // This function fetches Age and Mass from the generated star and uses it to fetch average temperature for a 0.6 mass white dwarf.
-    // Then, it puts the average temperature through a calculation to determine the temperature for the generated mass white dwarf.
-    const WhiteDwarfAge = document.getElementById("InputPrimaryStarAge").value;
-    const WhiteDwarfMass = document.getElementById("InputPrimaryStarMass").value;
-    const WhiteDwarfAgeRounded = (Math.round(WhiteDwarfAge * 10) / 10).toFixed(1);
-    const WDData = WhiteDwarfTempData.find(data => data.age === WhiteDwarfAgeRounded);
-    const TempResult = Math.round(WDData.temp * (WhiteDwarfMass / 0.6));
-
-    // Prints the generated temperature in console and in input.
-    document.getElementById("InputPrimaryStarTemperature").value = TempResult;
 };
 
 function TableAdder() {
@@ -621,13 +621,13 @@ function ExtraStars() {
         };
 
         if (PrimaryCompanionPresent === true) {
-            
+
             let PCrow = document.getElementById("PrimaryCompanionStarTableRow")
             PCrow.style.display = "table-row"
             PrimaryCompanionStar()
         }
         if (CloseSecondaryPresent === true) {
-            
+
             let CSrow = document.getElementById("CloseStarTableRow")
             CSrow.style.display = "table-row"
             CloseStar()
@@ -687,13 +687,13 @@ function ExtraStars() {
         };
 
         if (PrimaryCompanionPresent === true) {
-            
+
             let PCrow = document.getElementById("PrimaryCompanionStarTableRow")
             PCrow.style.display = "table-row"
             PrimaryCompanionStar()
         }
         if (CloseSecondaryPresent === true) {
-            
+
             let CSrow = document.getElementById("CloseStarTableRow")
             CSrow.style.display = "table-row"
             CloseStar()
@@ -753,13 +753,13 @@ function ExtraStars() {
         };
 
         if (PrimaryCompanionPresent === true) {
-            
+
             let PCrow = document.getElementById("PrimaryCompanionStarTableRow")
             PCrow.style.display = "table-row"
             PrimaryCompanionStar()
         }
         if (CloseSecondaryPresent === true) {
-            
+
             let CSrow = document.getElementById("CloseStarTableRow")
             CSrow.style.display = "table-row"
             CloseStar()
@@ -819,13 +819,13 @@ function ExtraStars() {
         };
 
         if (PrimaryCompanionPresent === true) {
-            
+
             let PCrow = document.getElementById("PrimaryCompanionStarTableRow")
             PCrow.style.display = "table-row"
             PrimaryCompanionStar()
         }
         if (CloseSecondaryPresent === true) {
-            
+
             let CSrow = document.getElementById("CloseStarTableRow")
             CSrow.style.display = "table-row"
             CloseStar()
@@ -1095,7 +1095,7 @@ function getRandomSecondary() {
     return SecondaryStar
 };
 
-function PrimaryCompanionStar() {  // I can use a function similar to this to generate information for stars IF their table is revealed.
+function PrimaryCompanionStar() {
     let PCSrow = document.getElementById("PrimaryCompanionStarTableRow");
     let PStype = document.getElementById("InputPrimaryStarType").value;
     let PSMAO = document.getElementById("InputPrimaryStarMAO").value;
@@ -1111,8 +1111,8 @@ function PrimaryCompanionStar() {  // I can use a function similar to this to ge
 
         // Orbit
         if (PStype.includes("Ia") || PStype.includes("Ib") || PStype.includes("II") || PStype.includes("III")) {
-            
-            orbit = (Math.floor(Math.random() * 6) + 1) * PSMAO;
+
+            orbit = Number((Math.floor(Math.random() * 6) + 1) * PSMAO).toFixed(2);
             orbitforcalc = Math.floor(orbit);
 
         } else {
@@ -1125,8 +1125,7 @@ function PrimaryCompanionStar() {  // I can use a function similar to this to ge
 
         // AU
         const AUcalc = ORBITtoAU.find(orbit => orbit.orbit === orbitforcalc.toString());
-        let AU = Number(((AUcalc.distAU) + (AUcalc.diffAU) * (orbit - orbitforcalc))).toFixed(3);
-
+        let AU = ((AUcalc.distAU) + (AUcalc.diffAU) * (orbit - orbitforcalc)).toFixed(3);
 
         // Eccentricity
         const roll_2D = Math.floor(Math.random() * 11) + 4; // Rolls 2d6 + 2
@@ -1155,12 +1154,247 @@ function PrimaryCompanionStar() {  // I can use a function similar to this to ge
         document.getElementById("InputPrimaryCompanionOrbit").value = orbit;
         document.getElementById("InputPrimaryCompanionAU").value = AU;
         document.getElementById("InputPrimaryCompanionEcc").value = Ecc;
+
+        if (document.getElementById("InputPrimaryCompanionStarType").value.includes("D")) {
+
+            const Roll_2D_Minus_1 = (Math.floor(Math.random() * 11) + 1) / 10;
+            const Roll_d10 = (Math.floor(Math.random() * 9) + 1) / 100;
+            const WDmass = Roll_2D_Minus_1 + Roll_d10;
+
+            // IF Mass is equal to "1.2", coinflip. On a 1, it adds a value between 0.01 and 0.24 to a new potential max of 1.44
+            const MoreMassive = Math.round(Math.random());
+            if (WDmass == "1.2" && MoreMassive == 1) {
+                let MoreMass = (Math.floor(Math.random() * 23) + 1) / 100;
+                let WDMass = (WDmass + MoreMass);
+                let WDDiam = (1 / WDMass) * 0.01;
+                let WDMassRounded = Math.round(WDMass * 10000) / 10000;
+                let WDDiamRounded = Math.round(WDDiam * 10000) / 10000;
+                const SmallStarAge = (Math.floor(Math.random() * 13) + 1) + ((Math.floor(Math.random() * 10000) + 1) / 10000);
+                const ProgenitorStarMass = WDMassRounded * Math.floor(Math.random() * 3) + 3;
+                const MainSequenceLifespan = Math.round((10 / Math.pow(ProgenitorStarMass, 2.5)) * 10000) / 10000;
+                const SubGiantLifespan = 1 / (4 + ProgenitorStarMass);
+                const GiantLifespan = 1 / (10 * Math.pow(ProgenitorStarMass, 3));
+                const StarFinalAge = MainSequenceLifespan * (1 + (SubGiantLifespan) + (GiantLifespan));
+                const WhiteDwarfFinalAge = (Math.round((SmallStarAge + StarFinalAge) * 10000) / 10000).toFixed(4);
+
+                // If Age is more than 13.0 Gyr, sets age to 13.0 Gyr
+                if (WhiteDwarfFinalAge >= 13.0) {
+                    const Adjustment = WhiteDwarfFinalAge - 13.0;
+                    const AdjustedWhiteDwarfFinalAge = (WhiteDwarfFinalAge - Adjustment);
+
+                    // Outputs Info to Console and input fields.
+
+                    document.getElementById("InputPrimaryCompanionStarAge").value = AdjustedWhiteDwarfFinalAge;
+                    document.getElementById("InputPrimaryCompanionStarMass").value = WDMassRounded;
+                    document.getElementById("InputPrimaryCompanionStarDiameter").value = WDDiamRounded;
+
+                    //Calls Temp and Luminosity Functions
+                    const WhiteDwarfAge = document.getElementById("InputPrimaryCompanionStarAge").value;
+                    const WhiteDwarfMass = document.getElementById("InputPrimaryCompanionStarMass").value;
+                    const WhiteDwarfAgeRounded = (Math.round(WhiteDwarfAge * 10) / 10).toFixed(1);
+                    const WDData = WhiteDwarfTempData.find(data => data.age === WhiteDwarfAgeRounded);
+                    const TempResult = Math.round(WDData.temp * (WhiteDwarfMass / 0.6));
+
+                    // Prints the generated temperature in console and in input.
+                    document.getElementById("InputPrimaryCompanionStarTemperature").value = TempResult;
+
+                    // Generates Luminosity by using a formula
+                    const Temp = document.getElementById("InputPrimaryCompanionStarTemperature").value;
+                    const Diam = document.getElementById("InputPrimaryCompanionStarDiameter").value;
+                    const Luminosity = Math.pow((Diam / 1), 2) * Math.pow((Temp / 5772), 4);
+
+                    if (Luminosity <= 0.001) {
+                        let LuminosityRounded = (Math.round(Luminosity * 100000000) / 100000000)
+                        document.getElementById("InputPrimaryCompanionStarLuminosity").value = LuminosityRounded;
+                    } else {
+                        var LuminosityRounded = (Math.round(Luminosity * 10000) / 10000)
+                        document.getElementById("InputPrimaryCompanionStarLuminosity").value = LuminosityRounded;
+                    }
+
+                } else {
+                    // Outputs Info to Console and input fields.
+
+                    document.getElementById("InputPrimaryCompanionStarAge").value = WhiteDwarfFinalAge;
+                    document.getElementById("InputPrimaryCompanionStarMass").value = WDMassRounded;
+                    document.getElementById("InputPrimaryCompanionStarDiameter").value = WDDiamRounded;
+                    ;
+                    //Calls Temp and Luminosity Functions
+                    const WhiteDwarfAge = document.getElementById("InputPrimaryCompanionStarAge").value;
+                    const WhiteDwarfMass = document.getElementById("InputPrimaryCompanionStarMass").value;
+                    const WhiteDwarfAgeRounded = (Math.round(WhiteDwarfAge * 10) / 10).toFixed(1);
+                    const WDData = WhiteDwarfTempData.find(data => data.age === WhiteDwarfAgeRounded);
+                    const TempResult = Math.round(WDData.temp * (WhiteDwarfMass / 0.6));
+
+                    // Prints the generated temperature in console and in input.
+                    document.getElementById("InputPrimaryCompanionStarTemperature").value = TempResult;
+
+                    // Generates Luminosity by using a formula
+                    const Temp = document.getElementById("InputPrimaryCompanionStarTemperature").value;
+                    const Diam = document.getElementById("InputPrimaryCompanionStarDiameter").value;
+                    const Luminosity = Math.pow((Diam / 1), 2) * Math.pow((Temp / 5772), 4);
+
+                    if (Luminosity <= 0.001) {
+                        let LuminosityRounded = (Math.round(Luminosity * 100000000) / 100000000)
+                        document.getElementById("InputPrimaryCompanionStarLuminosity").value = LuminosityRounded;
+                    } else {
+                        var LuminosityRounded = (Math.round(Luminosity * 10000) / 10000)
+                        document.getElementById("InputPrimaryCompanionStarLuminosity").value = LuminosityRounded;
+                    }
+
+                }
+            } else {
+
+                // IF Mass is less than 1.2, prints it to console.
+                let WDdiam = (1 / WDmass) * 0.01;
+                let WDmassRounded = Math.round(WDmass * 10000) / 10000;
+                let WDdiamRounded = Math.round(WDdiam * 10000) / 10000;
+                const SmallStarAge = (Math.floor(Math.random() * 13) + 1) + ((Math.floor(Math.random() * 10000) + 1) / 10000);
+                const ProgenitorStarMass = WDmassRounded * Math.floor(Math.random() * 3) + 3;
+                const MainSequenceLifespan = Math.round((10 / Math.pow(ProgenitorStarMass, 2.5)) * 10000) / 10000;
+                const SubGiantLifespan = 1 / (4 + ProgenitorStarMass);
+                const GiantLifespan = 1 / (10 * Math.pow(ProgenitorStarMass, 3));
+                const StarFinalAge = MainSequenceLifespan * (1 + (SubGiantLifespan) + (GiantLifespan));
+                const WhiteDwarfFinalAge = (Math.round((SmallStarAge + StarFinalAge) * 10000) / 10000).toFixed(4);
+
+                if (WhiteDwarfFinalAge >= 13.0) {
+                    const Adjustment = WhiteDwarfFinalAge - 13.0;
+                    const AdjustedWhiteDwarfFinalAge = (WhiteDwarfFinalAge - Adjustment);
+
+                    // Outputs Info to Console and input fields.
+
+                    document.getElementById("InputPrimaryCompanionStarAge").value = AdjustedWhiteDwarfFinalAge;
+                    document.getElementById("InputPrimaryCompanionStarMass").value = WDmassRounded;
+                    document.getElementById("InputPrimaryCompanionStarDiameter").value = WDdiamRounded;
+
+                    //Calls Temp and Luminosity Functions    
+                    const WhiteDwarfAge = document.getElementById("InputPrimaryCompanionStarAge").value;
+                    const WhiteDwarfMass = document.getElementById("InputPrimaryCompanionStarMass").value;
+                    const WhiteDwarfAgeRounded = (Math.round(WhiteDwarfAge * 10) / 10).toFixed(1);
+                    const WDData = WhiteDwarfTempData.find(data => data.age === WhiteDwarfAgeRounded);
+                    const TempResult = Math.round(WDData.temp * (WhiteDwarfMass / 0.6));
+
+                    // Prints the generated temperature in console and in input.
+                    document.getElementById("InputPrimaryCompanionStarTemperature").value = TempResult;
+
+                    // Generates Luminosity by using a formula
+                    const Temp = document.getElementById("InputPrimaryCompanionStarTemperature").value;
+                    const Diam = document.getElementById("InputPrimaryCompanionStarDiameter").value;
+                    const Luminosity = Math.pow((Diam / 1), 2) * Math.pow((Temp / 5772), 4);
+
+                    if (Luminosity <= 0.001) {
+                        let LuminosityRounded = (Math.round(Luminosity * 100000000) / 100000000)
+                        document.getElementById("InputPrimaryCompanionStarLuminosity").value = LuminosityRounded;
+                    } else {
+                        var LuminosityRounded = (Math.round(Luminosity * 10000) / 10000)
+                        document.getElementById("InputPrimaryCompanionStarLuminosity").value = LuminosityRounded;
+                    }
+
+
+                } else {
+                    // Outputs Info to Console and input fields.
+
+                    document.getElementById("InputPrimaryCompanionStarAge").value = WhiteDwarfFinalAge;
+                    document.getElementById("InputPrimaryCompanionStarMass").value = WDmassRounded;
+                    document.getElementById("InputPrimaryCompanionStarDiameter").value = WDdiamRounded;
+
+                    //Calls Temp and Luminosity Functions
+                    const WhiteDwarfAge = document.getElementById("InputPrimaryCompanionStarAge").value;
+                    const WhiteDwarfMass = document.getElementById("InputPrimaryCompanionStarMass").value;
+                    const WhiteDwarfAgeRounded = (Math.round(WhiteDwarfAge * 10) / 10).toFixed(1);
+                    const WDData = WhiteDwarfTempData.find(data => data.age === WhiteDwarfAgeRounded);
+                    const TempResult = Math.round(WDData.temp * (WhiteDwarfMass / 0.6));
+
+                    // Prints the generated temperature in console and in input.
+                    document.getElementById("InputPrimaryCompanionStarTemperature").value = TempResult;
+
+                    // Generates Luminosity by using a formula
+                    const Temp = document.getElementById("InputPrimaryCompanionStarTemperature").value;
+                    const Diam = document.getElementById("InputPrimaryCompanionStarDiameter").value;
+                    const Luminosity = Math.pow((Diam / 1), 2) * Math.pow((Temp / 5772), 4);
+
+                    if (Luminosity <= 0.001) {
+                        let LuminosityRounded = (Math.round(Luminosity * 100000000) / 100000000)
+                        document.getElementById("InputPrimaryCompanionStarLuminosity").value = LuminosityRounded;
+                    } else {
+                        var LuminosityRounded = (Math.round(Luminosity * 10000) / 10000)
+                        document.getElementById("InputPrimaryCompanionStarLuminosity").value = LuminosityRounded;
+                    }
+                }
+            }
+
+
+        } else {
+
+            // Fetches StarType and changes it into a Key to be used for fetching data.
+            let StarDataKey = document.getElementById("InputPrimaryCompanionStarType").value;
+            StarDataKey = StarDataKey.replace(" ", "");
+            const StarData = starData[StarDataKey];
+
+            // Mass
+            let Mass = parseFloat(StarData.mass);
+            const GiantMassVarianceRoll = (Math.floor(Math.random() * 5) + 2) / 10;
+            const randomMass = (Math.floor(Math.random() * 1001) - 500) / 1000;
+            let MassVar = GiantMassVarianceRoll
+            if (StarDataKey.includes("V")) {
+                MassVar = 0.2
+            }
+            let MassVariance = (((Mass * MassVar) * randomMass) + Mass);
+            const RoundedMassVariance = (Math.round(MassVariance * 10000) / 10000);
+
+            // Diameter
+            let Diam = parseFloat(StarData.diam);
+            const GiantDiamVarianceRoll = (Math.floor(Math.random() * 5) + 2) / 10;
+            const randomDiam = (Math.floor(Math.random() * 1001) - 500) / 1000;
+            let DiamVar = GiantDiamVarianceRoll
+            if (StarDataKey.includes("V")) {
+                DiamVar = 0.2
+            }
+            let DiamVariance = (((Diam * DiamVar) * randomDiam) + Diam);
+            const RoundedDiamVariance = (Math.round(DiamVariance * 10000) / 10000);
+
+            // Temperature
+            const starDataKeys = Object.keys(starData);
+            const currentIndex = starDataKeys.indexOf(StarDataKey);
+
+            let previousStarData, nextStarData;
+            if (currentIndex > 0) {
+                previousStarData = starData[starDataKeys[currentIndex - 1]];
+            }; if (currentIndex < starDataKeys.length - 1) {
+                nextStarData = starData[starDataKeys[currentIndex + 1]];
+            }
+
+            let Middle_Temp = Number(StarData.temp);
+            let Higher_Temp = Number(previousStarData ? previousStarData.temp : null);
+            let Lower_Temp = Number(nextStarData ? nextStarData.temp : null);
+
+            if (StarDataKey.includes("M9") || StarDataKey.includes("Y5")) {
+                Lower_Temp = 0
+            }; if (StarDataKey.includes("O0") || StarDataKey.includes("L0")) {
+                Higher_Temp = 0
+            }
+
+            const randomTemp = (Math.floor(Math.random() * 1001) - 500) / 1000;
+            let TempDifference = (((Middle_Temp - Lower_Temp) + (Higher_Temp - Middle_Temp)) / 2)
+            let y = (Higher_Temp - Middle_Temp)
+            let z = (Middle_Temp - Lower_Temp)
+            let TempVariance = ((TempDifference * randomTemp) + Middle_Temp)
+            const RoundedTempVariance = (Math.round(TempVariance));
+
+            // MAO
+            let MAO = parseFloat(StarData.MAO);
+
+            // This part prints the generated values with variance.
+            document.getElementById("InputPrimaryCompanionStarMass").value = RoundedMassVariance;
+            document.getElementById("InputPrimaryCompanionStarTemperature").value = RoundedTempVariance;
+            document.getElementById("InputPrimaryCompanionStarDiameter").value = RoundedDiamVariance;
+        }
+
     } else {
         return;
     }
 };
 
-function CloseStar() {  // I can use a function similar to this to generate information for stars IF their table is revealed.
+function CloseStar() {
     let CSrow = document.getElementById("CloseStarTableRow");
 
     // Use getComputedStyle to get the current display property of the element
@@ -1210,13 +1444,79 @@ function CloseStar() {  // I can use a function similar to this to generate info
         document.getElementById("InputCloseStarOrbit").value = orbit;
         document.getElementById("InputCloseStarAU").value = AU;
         document.getElementById("InputCloseStarEcc").value = Ecc;
+
+        // Fetches StarType and changes it into a Key to be used for fetching data.
+        let StarDataKey = document.getElementById("InputCloseStarType").value;
+        StarDataKey = StarDataKey.replace(" ", "");
+        const StarData = starData[StarDataKey];
+
+        // Mass
+        let Mass = parseFloat(StarData.mass);
+        const GiantMassVarianceRoll = (Math.floor(Math.random() * 5) + 2) / 10;
+        const randomMass = (Math.floor(Math.random() * 1001) - 500) / 1000;
+        let MassVar = GiantMassVarianceRoll
+        if (StarDataKey.includes("V")) {
+            MassVar = 0.2
+        }
+        let MassVariance = (((Mass * MassVar) * randomMass) + Mass);
+        const RoundedMassVariance = (Math.round(MassVariance * 10000) / 10000);
+
+        // Diameter
+        let Diam = parseFloat(StarData.diam);
+        const GiantDiamVarianceRoll = (Math.floor(Math.random() * 5) + 2) / 10;
+        const randomDiam = (Math.floor(Math.random() * 1001) - 500) / 1000;
+        let DiamVar = GiantDiamVarianceRoll
+        if (StarDataKey.includes("V")) {
+            DiamVar = 0.2
+        }
+        let DiamVariance = (((Diam * DiamVar) * randomDiam) + Diam);
+        const RoundedDiamVariance = (Math.round(DiamVariance * 10000) / 10000);
+
+        // Temperature
+        const starDataKeys = Object.keys(starData);
+        const currentIndex = starDataKeys.indexOf(StarDataKey);
+
+        let previousStarData, nextStarData;
+        if (currentIndex > 0) {
+            previousStarData = starData[starDataKeys[currentIndex - 1]];
+        }; if (currentIndex < starDataKeys.length - 1) {
+            nextStarData = starData[starDataKeys[currentIndex + 1]];
+        }
+
+        let Middle_Temp = Number(StarData.temp);
+        let Higher_Temp = Number(previousStarData ? previousStarData.temp : null);
+        let Lower_Temp = Number(nextStarData ? nextStarData.temp : null);
+
+        if (StarDataKey.includes("M9") || StarDataKey.includes("Y5")) {
+            Lower_Temp = 0
+        }; if (StarDataKey.includes("O0") || StarDataKey.includes("L0")) {
+            Higher_Temp = 0
+        }
+
+        const randomTemp = (Math.floor(Math.random() * 1001) - 500) / 1000;
+        let TempDifference = (((Middle_Temp - Lower_Temp) + (Higher_Temp - Middle_Temp)) / 2)
+        let y = (Higher_Temp - Middle_Temp)
+        let z = (Middle_Temp - Lower_Temp)
+        let TempVariance = ((TempDifference * randomTemp) + Middle_Temp)
+        const RoundedTempVariance = (Math.round(TempVariance));
+
+        // MAO
+        let MAO = parseFloat(StarData.MAO);
+
+        // This part prints the generated values with variance.
+        document.getElementById("InputCloseStarMass").value = RoundedMassVariance;
+        document.getElementById("InputCloseStarTemperature").value = RoundedTempVariance;
+        document.getElementById("InputCloseStarDiameter").value = RoundedDiamVariance;
+
     } else {
         return;
     }
 };
 
-function CloseCompanionStar() {  // I can use a function similar to this to generate information for stars IF their table is revealed.
+function CloseCompanionStar() {
     let CSCrow = document.getElementById("CloseCompanionStarTableRow");
+    let PStype = document.getElementById("InputCloseStarType").value;
+    let PSMAO = document.getElementById("InputCloseStarMAO").value;
 
     // Use getComputedStyle to get the current display property of the element
     let displayValue = window.getComputedStyle(CSCrow).display;
@@ -1226,11 +1526,18 @@ function CloseCompanionStar() {  // I can use a function similar to this to gene
         CloseCompanionStarType()
 
         // Orbit
-        let oneD = Math.floor(Math.random() * 6) + 1;
-        let twoD = Math.floor(Math.random() * 11) - 5;
-        let orbit = Number(((oneD / 10) + (twoD / 100)).toFixed(2));
-        let orbitforcalc = Math.floor(orbit);
+        if (PStype.includes("Ia") || PStype.includes("Ib") || PStype.includes("II") || PStype.includes("III")) {
 
+            orbit = Number((Math.floor(Math.random() * 6) + 1) * PSMAO).toFixed(2);
+            orbitforcalc = Math.floor(orbit);
+
+        } else {
+            let oneD = Math.floor(Math.random() * 6) + 1;
+            let twoD = Math.floor(Math.random() * 11) - 5;
+            orbit = Number(((oneD / 10) + (twoD / 100)).toFixed(2));
+            orbitforcalc = Math.floor(orbit);
+
+        }
 
         // AU
         const AUcalc = ORBITtoAU.find(orbit => orbit.orbit === orbitforcalc.toString());
@@ -1264,12 +1571,76 @@ function CloseCompanionStar() {  // I can use a function similar to this to gene
         document.getElementById("InputCloseCompanionOrbit").value = orbit;
         document.getElementById("InputCloseCompanionAU").value = AU;
         document.getElementById("InputCloseCompanionEcc").value = Ecc;
+
+        // Fetches StarType and changes it into a Key to be used for fetching data.
+        let StarDataKey = document.getElementById("InputCloseCompanionStarType").value;
+        StarDataKey = StarDataKey.replace(" ", "");
+        const StarData = starData[StarDataKey];
+
+        // Mass
+        let Mass = parseFloat(StarData.mass);
+        const GiantMassVarianceRoll = (Math.floor(Math.random() * 5) + 2) / 10;
+        const randomMass = (Math.floor(Math.random() * 1001) - 500) / 1000;
+        let MassVar = GiantMassVarianceRoll
+        if (StarDataKey.includes("V")) {
+            MassVar = 0.2
+        }
+        let MassVariance = (((Mass * MassVar) * randomMass) + Mass);
+        const RoundedMassVariance = (Math.round(MassVariance * 10000) / 10000);
+
+        // Diameter
+        let Diam = parseFloat(StarData.diam);
+        const GiantDiamVarianceRoll = (Math.floor(Math.random() * 5) + 2) / 10;
+        const randomDiam = (Math.floor(Math.random() * 1001) - 500) / 1000;
+        let DiamVar = GiantDiamVarianceRoll
+        if (StarDataKey.includes("V")) {
+            DiamVar = 0.2
+        }
+        let DiamVariance = (((Diam * DiamVar) * randomDiam) + Diam);
+        const RoundedDiamVariance = (Math.round(DiamVariance * 10000) / 10000);
+
+        // Temperature
+        const starDataKeys = Object.keys(starData);
+        const currentIndex = starDataKeys.indexOf(StarDataKey);
+
+        let previousStarData, nextStarData;
+        if (currentIndex > 0) {
+            previousStarData = starData[starDataKeys[currentIndex - 1]];
+        }; if (currentIndex < starDataKeys.length - 1) {
+            nextStarData = starData[starDataKeys[currentIndex + 1]];
+        }
+
+        let Middle_Temp = Number(StarData.temp);
+        let Higher_Temp = Number(previousStarData ? previousStarData.temp : null);
+        let Lower_Temp = Number(nextStarData ? nextStarData.temp : null);
+
+        if (StarDataKey.includes("M9") || StarDataKey.includes("Y5")) {
+            Lower_Temp = 0
+        }; if (StarDataKey.includes("O0") || StarDataKey.includes("L0")) {
+            Higher_Temp = 0
+        }
+
+        const randomTemp = (Math.floor(Math.random() * 1001) - 500) / 1000;
+        let TempDifference = (((Middle_Temp - Lower_Temp) + (Higher_Temp - Middle_Temp)) / 2)
+        let y = (Higher_Temp - Middle_Temp)
+        let z = (Middle_Temp - Lower_Temp)
+        let TempVariance = ((TempDifference * randomTemp) + Middle_Temp)
+        const RoundedTempVariance = (Math.round(TempVariance));
+
+        // MAO
+        let MAO = parseFloat(StarData.MAO);
+
+        // This part prints the generated values with variance.
+        document.getElementById("InputCloseCompanionStarMass").value = RoundedMassVariance;
+        document.getElementById("InputCloseCompanionStarTemperature").value = RoundedTempVariance;
+        document.getElementById("InputCloseCompanionStarDiameter").value = RoundedDiamVariance;
+
     } else {
         return;
     }
 };
 
-function NearStar() {  // I can use a function similar to this to generate information for stars IF their table is revealed.
+function NearStar() {
     let NSrow = document.getElementById("NearStarTableRow");
 
     // Use getComputedStyle to get the current display property of the element
@@ -1316,13 +1687,79 @@ function NearStar() {  // I can use a function similar to this to generate infor
         document.getElementById("InputNearStarOrbit").value = orbit;
         document.getElementById("InputNearStarAU").value = AU;
         document.getElementById("InputNearStarEcc").value = Ecc;
+
+        // Fetches StarType and changes it into a Key to be used for fetching data.
+        let StarDataKey = document.getElementById("InputNearStarType").value;
+        StarDataKey = StarDataKey.replace(" ", "");
+        const StarData = starData[StarDataKey];
+
+        // Mass
+        let Mass = parseFloat(StarData.mass);
+        const GiantMassVarianceRoll = (Math.floor(Math.random() * 5) + 2) / 10;
+        const randomMass = (Math.floor(Math.random() * 1001) - 500) / 1000;
+        let MassVar = GiantMassVarianceRoll
+        if (StarDataKey.includes("V")) {
+            MassVar = 0.2
+        }
+        let MassVariance = (((Mass * MassVar) * randomMass) + Mass);
+        const RoundedMassVariance = (Math.round(MassVariance * 10000) / 10000);
+
+        // Diameter
+        let Diam = parseFloat(StarData.diam);
+        const GiantDiamVarianceRoll = (Math.floor(Math.random() * 5) + 2) / 10;
+        const randomDiam = (Math.floor(Math.random() * 1001) - 500) / 1000;
+        let DiamVar = GiantDiamVarianceRoll
+        if (StarDataKey.includes("V")) {
+            DiamVar = 0.2
+        }
+        let DiamVariance = (((Diam * DiamVar) * randomDiam) + Diam);
+        const RoundedDiamVariance = (Math.round(DiamVariance * 10000) / 10000);
+
+        // Temperature
+        const starDataKeys = Object.keys(starData);
+        const currentIndex = starDataKeys.indexOf(StarDataKey);
+
+        let previousStarData, nextStarData;
+        if (currentIndex > 0) {
+            previousStarData = starData[starDataKeys[currentIndex - 1]];
+        }; if (currentIndex < starDataKeys.length - 1) {
+            nextStarData = starData[starDataKeys[currentIndex + 1]];
+        }
+
+        let Middle_Temp = Number(StarData.temp);
+        let Higher_Temp = Number(previousStarData ? previousStarData.temp : null);
+        let Lower_Temp = Number(nextStarData ? nextStarData.temp : null);
+
+        if (StarDataKey.includes("M9") || StarDataKey.includes("Y5")) {
+            Lower_Temp = 0
+        }; if (StarDataKey.includes("O0") || StarDataKey.includes("L0")) {
+            Higher_Temp = 0
+        }
+
+        const randomTemp = (Math.floor(Math.random() * 1001) - 500) / 1000;
+        let TempDifference = (((Middle_Temp - Lower_Temp) + (Higher_Temp - Middle_Temp)) / 2)
+        let y = (Higher_Temp - Middle_Temp)
+        let z = (Middle_Temp - Lower_Temp)
+        let TempVariance = ((TempDifference * randomTemp) + Middle_Temp)
+        const RoundedTempVariance = (Math.round(TempVariance));
+
+        // MAO
+        let MAO = parseFloat(StarData.MAO);
+
+        // This part prints the generated values with variance.
+        document.getElementById("InputNearStarMass").value = RoundedMassVariance;
+        document.getElementById("InputNearStarTemperature").value = RoundedTempVariance;
+        document.getElementById("InputNearStarDiameter").value = RoundedDiamVariance;
+
     } else {
         return;
     }
 };
 
-function NearCompanionStar() {  // I can use a function similar to this to generate information for stars IF their table is revealed.
+function NearCompanionStar() {
     let NSCrow = document.getElementById("NearCompanionStarTableRow");
+    let PStype = document.getElementById("InputNearStarType").value;
+    let PSMAO = document.getElementById("InputNearStarMAO").value;
 
     // Use getComputedStyle to get the current display property of the element
     let displayValue = window.getComputedStyle(NSCrow).display;
@@ -1332,11 +1769,18 @@ function NearCompanionStar() {  // I can use a function similar to this to gener
         NearCompanionStarType()
 
         // Orbit
-        let oneD = Math.floor(Math.random() * 6) + 1;
-        let twoD = Math.floor(Math.random() * 11) - 5;
-        let orbit = Number(((oneD / 10) + (twoD / 100)).toFixed(2));
-        let orbitforcalc = Math.floor(orbit);
+        if (PStype.includes("Ia") || PStype.includes("Ib") || PStype.includes("II") || PStype.includes("III")) {
 
+            orbit = Number((Math.floor(Math.random() * 6) + 1) * PSMAO).toFixed(2);
+            orbitforcalc = Math.floor(orbit);
+
+        } else {
+            let oneD = Math.floor(Math.random() * 6) + 1;
+            let twoD = Math.floor(Math.random() * 11) - 5;
+            orbit = Number(((oneD / 10) + (twoD / 100)).toFixed(2));
+            orbitforcalc = Math.floor(orbit);
+
+        }
 
         // AU
         const AUcalc = ORBITtoAU.find(orbit => orbit.orbit === orbitforcalc.toString());
@@ -1370,12 +1814,76 @@ function NearCompanionStar() {  // I can use a function similar to this to gener
         document.getElementById("InputNearCompanionOrbit").value = orbit;
         document.getElementById("InputNearCompanionAU").value = AU;
         document.getElementById("InputNearCompanionEcc").value = Ecc;
+
+        // Fetches StarType and changes it into a Key to be used for fetching data.
+        let StarDataKey = document.getElementById("InputNearCompanionStarType").value;
+        StarDataKey = StarDataKey.replace(" ", "");
+        const StarData = starData[StarDataKey];
+
+        // Mass
+        let Mass = parseFloat(StarData.mass);
+        const GiantMassVarianceRoll = (Math.floor(Math.random() * 5) + 2) / 10;
+        const randomMass = (Math.floor(Math.random() * 1001) - 500) / 1000;
+        let MassVar = GiantMassVarianceRoll
+        if (StarDataKey.includes("V")) {
+            MassVar = 0.2
+        }
+        let MassVariance = (((Mass * MassVar) * randomMass) + Mass);
+        const RoundedMassVariance = (Math.round(MassVariance * 10000) / 10000);
+
+        // Diameter
+        let Diam = parseFloat(StarData.diam);
+        const GiantDiamVarianceRoll = (Math.floor(Math.random() * 5) + 2) / 10;
+        const randomDiam = (Math.floor(Math.random() * 1001) - 500) / 1000;
+        let DiamVar = GiantDiamVarianceRoll
+        if (StarDataKey.includes("V")) {
+            DiamVar = 0.2
+        }
+        let DiamVariance = (((Diam * DiamVar) * randomDiam) + Diam);
+        const RoundedDiamVariance = (Math.round(DiamVariance * 10000) / 10000);
+
+        // Temperature
+        const starDataKeys = Object.keys(starData);
+        const currentIndex = starDataKeys.indexOf(StarDataKey);
+
+        let previousStarData, nextStarData;
+        if (currentIndex > 0) {
+            previousStarData = starData[starDataKeys[currentIndex - 1]];
+        }; if (currentIndex < starDataKeys.length - 1) {
+            nextStarData = starData[starDataKeys[currentIndex + 1]];
+        }
+
+        let Middle_Temp = Number(StarData.temp);
+        let Higher_Temp = Number(previousStarData ? previousStarData.temp : null);
+        let Lower_Temp = Number(nextStarData ? nextStarData.temp : null);
+
+        if (StarDataKey.includes("M9") || StarDataKey.includes("Y5")) {
+            Lower_Temp = 0
+        }; if (StarDataKey.includes("O0") || StarDataKey.includes("L0")) {
+            Higher_Temp = 0
+        }
+
+        const randomTemp = (Math.floor(Math.random() * 1001) - 500) / 1000;
+        let TempDifference = (((Middle_Temp - Lower_Temp) + (Higher_Temp - Middle_Temp)) / 2)
+        let y = (Higher_Temp - Middle_Temp)
+        let z = (Middle_Temp - Lower_Temp)
+        let TempVariance = ((TempDifference * randomTemp) + Middle_Temp)
+        const RoundedTempVariance = (Math.round(TempVariance));
+
+        // MAO
+        let MAO = parseFloat(StarData.MAO);
+
+        // This part prints the generated values with variance.
+        document.getElementById("InputNearCompanionStarMass").value = RoundedMassVariance;
+        document.getElementById("InputNearCompanionStarTemperature").value = RoundedTempVariance;
+        document.getElementById("InputNearCompanionStarDiameter").value = RoundedDiamVariance;
+
     } else {
         return;
     }
 };
 
-function FarStar() {  // I can use a function similar to this to generate information for stars IF their table is revealed.
+function FarStar() {
     let FSCrow = document.getElementById("FarStarTableRow");
 
     // Use getComputedStyle to get the current display property of the element
@@ -1422,13 +1930,79 @@ function FarStar() {  // I can use a function similar to this to generate inform
         document.getElementById("InputFarStarOrbit").value = orbit;
         document.getElementById("InputFarStarAU").value = AU;
         document.getElementById("InputFarStarEcc").value = Ecc;
+
+        // Fetches StarType and changes it into a Key to be used for fetching data.
+        let StarDataKey = document.getElementById("InputFarStarType").value;
+        StarDataKey = StarDataKey.replace(" ", "");
+        const StarData = starData[StarDataKey];
+
+        // Mass
+        let Mass = parseFloat(StarData.mass);
+        const GiantMassVarianceRoll = (Math.floor(Math.random() * 5) + 2) / 10;
+        const randomMass = (Math.floor(Math.random() * 1001) - 500) / 1000;
+        let MassVar = GiantMassVarianceRoll
+        if (StarDataKey.includes("V")) {
+            MassVar = 0.2
+        }
+        let MassVariance = (((Mass * MassVar) * randomMass) + Mass);
+        const RoundedMassVariance = (Math.round(MassVariance * 10000) / 10000);
+
+        // Diameter
+        let Diam = parseFloat(StarData.diam);
+        const GiantDiamVarianceRoll = (Math.floor(Math.random() * 5) + 2) / 10;
+        const randomDiam = (Math.floor(Math.random() * 1001) - 500) / 1000;
+        let DiamVar = GiantDiamVarianceRoll
+        if (StarDataKey.includes("V")) {
+            DiamVar = 0.2
+        }
+        let DiamVariance = (((Diam * DiamVar) * randomDiam) + Diam);
+        const RoundedDiamVariance = (Math.round(DiamVariance * 10000) / 10000);
+
+        // Temperature
+        const starDataKeys = Object.keys(starData);
+        const currentIndex = starDataKeys.indexOf(StarDataKey);
+
+        let previousStarData, nextStarData;
+        if (currentIndex > 0) {
+            previousStarData = starData[starDataKeys[currentIndex - 1]];
+        }; if (currentIndex < starDataKeys.length - 1) {
+            nextStarData = starData[starDataKeys[currentIndex + 1]];
+        }
+
+        let Middle_Temp = Number(StarData.temp);
+        let Higher_Temp = Number(previousStarData ? previousStarData.temp : null);
+        let Lower_Temp = Number(nextStarData ? nextStarData.temp : null);
+
+        if (StarDataKey.includes("M9") || StarDataKey.includes("Y5")) {
+            Lower_Temp = 0
+        }; if (StarDataKey.includes("O0") || StarDataKey.includes("L0")) {
+            Higher_Temp = 0
+        }
+
+        const randomTemp = (Math.floor(Math.random() * 1001) - 500) / 1000;
+        let TempDifference = (((Middle_Temp - Lower_Temp) + (Higher_Temp - Middle_Temp)) / 2)
+        let y = (Higher_Temp - Middle_Temp)
+        let z = (Middle_Temp - Lower_Temp)
+        let TempVariance = ((TempDifference * randomTemp) + Middle_Temp)
+        const RoundedTempVariance = (Math.round(TempVariance));
+
+        // MAO
+        let MAO = parseFloat(StarData.MAO);
+
+        // This part prints the generated values with variance.
+        document.getElementById("InputFarStarMass").value = RoundedMassVariance;
+        document.getElementById("InputFarStarTemperature").value = RoundedTempVariance;
+        document.getElementById("InputFarStarDiameter").value = RoundedDiamVariance;
+
     } else {
         return;
     }
 };
 
-function FarCompanionStar() {  // I can use a function similar to this to generate information for stars IF their table is revealed.
+function FarCompanionStar() {
     let FSCrow = document.getElementById("FarCompanionStarTableRow");
+    let PStype = document.getElementById("InputFarStarType").value;
+    let PSMAO = document.getElementById("InputFarStarMAO").value;
 
     // Use getComputedStyle to get the current display property of the element
     let displayValue = window.getComputedStyle(FSCrow).display;
@@ -1438,12 +2012,18 @@ function FarCompanionStar() {  // I can use a function similar to this to genera
         FarCompanionStarType()
 
         // Orbit
-        let oneD = Math.floor(Math.random() * 6) + 1;
-        let twoD = Math.floor(Math.random() * 11) - 5;
-        let orbit = Number(((oneD / 10) + (twoD / 100)).toFixed(2));
-        let orbitforcalc = Math.floor(orbit);
+        if (PStype.includes("Ia") || PStype.includes("Ib") || PStype.includes("II") || PStype.includes("III")) {
 
+            orbit = Number((Math.floor(Math.random() * 6) + 1) * PSMAO).toFixed(2);
+            orbitforcalc = Math.floor(orbit);
 
+        } else {
+            let oneD = Math.floor(Math.random() * 6) + 1;
+            let twoD = Math.floor(Math.random() * 11) - 5;
+            orbit = Number(((oneD / 10) + (twoD / 100)).toFixed(2));
+            orbitforcalc = Math.floor(orbit);
+
+        }
         // AU
         const AUcalc = ORBITtoAU.find(orbit => orbit.orbit === orbitforcalc.toString());
         let AU = Number(((AUcalc.distAU) + (AUcalc.diffAU) * (orbit - orbitforcalc))).toFixed(3);
@@ -1476,6 +2056,70 @@ function FarCompanionStar() {  // I can use a function similar to this to genera
         document.getElementById("InputFarCompanionOrbit").value = orbit;
         document.getElementById("InputFarCompanionAU").value = AU;
         document.getElementById("InputFarCompanionEcc").value = Ecc;
+
+        // Fetches StarType and changes it into a Key to be used for fetching data.
+        let StarDataKey = document.getElementById("InputFarCompanionStarType").value;
+        StarDataKey = StarDataKey.replace(" ", "");
+        const StarData = starData[StarDataKey];
+
+        // Mass
+        let Mass = parseFloat(StarData.mass);
+        const GiantMassVarianceRoll = (Math.floor(Math.random() * 5) + 2) / 10;
+        const randomMass = (Math.floor(Math.random() * 1001) - 500) / 1000;
+        let MassVar = GiantMassVarianceRoll
+        if (StarDataKey.includes("V")) {
+            MassVar = 0.2
+        }
+        let MassVariance = (((Mass * MassVar) * randomMass) + Mass);
+        const RoundedMassVariance = (Math.round(MassVariance * 10000) / 10000);
+
+        // Diameter
+        let Diam = parseFloat(StarData.diam);
+        const GiantDiamVarianceRoll = (Math.floor(Math.random() * 5) + 2) / 10;
+        const randomDiam = (Math.floor(Math.random() * 1001) - 500) / 1000;
+        let DiamVar = GiantDiamVarianceRoll
+        if (StarDataKey.includes("V")) {
+            DiamVar = 0.2
+        }
+        let DiamVariance = (((Diam * DiamVar) * randomDiam) + Diam);
+        const RoundedDiamVariance = (Math.round(DiamVariance * 10000) / 10000);
+
+        // Temperature
+        const starDataKeys = Object.keys(starData);
+        const currentIndex = starDataKeys.indexOf(StarDataKey);
+
+        let previousStarData, nextStarData;
+        if (currentIndex > 0) {
+            previousStarData = starData[starDataKeys[currentIndex - 1]];
+        }; if (currentIndex < starDataKeys.length - 1) {
+            nextStarData = starData[starDataKeys[currentIndex + 1]];
+        }
+
+        let Middle_Temp = Number(StarData.temp);
+        let Higher_Temp = Number(previousStarData ? previousStarData.temp : null);
+        let Lower_Temp = Number(nextStarData ? nextStarData.temp : null);
+
+        if (StarDataKey.includes("M9") || StarDataKey.includes("Y5")) {
+            Lower_Temp = 0
+        }; if (StarDataKey.includes("O0") || StarDataKey.includes("L0")) {
+            Higher_Temp = 0
+        }
+
+        const randomTemp = (Math.floor(Math.random() * 1001) - 500) / 1000;
+        let TempDifference = (((Middle_Temp - Lower_Temp) + (Higher_Temp - Middle_Temp)) / 2)
+        let y = (Higher_Temp - Middle_Temp)
+        let z = (Middle_Temp - Lower_Temp)
+        let TempVariance = ((TempDifference * randomTemp) + Middle_Temp)
+        const RoundedTempVariance = (Math.round(TempVariance));
+
+        // MAO
+        let MAO = parseFloat(StarData.MAO);
+
+        // This part prints the generated values with variance.
+        document.getElementById("InputFarCompanionStarMass").value = RoundedMassVariance;
+        document.getElementById("InputFarCompanionStarTemperature").value = RoundedTempVariance;
+        document.getElementById("InputFarCompanionStarDiameter").value = RoundedDiamVariance;
+
     } else {
         return;
     }
@@ -1586,7 +2230,7 @@ function CloseStarType() {
         if (Roll2D <= 3) {
             SecondaryDesignation = "Other"
             let Roll2D = Math.floor(Math.random() * 11) + 1;    //2d6-1
-            
+
             if (Roll2D <= 7) {
                 SecondaryDesignation = "D"
                 let Roll2D = Math.floor(Math.random() * 11) + 1;    //2d6-1
@@ -1760,7 +2404,7 @@ function CloseStarType() {
                                 return BDYsubType ? BDYsubType.type : '';
                             }; const callBDYST = getBDYSubType(Roll2D);
                             let SecondaryBD = (callBDT + callBDYST)
-                                    document.getElementById("InputCloseStarType").value = SecondaryBD;
+                            document.getElementById("InputCloseStarType").value = SecondaryBD;
                         } else {
 
                             // rolls 2d6 and fetches brown dwarf subtype based on roll
@@ -1770,7 +2414,7 @@ function CloseStarType() {
                                 return BDsubType ? BDsubType.type : '';
                             }; const callBDST = getBDSubType(Roll2D);
                             let SecondaryBD = (callBDT + callBDST)
-                                    document.getElementById("InputCloseStarType").value = SecondaryBD;
+                            document.getElementById("InputCloseStarType").value = SecondaryBD;
                         }
                     }
                 }
@@ -1883,7 +2527,7 @@ function CloseStarType() {
                             return BDYsubType ? BDYsubType.type : '';
                         }; const callBDYST = getBDYSubType(Roll2D);
                         let SecondaryBD = (callBDT + callBDYST)
-                            document.getElementById("InputCloseStarType").value = SecondaryBD;
+                        document.getElementById("InputCloseStarType").value = SecondaryBD;
                     } else {
 
                         // rolls 2d6 and fetches brown dwarf subtype based on roll
@@ -1893,7 +2537,7 @@ function CloseStarType() {
                             return BDsubType ? BDsubType.type : '';
                         }; const callBDST = getBDSubType(Roll2D);
                         let SecondaryBD = (callBDT + callBDST)
-                            document.getElementById("InputCloseStarType").value = SecondaryBD;
+                        document.getElementById("InputCloseStarType").value = SecondaryBD;
                     }
                 }
             }
@@ -1982,7 +2626,7 @@ function CloseStarType() {
         if (Roll2D <= 3) {
             SecondaryDesignation = "Other"
             let Roll2D = Math.floor(Math.random() * 11) + 2;    //2d6
-            
+
             if (Roll2D <= 7) {
                 SecondaryDesignation = "D"
                 let Roll2D = Math.floor(Math.random() * 11) + 2;    //2d6
@@ -2161,7 +2805,7 @@ function CloseStarType() {
         if (Roll2D <= 3) {
             SecondaryDesignation = "Other"
             let Roll2D = Math.floor(Math.random() * 11) + 2;    //2d6
-            
+
             if (Roll2D <= 7) {
                 SecondaryDesignation = "D"
                 let Roll2D = Math.floor(Math.random() * 11) + 2;    //2d6
@@ -2335,7 +2979,7 @@ function CloseStarType() {
                                 return BDYsubType ? BDYsubType.type : '';
                             }; const callBDYST = getBDYSubType(Roll2D);
                             let SecondaryBD = (callBDT + callBDYST)
-                                    document.getElementById("InputCloseStarType").value = SecondaryBD;
+                            document.getElementById("InputCloseStarType").value = SecondaryBD;
                         } else {
 
                             // rolls 2d6 and fetches brown dwarf subtype based on roll
@@ -2345,7 +2989,7 @@ function CloseStarType() {
                                 return BDsubType ? BDsubType.type : '';
                             }; const callBDST = getBDSubType(Roll2D);
                             let SecondaryBD = (callBDT + callBDST)
-                                    document.getElementById("InputCloseStarType").value = SecondaryBD;
+                            document.getElementById("InputCloseStarType").value = SecondaryBD;
                         }
                     }
                 }
@@ -2461,7 +3105,7 @@ function CloseStarType() {
                             return BDYsubType ? BDYsubType.type : '';
                         }; const callBDYST = getBDYSubType(Roll2D);
                         let SecondaryBD = (callBDT + callBDYST)
-                            document.getElementById("InputCloseStarType").value = SecondaryBD;
+                        document.getElementById("InputCloseStarType").value = SecondaryBD;
                     } else {
 
                         // rolls 2d6 and fetches brown dwarf subtype based on roll
@@ -2471,7 +3115,7 @@ function CloseStarType() {
                             return BDsubType ? BDsubType.type : '';
                         }; const callBDST = getBDSubType(Roll2D);
                         let SecondaryBD = (callBDT + callBDST)
-                            document.getElementById("InputCloseStarType").value = SecondaryBD;
+                        document.getElementById("InputCloseStarType").value = SecondaryBD;
                     }
                 }
             }
@@ -2570,7 +3214,7 @@ function NearStarType() {
         if (Roll2D <= 3) {
             SecondaryDesignation = "Other"
             let Roll2D = Math.floor(Math.random() * 11) + 1;    //2d6-1
-            
+
             if (Roll2D <= 7) {
                 SecondaryDesignation = "D"
                 let Roll2D = Math.floor(Math.random() * 11) + 1;    //2d6-1
@@ -2744,7 +3388,7 @@ function NearStarType() {
                                 return BDYsubType ? BDYsubType.type : '';
                             }; const callBDYST = getBDYSubType(Roll2D);
                             let SecondaryBD = (callBDT + callBDYST)
-                                    document.getElementById("InputNearStarType").value = SecondaryBD;
+                            document.getElementById("InputNearStarType").value = SecondaryBD;
                         } else {
 
                             // rolls 2d6 and fetches brown dwarf subtype based on roll
@@ -2754,7 +3398,7 @@ function NearStarType() {
                                 return BDsubType ? BDsubType.type : '';
                             }; const callBDST = getBDSubType(Roll2D);
                             let SecondaryBD = (callBDT + callBDST)
-                                    document.getElementById("InputNearStarType").value = SecondaryBD;
+                            document.getElementById("InputNearStarType").value = SecondaryBD;
                         }
                     }
                 }
@@ -2867,7 +3511,7 @@ function NearStarType() {
                             return BDYsubType ? BDYsubType.type : '';
                         }; const callBDYST = getBDYSubType(Roll2D);
                         let SecondaryBD = (callBDT + callBDYST)
-                            document.getElementById("InputNearStarType").value = SecondaryBD;
+                        document.getElementById("InputNearStarType").value = SecondaryBD;
                     } else {
 
                         // rolls 2d6 and fetches brown dwarf subtype based on roll
@@ -2877,7 +3521,7 @@ function NearStarType() {
                             return BDsubType ? BDsubType.type : '';
                         }; const callBDST = getBDSubType(Roll2D);
                         let SecondaryBD = (callBDT + callBDST)
-                            document.getElementById("InputNearStarType").value = SecondaryBD;
+                        document.getElementById("InputNearStarType").value = SecondaryBD;
                     }
                 }
             }
@@ -2966,7 +3610,7 @@ function NearStarType() {
         if (Roll2D <= 3) {
             SecondaryDesignation = "Other"
             let Roll2D = Math.floor(Math.random() * 11) + 2;    //2d6
-            
+
             if (Roll2D <= 7) {
                 SecondaryDesignation = "D"
                 let Roll2D = Math.floor(Math.random() * 11) + 2;    //2d6
@@ -3145,7 +3789,7 @@ function NearStarType() {
         if (Roll2D <= 3) {
             SecondaryDesignation = "Other"
             let Roll2D = Math.floor(Math.random() * 11) + 2;    //2d6
-            
+
             if (Roll2D <= 7) {
                 SecondaryDesignation = "D"
                 let Roll2D = Math.floor(Math.random() * 11) + 2;    //2d6
@@ -3319,7 +3963,7 @@ function NearStarType() {
                                 return BDYsubType ? BDYsubType.type : '';
                             }; const callBDYST = getBDYSubType(Roll2D);
                             let SecondaryBD = (callBDT + callBDYST)
-                                    document.getElementById("InputNearStarType").value = SecondaryBD;
+                            document.getElementById("InputNearStarType").value = SecondaryBD;
                         } else {
 
                             // rolls 2d6 and fetches brown dwarf subtype based on roll
@@ -3329,7 +3973,7 @@ function NearStarType() {
                                 return BDsubType ? BDsubType.type : '';
                             }; const callBDST = getBDSubType(Roll2D);
                             let SecondaryBD = (callBDT + callBDST)
-                                    document.getElementById("InputNearStarType").value = SecondaryBD;
+                            document.getElementById("InputNearStarType").value = SecondaryBD;
                         }
                     }
                 }
@@ -3445,7 +4089,7 @@ function NearStarType() {
                             return BDYsubType ? BDYsubType.type : '';
                         }; const callBDYST = getBDYSubType(Roll2D);
                         let SecondaryBD = (callBDT + callBDYST)
-                            document.getElementById("InputNearStarType").value = SecondaryBD;
+                        document.getElementById("InputNearStarType").value = SecondaryBD;
                     } else {
 
                         // rolls 2d6 and fetches brown dwarf subtype based on roll
@@ -3455,7 +4099,7 @@ function NearStarType() {
                             return BDsubType ? BDsubType.type : '';
                         }; const callBDST = getBDSubType(Roll2D);
                         let SecondaryBD = (callBDT + callBDST)
-                            document.getElementById("InputNearStarType").value = SecondaryBD;
+                        document.getElementById("InputNearStarType").value = SecondaryBD;
                     }
                 }
             }
@@ -3554,7 +4198,7 @@ function FarStarType() {
         if (Roll2D <= 3) {
             SecondaryDesignation = "Other"
             let Roll2D = Math.floor(Math.random() * 11) + 1;    //2d6-1
-            
+
             if (Roll2D <= 7) {
                 SecondaryDesignation = "D"
                 let Roll2D = Math.floor(Math.random() * 11) + 1;    //2d6-1
@@ -3728,7 +4372,7 @@ function FarStarType() {
                                 return BDYsubType ? BDYsubType.type : '';
                             }; const callBDYST = getBDYSubType(Roll2D);
                             let SecondaryBD = (callBDT + callBDYST)
-                                    document.getElementById("InputFarStarType").value = SecondaryBD;
+                            document.getElementById("InputFarStarType").value = SecondaryBD;
                         } else {
 
                             // rolls 2d6 and fetches brown dwarf subtype based on roll
@@ -3738,7 +4382,7 @@ function FarStarType() {
                                 return BDsubType ? BDsubType.type : '';
                             }; const callBDST = getBDSubType(Roll2D);
                             let SecondaryBD = (callBDT + callBDST)
-                                    document.getElementById("InputFarStarType").value = SecondaryBD;
+                            document.getElementById("InputFarStarType").value = SecondaryBD;
                         }
                     }
                 }
@@ -3851,7 +4495,7 @@ function FarStarType() {
                             return BDYsubType ? BDYsubType.type : '';
                         }; const callBDYST = getBDYSubType(Roll2D);
                         let SecondaryBD = (callBDT + callBDYST)
-                            document.getElementById("InputFarStarType").value = SecondaryBD;
+                        document.getElementById("InputFarStarType").value = SecondaryBD;
                     } else {
 
                         // rolls 2d6 and fetches brown dwarf subtype based on roll
@@ -3861,7 +4505,7 @@ function FarStarType() {
                             return BDsubType ? BDsubType.type : '';
                         }; const callBDST = getBDSubType(Roll2D);
                         let SecondaryBD = (callBDT + callBDST)
-                            document.getElementById("InputFarStarType").value = SecondaryBD;
+                        document.getElementById("InputFarStarType").value = SecondaryBD;
                     }
                 }
             }
@@ -3950,7 +4594,7 @@ function FarStarType() {
         if (Roll2D <= 3) {
             SecondaryDesignation = "Other"
             let Roll2D = Math.floor(Math.random() * 11) + 2;    //2d6
-            
+
             if (Roll2D <= 7) {
                 SecondaryDesignation = "D"
                 let Roll2D = Math.floor(Math.random() * 11) + 2;    //2d6
@@ -4129,7 +4773,7 @@ function FarStarType() {
         if (Roll2D <= 3) {
             SecondaryDesignation = "Other"
             let Roll2D = Math.floor(Math.random() * 11) + 2;    //2d6
-            
+
             if (Roll2D <= 7) {
                 SecondaryDesignation = "D"
                 let Roll2D = Math.floor(Math.random() * 11) + 2;    //2d6
@@ -4303,7 +4947,7 @@ function FarStarType() {
                                 return BDYsubType ? BDYsubType.type : '';
                             }; const callBDYST = getBDYSubType(Roll2D);
                             let SecondaryBD = (callBDT + callBDYST)
-                                    document.getElementById("InputFarStarType").value = SecondaryBD;
+                            document.getElementById("InputFarStarType").value = SecondaryBD;
                         } else {
 
                             // rolls 2d6 and fetches brown dwarf subtype based on roll
@@ -4313,7 +4957,7 @@ function FarStarType() {
                                 return BDsubType ? BDsubType.type : '';
                             }; const callBDST = getBDSubType(Roll2D);
                             let SecondaryBD = (callBDT + callBDST)
-                                    document.getElementById("InputFarStarType").value = SecondaryBD;
+                            document.getElementById("InputFarStarType").value = SecondaryBD;
                         }
                     }
                 }
@@ -4429,7 +5073,7 @@ function FarStarType() {
                             return BDYsubType ? BDYsubType.type : '';
                         }; const callBDYST = getBDYSubType(Roll2D);
                         let SecondaryBD = (callBDT + callBDYST)
-                            document.getElementById("InputFarStarType").value = SecondaryBD;
+                        document.getElementById("InputFarStarType").value = SecondaryBD;
                     } else {
 
                         // rolls 2d6 and fetches brown dwarf subtype based on roll
@@ -4439,7 +5083,7 @@ function FarStarType() {
                             return BDsubType ? BDsubType.type : '';
                         }; const callBDST = getBDSubType(Roll2D);
                         let SecondaryBD = (callBDT + callBDST)
-                            document.getElementById("InputFarStarType").value = SecondaryBD;
+                        document.getElementById("InputFarStarType").value = SecondaryBD;
                     }
                 }
             }
@@ -4538,7 +5182,7 @@ function PrimaryCompanionStarType() {
         if (Roll2D <= 3) {
             SecondaryDesignation = "Other"
             let Roll2D = Math.floor(Math.random() * 11) + 1;    //2d6-1
-            
+
             if (Roll2D <= 7) {
                 SecondaryDesignation = "D"
                 let Roll2D = Math.floor(Math.random() * 11) + 1;    //2d6-1
@@ -4712,7 +5356,7 @@ function PrimaryCompanionStarType() {
                                 return BDYsubType ? BDYsubType.type : '';
                             }; const callBDYST = getBDYSubType(Roll2D);
                             let SecondaryBD = (callBDT + callBDYST)
-                                    document.getElementById("InputPrimaryCompanionStarType").value = SecondaryBD;
+                            document.getElementById("InputPrimaryCompanionStarType").value = SecondaryBD;
                         } else {
 
                             // rolls 2d6 and fetches brown dwarf subtype based on roll
@@ -4722,7 +5366,7 @@ function PrimaryCompanionStarType() {
                                 return BDsubType ? BDsubType.type : '';
                             }; const callBDST = getBDSubType(Roll2D);
                             let SecondaryBD = (callBDT + callBDST)
-                                    document.getElementById("InputPrimaryCompanionStarType").value = SecondaryBD;
+                            document.getElementById("InputPrimaryCompanionStarType").value = SecondaryBD;
                         }
                     }
                 }
@@ -4835,7 +5479,7 @@ function PrimaryCompanionStarType() {
                             return BDYsubType ? BDYsubType.type : '';
                         }; const callBDYST = getBDYSubType(Roll2D);
                         let SecondaryBD = (callBDT + callBDYST)
-                            document.getElementById("InputPrimaryCompanionStarType").value = SecondaryBD;
+                        document.getElementById("InputPrimaryCompanionStarType").value = SecondaryBD;
                     } else {
 
                         // rolls 2d6 and fetches brown dwarf subtype based on roll
@@ -4845,7 +5489,7 @@ function PrimaryCompanionStarType() {
                             return BDsubType ? BDsubType.type : '';
                         }; const callBDST = getBDSubType(Roll2D);
                         let SecondaryBD = (callBDT + callBDST)
-                            document.getElementById("InputPrimaryCompanionStarType").value = SecondaryBD;
+                        document.getElementById("InputPrimaryCompanionStarType").value = SecondaryBD;
                     }
                 }
             }
@@ -4934,7 +5578,7 @@ function PrimaryCompanionStarType() {
         if (Roll2D <= 3) {
             SecondaryDesignation = "Other"
             let Roll2D = Math.floor(Math.random() * 11) + 2;    //2d6
-            
+
             if (Roll2D <= 7) {
                 SecondaryDesignation = "D"
                 let Roll2D = Math.floor(Math.random() * 11) + 2;    //2d6
@@ -5113,7 +5757,7 @@ function PrimaryCompanionStarType() {
         if (Roll2D <= 3) {
             SecondaryDesignation = "Other"
             let Roll2D = Math.floor(Math.random() * 11) + 2;    //2d6
-            
+
             if (Roll2D <= 7) {
                 SecondaryDesignation = "D"
                 let Roll2D = Math.floor(Math.random() * 11) + 2;    //2d6
@@ -5287,7 +5931,7 @@ function PrimaryCompanionStarType() {
                                 return BDYsubType ? BDYsubType.type : '';
                             }; const callBDYST = getBDYSubType(Roll2D);
                             let SecondaryBD = (callBDT + callBDYST)
-                                    document.getElementById("InputPrimaryCompanionStarType").value = SecondaryBD;
+                            document.getElementById("InputPrimaryCompanionStarType").value = SecondaryBD;
                         } else {
 
                             // rolls 2d6 and fetches brown dwarf subtype based on roll
@@ -5297,7 +5941,7 @@ function PrimaryCompanionStarType() {
                                 return BDsubType ? BDsubType.type : '';
                             }; const callBDST = getBDSubType(Roll2D);
                             let SecondaryBD = (callBDT + callBDST)
-                                    document.getElementById("InputPrimaryCompanionStarType").value = SecondaryBD;
+                            document.getElementById("InputPrimaryCompanionStarType").value = SecondaryBD;
                         }
                     }
                 }
@@ -5413,7 +6057,7 @@ function PrimaryCompanionStarType() {
                             return BDYsubType ? BDYsubType.type : '';
                         }; const callBDYST = getBDYSubType(Roll2D);
                         let SecondaryBD = (callBDT + callBDYST)
-                            document.getElementById("InputPrimaryCompanionStarType").value = SecondaryBD;
+                        document.getElementById("InputPrimaryCompanionStarType").value = SecondaryBD;
                     } else {
 
                         // rolls 2d6 and fetches brown dwarf subtype based on roll
@@ -5423,7 +6067,7 @@ function PrimaryCompanionStarType() {
                             return BDsubType ? BDsubType.type : '';
                         }; const callBDST = getBDSubType(Roll2D);
                         let SecondaryBD = (callBDT + callBDST)
-                            document.getElementById("InputPrimaryCompanionStarType").value = SecondaryBD;
+                        document.getElementById("InputPrimaryCompanionStarType").value = SecondaryBD;
                     }
                 }
             }
@@ -5522,7 +6166,7 @@ function CloseCompanionStarType() {
         if (Roll2D <= 3) {
             SecondaryDesignation = "Other"
             let Roll2D = Math.floor(Math.random() * 11) + 1;    //2d6-1
-            
+
             if (Roll2D <= 7) {
                 SecondaryDesignation = "D"
                 let Roll2D = Math.floor(Math.random() * 11) + 1;    //2d6-1
@@ -5696,7 +6340,7 @@ function CloseCompanionStarType() {
                                 return BDYsubType ? BDYsubType.type : '';
                             }; const callBDYST = getBDYSubType(Roll2D);
                             let SecondaryBD = (callBDT + callBDYST)
-                                    document.getElementById("InputCloseCompanionStarType").value = SecondaryBD;
+                            document.getElementById("InputCloseCompanionStarType").value = SecondaryBD;
                         } else {
 
                             // rolls 2d6 and fetches brown dwarf subtype based on roll
@@ -5706,7 +6350,7 @@ function CloseCompanionStarType() {
                                 return BDsubType ? BDsubType.type : '';
                             }; const callBDST = getBDSubType(Roll2D);
                             let SecondaryBD = (callBDT + callBDST)
-                                    document.getElementById("InputCloseCompanionStarType").value = SecondaryBD;
+                            document.getElementById("InputCloseCompanionStarType").value = SecondaryBD;
                         }
                     }
                 }
@@ -5819,7 +6463,7 @@ function CloseCompanionStarType() {
                             return BDYsubType ? BDYsubType.type : '';
                         }; const callBDYST = getBDYSubType(Roll2D);
                         let SecondaryBD = (callBDT + callBDYST)
-                            document.getElementById("InputCloseCompanionStarType").value = SecondaryBD;
+                        document.getElementById("InputCloseCompanionStarType").value = SecondaryBD;
                     } else {
 
                         // rolls 2d6 and fetches brown dwarf subtype based on roll
@@ -5829,7 +6473,7 @@ function CloseCompanionStarType() {
                             return BDsubType ? BDsubType.type : '';
                         }; const callBDST = getBDSubType(Roll2D);
                         let SecondaryBD = (callBDT + callBDST)
-                            document.getElementById("InputCloseCompanionStarType").value = SecondaryBD;
+                        document.getElementById("InputCloseCompanionStarType").value = SecondaryBD;
                     }
                 }
             }
@@ -5918,7 +6562,7 @@ function CloseCompanionStarType() {
         if (Roll2D <= 3) {
             SecondaryDesignation = "Other"
             let Roll2D = Math.floor(Math.random() * 11) + 2;    //2d6
-            
+
             if (Roll2D <= 7) {
                 SecondaryDesignation = "D"
                 let Roll2D = Math.floor(Math.random() * 11) + 2;    //2d6
@@ -6097,7 +6741,7 @@ function CloseCompanionStarType() {
         if (Roll2D <= 3) {
             SecondaryDesignation = "Other"
             let Roll2D = Math.floor(Math.random() * 11) + 2;    //2d6
-            
+
             if (Roll2D <= 7) {
                 SecondaryDesignation = "D"
                 let Roll2D = Math.floor(Math.random() * 11) + 2;    //2d6
@@ -6271,7 +6915,7 @@ function CloseCompanionStarType() {
                                 return BDYsubType ? BDYsubType.type : '';
                             }; const callBDYST = getBDYSubType(Roll2D);
                             let SecondaryBD = (callBDT + callBDYST)
-                                    document.getElementById("InputCloseCompanionStarType").value = SecondaryBD;
+                            document.getElementById("InputCloseCompanionStarType").value = SecondaryBD;
                         } else {
 
                             // rolls 2d6 and fetches brown dwarf subtype based on roll
@@ -6281,7 +6925,7 @@ function CloseCompanionStarType() {
                                 return BDsubType ? BDsubType.type : '';
                             }; const callBDST = getBDSubType(Roll2D);
                             let SecondaryBD = (callBDT + callBDST)
-                                    document.getElementById("InputCloseCompanionStarType").value = SecondaryBD;
+                            document.getElementById("InputCloseCompanionStarType").value = SecondaryBD;
                         }
                     }
                 }
@@ -6397,7 +7041,7 @@ function CloseCompanionStarType() {
                             return BDYsubType ? BDYsubType.type : '';
                         }; const callBDYST = getBDYSubType(Roll2D);
                         let SecondaryBD = (callBDT + callBDYST)
-                            document.getElementById("InputCloseCompanionStarType").value = SecondaryBD;
+                        document.getElementById("InputCloseCompanionStarType").value = SecondaryBD;
                     } else {
 
                         // rolls 2d6 and fetches brown dwarf subtype based on roll
@@ -6407,7 +7051,7 @@ function CloseCompanionStarType() {
                             return BDsubType ? BDsubType.type : '';
                         }; const callBDST = getBDSubType(Roll2D);
                         let SecondaryBD = (callBDT + callBDST)
-                            document.getElementById("InputCloseCompanionStarType").value = SecondaryBD;
+                        document.getElementById("InputCloseCompanionStarType").value = SecondaryBD;
                     }
                 }
             }
@@ -6506,7 +7150,7 @@ function NearCompanionStarType() {
         if (Roll2D <= 3) {
             SecondaryDesignation = "Other"
             let Roll2D = Math.floor(Math.random() * 11) + 1;    //2d6-1
-            
+
             if (Roll2D <= 7) {
                 SecondaryDesignation = "D"
                 let Roll2D = Math.floor(Math.random() * 11) + 1;    //2d6-1
@@ -6680,7 +7324,7 @@ function NearCompanionStarType() {
                                 return BDYsubType ? BDYsubType.type : '';
                             }; const callBDYST = getBDYSubType(Roll2D);
                             let SecondaryBD = (callBDT + callBDYST)
-                                    document.getElementById("InputNearCompanionStarType").value = SecondaryBD;
+                            document.getElementById("InputNearCompanionStarType").value = SecondaryBD;
                         } else {
 
                             // rolls 2d6 and fetches brown dwarf subtype based on roll
@@ -6690,7 +7334,7 @@ function NearCompanionStarType() {
                                 return BDsubType ? BDsubType.type : '';
                             }; const callBDST = getBDSubType(Roll2D);
                             let SecondaryBD = (callBDT + callBDST)
-                                    document.getElementById("InputNearCompanionStarType").value = SecondaryBD;
+                            document.getElementById("InputNearCompanionStarType").value = SecondaryBD;
                         }
                     }
                 }
@@ -6803,7 +7447,7 @@ function NearCompanionStarType() {
                             return BDYsubType ? BDYsubType.type : '';
                         }; const callBDYST = getBDYSubType(Roll2D);
                         let SecondaryBD = (callBDT + callBDYST)
-                            document.getElementById("InputNearCompanionStarType").value = SecondaryBD;
+                        document.getElementById("InputNearCompanionStarType").value = SecondaryBD;
                     } else {
 
                         // rolls 2d6 and fetches brown dwarf subtype based on roll
@@ -6813,7 +7457,7 @@ function NearCompanionStarType() {
                             return BDsubType ? BDsubType.type : '';
                         }; const callBDST = getBDSubType(Roll2D);
                         let SecondaryBD = (callBDT + callBDST)
-                            document.getElementById("InputNearCompanionStarType").value = SecondaryBD;
+                        document.getElementById("InputNearCompanionStarType").value = SecondaryBD;
                     }
                 }
             }
@@ -6902,7 +7546,7 @@ function NearCompanionStarType() {
         if (Roll2D <= 3) {
             SecondaryDesignation = "Other"
             let Roll2D = Math.floor(Math.random() * 11) + 2;    //2d6
-            
+
             if (Roll2D <= 7) {
                 SecondaryDesignation = "D"
                 let Roll2D = Math.floor(Math.random() * 11) + 2;    //2d6
@@ -7081,7 +7725,7 @@ function NearCompanionStarType() {
         if (Roll2D <= 3) {
             SecondaryDesignation = "Other"
             let Roll2D = Math.floor(Math.random() * 11) + 2;    //2d6
-            
+
             if (Roll2D <= 7) {
                 SecondaryDesignation = "D"
                 let Roll2D = Math.floor(Math.random() * 11) + 2;    //2d6
@@ -7255,7 +7899,7 @@ function NearCompanionStarType() {
                                 return BDYsubType ? BDYsubType.type : '';
                             }; const callBDYST = getBDYSubType(Roll2D);
                             let SecondaryBD = (callBDT + callBDYST)
-                                    document.getElementById("InputNearCompanionStarType").value = SecondaryBD;
+                            document.getElementById("InputNearCompanionStarType").value = SecondaryBD;
                         } else {
 
                             // rolls 2d6 and fetches brown dwarf subtype based on roll
@@ -7265,7 +7909,7 @@ function NearCompanionStarType() {
                                 return BDsubType ? BDsubType.type : '';
                             }; const callBDST = getBDSubType(Roll2D);
                             let SecondaryBD = (callBDT + callBDST)
-                                    document.getElementById("InputNearCompanionStarType").value = SecondaryBD;
+                            document.getElementById("InputNearCompanionStarType").value = SecondaryBD;
                         }
                     }
                 }
@@ -7381,7 +8025,7 @@ function NearCompanionStarType() {
                             return BDYsubType ? BDYsubType.type : '';
                         }; const callBDYST = getBDYSubType(Roll2D);
                         let SecondaryBD = (callBDT + callBDYST)
-                            document.getElementById("InputNearCompanionStarType").value = SecondaryBD;
+                        document.getElementById("InputNearCompanionStarType").value = SecondaryBD;
                     } else {
 
                         // rolls 2d6 and fetches brown dwarf subtype based on roll
@@ -7391,7 +8035,7 @@ function NearCompanionStarType() {
                             return BDsubType ? BDsubType.type : '';
                         }; const callBDST = getBDSubType(Roll2D);
                         let SecondaryBD = (callBDT + callBDST)
-                            document.getElementById("InputNearCompanionStarType").value = SecondaryBD;
+                        document.getElementById("InputNearCompanionStarType").value = SecondaryBD;
                     }
                 }
             }
@@ -7477,13 +8121,11 @@ function NearCompanionStarType() {
 
 function FarCompanionStarType() {
 
-    window.alert("HelloWorld")
-
     let PStype = document.getElementById("InputFarStarType").value;
     let SecondaryDesignation = "none";
 
-
-    let PCrow = document.getElementById("InputFarCompanionStarType");
+    FarCompanionStarTableRow
+    let PCrow = document.getElementById("FarCompanionStarTableRow");
     let PCrowDisplay = window.getComputedStyle(PCrow).display;
 
 
@@ -7493,7 +8135,7 @@ function FarCompanionStarType() {
         if (Roll2D <= 3) {
             SecondaryDesignation = "Other"
             let Roll2D = Math.floor(Math.random() * 11) + 1;    //2d6-1
-            
+
             if (Roll2D <= 7) {
                 SecondaryDesignation = "D"
                 let Roll2D = Math.floor(Math.random() * 11) + 1;    //2d6-1
@@ -7667,7 +8309,7 @@ function FarCompanionStarType() {
                                 return BDYsubType ? BDYsubType.type : '';
                             }; const callBDYST = getBDYSubType(Roll2D);
                             let SecondaryBD = (callBDT + callBDYST)
-                                    document.getElementById("InputFarCompanionStarType").value = SecondaryBD;
+                            document.getElementById("InputFarCompanionStarType").value = SecondaryBD;
                         } else {
 
                             // rolls 2d6 and fetches brown dwarf subtype based on roll
@@ -7677,7 +8319,7 @@ function FarCompanionStarType() {
                                 return BDsubType ? BDsubType.type : '';
                             }; const callBDST = getBDSubType(Roll2D);
                             let SecondaryBD = (callBDT + callBDST)
-                                    document.getElementById("InputFarCompanionStarType").value = SecondaryBD;
+                            document.getElementById("InputFarCompanionStarType").value = SecondaryBD;
                         }
                     }
                 }
@@ -7790,7 +8432,7 @@ function FarCompanionStarType() {
                             return BDYsubType ? BDYsubType.type : '';
                         }; const callBDYST = getBDYSubType(Roll2D);
                         let SecondaryBD = (callBDT + callBDYST)
-                            document.getElementById("InputFarCompanionStarType").value = SecondaryBD;
+                        document.getElementById("InputFarCompanionStarType").value = SecondaryBD;
                     } else {
 
                         // rolls 2d6 and fetches brown dwarf subtype based on roll
@@ -7800,7 +8442,7 @@ function FarCompanionStarType() {
                             return BDsubType ? BDsubType.type : '';
                         }; const callBDST = getBDSubType(Roll2D);
                         let SecondaryBD = (callBDT + callBDST)
-                            document.getElementById("InputFarCompanionStarType").value = SecondaryBD;
+                        document.getElementById("InputFarCompanionStarType").value = SecondaryBD;
                     }
                 }
             }
@@ -7889,7 +8531,7 @@ function FarCompanionStarType() {
         if (Roll2D <= 3) {
             SecondaryDesignation = "Other"
             let Roll2D = Math.floor(Math.random() * 11) + 2;    //2d6
-            
+
             if (Roll2D <= 7) {
                 SecondaryDesignation = "D"
                 let Roll2D = Math.floor(Math.random() * 11) + 2;    //2d6
@@ -8068,7 +8710,7 @@ function FarCompanionStarType() {
         if (Roll2D <= 3) {
             SecondaryDesignation = "Other"
             let Roll2D = Math.floor(Math.random() * 11) + 2;    //2d6
-            
+
             if (Roll2D <= 7) {
                 SecondaryDesignation = "D"
                 let Roll2D = Math.floor(Math.random() * 11) + 2;    //2d6
@@ -8242,7 +8884,7 @@ function FarCompanionStarType() {
                                 return BDYsubType ? BDYsubType.type : '';
                             }; const callBDYST = getBDYSubType(Roll2D);
                             let SecondaryBD = (callBDT + callBDYST)
-                                    document.getElementById("InputFarCompanionStarType").value = SecondaryBD;
+                            document.getElementById("InputFarCompanionStarType").value = SecondaryBD;
                         } else {
 
                             // rolls 2d6 and fetches brown dwarf subtype based on roll
@@ -8252,7 +8894,7 @@ function FarCompanionStarType() {
                                 return BDsubType ? BDsubType.type : '';
                             }; const callBDST = getBDSubType(Roll2D);
                             let SecondaryBD = (callBDT + callBDST)
-                                    document.getElementById("InputFarCompanionStarType").value = SecondaryBD;
+                            document.getElementById("InputFarCompanionStarType").value = SecondaryBD;
                         }
                     }
                 }
@@ -8368,7 +9010,7 @@ function FarCompanionStarType() {
                             return BDYsubType ? BDYsubType.type : '';
                         }; const callBDYST = getBDYSubType(Roll2D);
                         let SecondaryBD = (callBDT + callBDYST)
-                            document.getElementById("InputFarCompanionStarType").value = SecondaryBD;
+                        document.getElementById("InputFarCompanionStarType").value = SecondaryBD;
                     } else {
 
                         // rolls 2d6 and fetches brown dwarf subtype based on roll
@@ -8378,7 +9020,7 @@ function FarCompanionStarType() {
                             return BDsubType ? BDsubType.type : '';
                         }; const callBDST = getBDSubType(Roll2D);
                         let SecondaryBD = (callBDT + callBDST)
-                            document.getElementById("InputFarCompanionStarType").value = SecondaryBD;
+                        document.getElementById("InputFarCompanionStarType").value = SecondaryBD;
                     }
                 }
             }
@@ -8464,33 +9106,71 @@ function FarCompanionStarType() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function test() {
-    let PStype = document.getElementById("InputPrimaryStarType").value;
+
+
+    const Type = document.getElementById("InputPrimaryStarType").value;
+    const Mass = Number(document.getElementById("InputPrimaryStarMass").value);
+    const MainSequenceLifespan = (10 / Math.pow(Mass, 2.5));
+
+    console.log("Mass: " + Mass)
+    console.log("Main Sequence Lifespan: " + MainSequenceLifespan)
 
 
 
-    
-    // splits the primary star up into its parts to be used for lesser function
-    let PSpart = PStype.split(" ");
-    let PrimaryTypeandSubtype = PSpart[0]
-    let PrimaryClass = PSpart[1];
-    let PrimarySubType = PrimaryTypeandSubtype.slice(1);
-    // if Primary is O then Secondary is B
-    if (PStype.includes("O")) {
-        let SecondaryType = "B"
-        let SecondarySubType = Math.floor(Math.random() * 10);
-        let SecondaryClass = PrimaryClass
-        let SecondaryStar = (SecondaryType + SecondarySubType + " " + SecondaryClass)
-        document.getElementById("InputPrimaryCompanionStarType").value = SecondaryStar;
-        // if Primary is B then Secondary is A
-    } else if (PStype.includes("B")) {
-        let SecondaryType = "A"
-        let SecondarySubType = Math.floor(Math.random() * 10);
-        let SecondaryClass = PrimaryClass
-        let SecondaryStar = (SecondaryType + SecondarySubType + " " + SecondaryClass)
-        document.getElementById("InputPrimaryCompanionStarType").value = SecondaryStar;
-        // if Primary is A then Secondary is F
+    // Checks if Star Class is III and, if so, uses the Class III formula.
+    if (Type.includes("IV")) {
+        const SubGiantLifespan = (MainSequenceLifespan / (4 + Mass));
 
+        const SubGiantAge = SubGiantLifespan * (Math.floor(Math.random() * 1001) / 1000);
+        const TotalClassIVStarAge = ((MainSequenceLifespan + SubGiantAge) * (Math.floor(Math.random() * 1001) / 1000)).toFixed(4);
+
+        console.log((Math.floor(Math.random() * 1001) / 1000))
+
+        document.getElementById("InputPrimaryStarAge").value = TotalClassIVStarAge;
+
+
+        // Checks if Star Class is III and, if so, uses the Class III formula.
+    } else if (Type.includes("III")) {
+        const GiantLifespan = MainSequenceLifespan / (10 * Math.pow(Mass, 3));
+        const SubGiantLifespan = (MainSequenceLifespan / (4 + Mass)) * (Math.floor(Math.random() * 100) + 1);
+        const TotalClassIIIStarAge = (Math.round(MainSequenceLifespan + SubGiantLifespan + GiantLifespan * (Math.floor(Math.random() * 100) + 1) * 10000) / 10000).toFixed(4);
+
+        document.getElementById("InputPrimaryStarAge").value = TotalClassIIIStarAge;
+
+        // Checks if the star is a Brown or a White Dwarf
+    } else if (Type.length == 2) {
+        if ((/\d/.test(Type) == true)) { // If a dwarf is brown, uses the below function. else, it returns the function.
+            const SmallStarAge = (Math.floor(Math.random() * 13) + 1) + ((Math.floor(Math.random() * 10000) + 1) / 10000);
+            const SmallStarAgeRounded = (Math.round(SmallStarAge * 10000) / 10000).toFixed(4);
+
+            document.getElementById("InputPrimaryStarAge").value = SmallStarAgeRounded;
+        }
     }
 }
 
