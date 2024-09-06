@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Countdown Timer</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			margin: 0;
+			background-color: #282c34;
+			color: #61dafb;
+			font-size: 5rem;
+		}
+	</style>
+</head>
+<body>
+<div id="timer">00:00</div>
+
+<script>
+	// Get the URL parameter (minutes)
+	const urlParams = new URLSearchParams(window.location.search);
+	const minutes = parseInt(urlParams.get('minutes')) || 5; // Default to 5 minutes if not provided
+
+	// Set initial time (in seconds)
+	let timeLeft = minutes * 60;
+
+	// Update the countdown every second
+	const timerElement = document.getElementById('timer');
+	const countdown = setInterval(() => {
+		const minutes = Math.floor(timeLeft / 60);
+		const seconds = timeLeft % 60;
+
+		// Display time in MM:SS format
+		timerElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+		// Decrease time by 1 second
+		timeLeft--;
+
+		// Stop when time runs out
+		if (timeLeft < 0) {
+			clearInterval(countdown);
+			timerElement.textContent = "00:00";
+		}
+	}, 1000);
+</script>
+</body>
+</html>
