@@ -1,0 +1,126 @@
+body {
+	margin: 0;
+}
+
+.pageContainer {
+	margin:50px;
+	border: 1px solid #616161;
+	max-width: 1200px;
+}
+
+.mainContainer {
+	border: 5px solid #afafaf;
+	max-width: 1200px;
+}
+
+.MailHeader {
+	background-color: #0021c8;
+	position: static;
+	top: 0;
+	height: 40px;
+	border-bottom: 1px solid black;
+	display: grid;
+	grid-template-columns: 40px 1fr 40px 40px; /* 40px for left button, 1fr for center, 40px each for right buttons */
+	grid-template-areas: "left header right-1 right-2";
+	align-items: center;
+}
+
+.buttonContainer {
+	background-color: #afafaf;
+	width: 38px;
+	height: 39px;
+	border: 1px solid #202020;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.buttonContainer.left {
+	grid-area: left;
+}
+
+.buttonContainer.right-1 {
+	grid-area: right-1;
+}
+
+.buttonContainer.right-2 {
+	grid-area: right-2;
+}
+
+.minusSign {
+	background-color: #252525;
+	height: 3px;
+	width: 26px;
+	border-radius: 5px;
+	border: 2px solid #151515;
+}
+
+.downArrow {
+	content: "\23F7";
+}
+
+.upArrow {
+	content: "\23F6";
+}
+
+.headerText {
+	grid-area: header;
+	color: white;
+	text-align: center;
+	font-size: 30px;
+	font-family: 'Inconsolata', monospace;
+}
+
+.menuContainer {
+	border-left: 1px solid #151515;
+	border-right: 1px solid #151515;
+	padding:4px;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(10px, 1fr));
+}
+
+.menuItem {
+	grid-column: span 5; /* Makes this item span 2 columns */
+	font-family: 'Inconsolata', monospace;
+}
+
+.menuItem::first-letter {
+	text-decoration: underline;
+}
+
+.menuItem.short {
+	grid-column: span 5; /* Makes this item span 2 columns */
+}
+
+.menuItem.wide {
+	grid-column: span 7; /* Makes this item span 2 columns */
+}
+
+.emailHeaderContainer {
+	height:150px;
+	background-color: #afafaf;
+	border: 1px solid black;
+}
+
+
+
+.subEmailContainer {
+	margin:20px;
+	border-top: 3px solid #515151;
+	border-left: 3px solid #515151;
+	border-right: 3px solid #b5b5b5;
+	border-bottom: 3px solid #b5b5b5;
+	height:110px;
+}
+
+.emailHeaderText {
+	display: flex;
+	flex-direction: column;
+	font-family: 'Inconsolata', monospace;
+	margin:10px;
+}
+
+.emailMessageContainer {
+	height:500px;
+	border: 1px solid #151515;
+}

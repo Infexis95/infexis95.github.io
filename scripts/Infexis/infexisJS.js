@@ -104,24 +104,11 @@ function sleep(ms) {
 
 if (spin_btn) {
     spin_btn.addEventListener('click', () => {
-
-        if (document.querySelector('.left_bar').classList.contains('grow-width-test')) {
-
-            document.querySelector('.left_bar').classList.remove('grow-width-test');
-            document.querySelector('.right_bar').classList.remove('grow-width-test');
-            document.querySelector('.up_bar').classList.remove('grow-height-test');
-            document.querySelector('.down_bar').classList.remove('grow-height-test');
-            document.querySelector('.centered_container').classList.remove('rotate-test')
-
-        } else {
-
-            document.querySelector('.left_bar').classList.add('grow-width-test');
-            document.querySelector('.right_bar').classList.add('grow-width-test');
-            document.querySelector('.up_bar').classList.add('grow-height-test');
-            document.querySelector('.down_bar').classList.add('grow-height-test');
-            document.querySelector('.centered_container').classList.add('rotate-test')
-
-        }
+            document.querySelector('.left_bar').classList.toggle('grow-width-test');
+            document.querySelector('.right_bar').classList.toggle('grow-width-test');
+            document.querySelector('.up_bar').classList.toggle('grow-height-test');
+            document.querySelector('.down_bar').classList.toggle('grow-height-test');
+            document.querySelector('.centered_container').classList.toggle('rotate-test')
 
     })
 }
