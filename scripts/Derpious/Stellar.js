@@ -9143,7 +9143,7 @@ function test() {
 
 
 
-    // Checks if Star Class is III and, if so, uses the Class III formula.
+    // Checks if Star Class is IV and, if so, uses the Class IV formula.
     if (Type.includes("IV")) {
         const SubGiantLifespan = (MainSequenceLifespan / (4 + Mass));
 
